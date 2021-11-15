@@ -1,0 +1,816 @@
+<!doctype html>
+<html pandora>
+
+<head>
+  <title>tr.Event</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="x-pandora-base" content="../../">
+  <meta name="x-pandora-location" content="apis/composite_grid/tr.Event.html">
+  <link rel="stylesheet" href="../../../../resources/styles/book.css">
+  <script defer src="../../../../resources/scripts/book.js"></script>
+  <script defer src="../../search.index.js"></script>
+  <link rel="icon" href="../../resources/images/icon.png">
+</head>
+
+<body>
+  <pandora-book>
+    <div class="header" no-print>
+      <div class="book-icon" style="background-image:url(&quot;../../resources/images/icon.png&quot;)"></div>
+      <h1><a href="../../index.html">Grid Usage Guide</a></h1>
+      <div class="search">
+        <input type="search" placeholder="Type to search...">
+      </div>
+    </div>
+    <div class="content">
+      <div class="sidebar" no-print>
+        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+          <ul>
+            <li><a href="../../index.html">Overview</a></li>
+            <li parent id="cid-0" collapsible collapsed>
+              <div collapser>General Concept</div>
+              <ul>
+                <li><a href="../../general_concept/basic.html">Basic Grid Creation</a></li>
+                <li><a href="../../general_concept/initializing-data.html">Initializing Data</a></li>
+                <li><a href="../../general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="../../general_concept/disposing-grid.html">Disposing Grid</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-1" collapsible collapsed>
+              <div collapser>Showcases</div>
+              <ul>
+                <li><a href="../../showcases/comprehensive.html">Comprehensive</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-4" collapsible collapsed>
+              <div collapser>APIs</div>
+              <ul>
+                <li><a href="../../apis/README.html">Overview</a></li>
+                <li parent id="cid-2" collapsible collapsed>
+                  <div collapser>Composite Grid (Emerald Grid)</div>
+                  <ul>
+                    <li><a href="../../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
+                    <li><a href="../../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
+                    <li><a href="../../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
+                    <li><a href="../../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
+                    <li><a href="../../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
+                    <li><a href="../../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
+                    <li><a href="../../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
+                    <li selected><a href="../../apis/composite_grid/tr.Event.html">tr.Event</a></li>
+                    <li><a href="../../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
+                    <li><a href="../../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
+                    <li><a href="../../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
+                    <li><a href="../../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
+                    <li><a href="../../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
+                    <li><a href="../../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                  </ul>
+                </li>
+                <li parent id="cid-3" collapsible collapsed>
+                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                  <ul>
+                    <li><a href="../../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
+                    <li><a href="../../apis/rt_grid/Grid.html">Grid</a></li>
+                    <li><a href="../../apis/rt_grid/RowDefinition.html">RowDefinition</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li parent id="cid-5" collapsible collapsed>
+              <div collapser>Extensions</div>
+              <ul>
+                <li><a href="../../extensions/README.html">Overview</a></li>
+                <li><a href="../../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
+                <li><a href="../../extensions/tr-grid-cell-selection.html">Cell Selection</a></li>
+                <li><a href="../../extensions/tr-grid-checkbox.html">Checkbox Column</a></li>
+                <li><a href="../../extensions/tr-grid-column-fitter.html">Column Fitter</a></li>
+                <li><a href="../../extensions/tr-grid-column-formatting.html">Column Formatting</a></li>
+                <li><a href="../../extensions/tr-grid-column-grouping.html">Column Grouping</a></li>
+                <li><a href="../../extensions/tr-grid-column-resizing.html">Column Resizing</a></li>
+                <li><a href="../../extensions/tr-grid-column-selection.html">Column Selection</a></li>
+                <li><a href="../../extensions/tr-grid-column-stack.html">Column Stack</a></li>
+                <li><a href="../../extensions/tr-grid-conditional-coloring.html">Conditional Coloring</a></li>
+                <li><a href="../../extensions/tr-grid-content-wrap.html">Content Wrap</a></li>
+                <li><a href="../../extensions/tr-grid-contextmenu.html">Context Menu</a></li>
+                <li><a href="../../extensions/tr-grid-filter-input.html">Filter Input</a></li>
+                <li><a href="../../extensions/tr-grid-heat-map.html">Heat Map</a></li>
+                <li><a href="../../extensions/tr-grid-in-cell-editing.html">In-Cell Editing</a></li>
+                <li><a href="../../extensions/tr-grid-pagination.html">Pagination</a></li>
+                <li><a href="../../extensions/tr-grid-percent-bar.html">Percent Bar</a></li>
+                <li><a href="../../extensions/tr-grid-range-bar.html">Range Bar</a></li>
+                <li><a href="../../extensions/tr-grid-row-dragging.html">Row Dragging</a></li>
+                <li><a href="../../extensions/tr-grid-row-filtering.html">Row Filtering</a></li>
+                <li><a href="../../extensions/tr-grid-row-grouping.html">Row Grouping</a></li>
+                <li><a href="../../extensions/row-segmenting.html">Row Segmenting</a></li>
+                <li><a href="../../extensions/tr-grid-row-selection.html">Row Selection</a></li>
+                <li><a href="../../extensions/tr-grid-rowcoloring.html">Row Coloring</a></li>
+                <li><a href="../../extensions/statistics-row.html">Statistics Row</a></li>
+                <li><a href="../../extensions/tr-grid-textformatting.html">Text Formatting</a></li>
+                <li><a href="../../extensions/tr-grid-titlewrap.html">Title Wrap</a></li>
+                <li><a href="../../extensions/zoom.html">Zoom</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-6" collapsible collapsed>
+              <div collapser>Content Rendering</div>
+              <ul>
+                <li><a href="../../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-7" collapsible collapsed>
+              <div collapser>Data</div>
+              <ul>
+                <li><a href="../../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-8" collapsible collapsed>
+              <div collapser>Columns</div>
+              <ul>
+                <li><a href="../../columns/column-resetting.html">Column Resetting</a></li>
+                <li><a href="../../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
+                <li><a href="../../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
+                <li><a href="../../columns/column-width.html">Column Width</a></li>
+                <li><a href="../../columns/column-reordering.html">Column Reordering</a></li>
+                <li><a href="../../columns/column-moving.html">Column Moving</a></li>
+                <li><a href="../../columns/column-freezing.html">Column Freezing</a></li>
+                <li><a href="../../columns/column-pinning.html">Column Pinning</a></li>
+                <li><a href="../../columns/column-styling.html">Column Styling</a></li>
+                <li><a href="../../columns/column-grouping.html">Column Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-9" collapsible collapsed>
+              <div collapser>Rows</div>
+              <ul>
+                <li><a href="../../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
+                <li><a href="../../rows/row-height.html">Row Height</a></li>
+                <li><a href="../../rows/row-show-hide.html">Row Showing / Hiding</a></li>
+                <li><a href="../../rows/row-reordering.html">Row Reordering</a></li>
+                <li><a href="../../rows/add-header-footer.html">Adding Header &amp; Footer Sections</a></li>
+                <li><a href="../../rows/row-grouping.html">Row Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-10" collapsible collapsed>
+              <div collapser>Scrollbars</div>
+              <ul>
+                <li><a href="../../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
+                <li><a href="../../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
+                <li><a href="../../scrollbars/scroll-speed.html">Scroll Speed</a></li>
+                <li><a href="../../scrollbars/non-overlap-scrollbars.html">Non-Overlap Scrollbars</a></li>
+                <li><a href="../../scrollbars/scrollbar-visibility.html">Scrollbar Visibility</a></li>
+                <li><a href="../../scrollbars/left-side-column-pinning.html">Left Side Column Pinning/Freezing</a></li>
+                <li><a href="../../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-11" collapsible collapsed>
+              <div collapser>Sorting</div>
+              <ul>
+                <li><a href="../../sorting/sorting.html">Basic Sorting</a></li>
+                <li><a href="../../sorting/default-sorting.html">Default Sort</a></li>
+                <li><a href="../../sorting/server-side-sorting.html">Server Side Sorting</a></li>
+                <li><a href="../../sorting/multi-column-sorting.html">Multi-Column/3-States Sorting</a></li>
+                <li><a href="../../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-12" collapsible collapsed>
+              <div collapser>Filtering</div>
+              <ul>
+                <li><a href="../../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
+                <li><a href="../../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
+                <li><a href="../../filtering/custom-filter.html">Custom Filter UI</a></li>
+                <li><a href="../../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-13" collapsible collapsed>
+              <div collapser>Editing</div>
+              <ul>
+                <li><a href="../../editing/in-cell-editor.html">In-Cell Editing</a></li>
+                <li><a href="../../editing/custom-editor.html">Custom Editor</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-14" collapsible collapsed>
+              <div collapser>Miscellaneous</div>
+              <ul>
+                <li><a href="../../misc/core-apis.html">Using Core APIs</a></li>
+                <li><a href="../../misc/real-time-market-data.html">Realtime Market Data</a></li>
+              </ul>
+            </li>
+          </ul>
+        </pandora-nav>
+      </div>
+      <div class="main">
+        <div class="reader">
+          <pandora-page>
+            <link rel="stylesheet" href="../../resources/styles/elf-template.css">
+
+
+
+            <div id="main-template" class="elf-template">
+              <section>
+                <header>
+                  <h1 class="subsection-title"><span class="attribs"></span>tr.Event<span class="signature">(opt_sender)</span></h1>
+                </header>
+                <article>
+                  <div class="container-overview">
+                    <div class="item">
+                      <div class="item-type">class</div>
+                      <h4 class="name" id="Event">new Event<span class="signature">(opt_sender)</span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">opt_sender</div>
+                          <div class="type"> <span class="param-type">*</span> | <span class="param-type">null</span> </div>
+                          <div class="description"> The &quot;sender&quot; reference added automatically to event argument when dispatching event </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                  </div>
+                  <h3 class="subsection-title">Members</h3>
+                  <div class="item">
+                    <div class="item-type">member</div>
+                    <h4 class="name" id=".KeyCodes">KeyCodes</h4>
+                    <div class="description"> Key codes for common characters.</div>
+                    <h5>Type:</h5> <span class="param-type">number</span>
+                    <h5>Properties:</h5>
+                    <div class="props">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="name"><code>BACKSPACE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>TAB</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>ENTER</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>SHIFT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>CTRL</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>ALT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>ESC</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>SPACE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>PAGE_UP</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>PAGE_DOWN</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>END</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>HOME</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>LEFT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>UP</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>RIGHT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>DOWN</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>INSERT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>DELETE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>ZERO</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>ONE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>TWO</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>THREE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>FOUR</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>FIVE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>SIX</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>SEVEN</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>EIGHT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NINE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>A</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>B</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>C</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>D</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>E</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>G</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>H</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>I</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>J</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>K</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>L</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>M</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>N</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>O</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>P</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>Q</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>R</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>S</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>T</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>U</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>V</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>W</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>X</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>Y</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>Z</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_ZERO</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_ONE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_TWO</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_THREE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_FOUR</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_FIVE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_SIX</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_SEVEN</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_EIGHT</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_NINE</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_MULTIPLY</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_PLUS</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_MINUS</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_PERIOD</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUM_DIVISION</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F1</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F2</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F3</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F4</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F5</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F6</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F7</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F8</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F9</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F10</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F11</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>F12</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>NUMLOCK</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                          <tr>
+                            <td class="name"><code>SCROLL_LOCK</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="description last"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <h3 class="subsection-title">Methods</h3>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="disable">disable<span class="signature">(opt_disabled<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_disabled</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="dispatch">dispatch<span class="signature">(eventArg)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">eventArg</div>
+                        <div class="type"> <span class="param-type">*</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="enable">enable<span class="signature">(opt_enabled<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_enabled</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getListenerCount">getListenerCount<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="hasListener">hasListener<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="isDispatching">isDispatching<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="isEnabled">isEnabled<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="listen">listen<span class="signature">(listener, opt_priority<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">listener</div>
+                        <div class="type"> <span class="param-type">function</span> </div>
+                        <div class="attributes"> </div>
+                        <div class="description"> should be already bound by the bind method </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">opt_priority</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> The higher the priority, the sooner the listener get executed. Undefined priority listener will be executed last </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="setEventArgExtender">setEventArgExtender<span class="signature">(extender)</span></h4>
+                    <div class="description"> Specifies a handler to be executed before every dispatching </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">extender</div>
+                        <div class="type"> <span class="param-type">function</span> | <span class="param-type">null</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="setSender">setSender<span class="signature">(sender)</span></h4>
+                    <div class="description"> Specifies &quot;sender&quot; reference to be added to the given event argument </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">sender</div>
+                        <div class="type"> <span class="param-type">*</span> | <span class="param-type">null</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="unlisten">unlisten<span class="signature">(listener)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">listener</div>
+                        <div class="type"> <span class="param-type">function</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="unlistenAll">unlistenAll<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                  </div>
+                </article>
+              </section>
+            </div>
+
+          </pandora-page>
+          <div class="results"></div>
+        </div>
+      </div>
+    </div>
+  </pandora-book>
+</body>
+
+</html>

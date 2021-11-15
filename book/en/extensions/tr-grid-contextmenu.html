@@ -1,0 +1,849 @@
+<!doctype html>
+<html pandora>
+
+<head>
+  <title>Context Menu</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="x-pandora-base" content="../">
+  <meta name="x-pandora-location" content="extensions/tr-grid-contextmenu.html">
+  <link rel="stylesheet" href="../../../resources/styles/book.css">
+  <script defer src="../../../resources/scripts/book.js"></script>
+  <script defer src="../search.index.js"></script>
+  <link rel="icon" href="../resources/images/icon.png">
+</head>
+
+<body>
+  <pandora-book>
+    <div class="header" no-print>
+      <div class="book-icon" style="background-image:url(&quot;../resources/images/icon.png&quot;)"></div>
+      <h1><a href="../index.html">Grid Usage Guide</a></h1>
+      <div class="search">
+        <input type="search" placeholder="Type to search...">
+      </div>
+    </div>
+    <div class="content">
+      <div class="sidebar" no-print>
+        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+          <ul>
+            <li><a href="../index.html">Overview</a></li>
+            <li parent id="cid-0" collapsible collapsed>
+              <div collapser>General Concept</div>
+              <ul>
+                <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
+                <li><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
+                <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-1" collapsible collapsed>
+              <div collapser>Showcases</div>
+              <ul>
+                <li><a href="../showcases/comprehensive.html">Comprehensive</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-4" collapsible collapsed>
+              <div collapser>APIs</div>
+              <ul>
+                <li><a href="../apis/README.html">Overview</a></li>
+                <li parent id="cid-2" collapsible collapsed>
+                  <div collapser>Composite Grid (Emerald Grid)</div>
+                  <ul>
+                    <li><a href="../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
+                    <li><a href="../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
+                    <li><a href="../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
+                    <li><a href="../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
+                    <li><a href="../apis/composite_grid/tr.Event.html">tr.Event</a></li>
+                    <li><a href="../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
+                    <li><a href="../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
+                    <li><a href="../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
+                    <li><a href="../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                  </ul>
+                </li>
+                <li parent id="cid-3" collapsible collapsed>
+                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                  <ul>
+                    <li><a href="../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
+                    <li><a href="../apis/rt_grid/Grid.html">Grid</a></li>
+                    <li><a href="../apis/rt_grid/RowDefinition.html">RowDefinition</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li parent id="cid-5" collapsible collapsed>
+              <div collapser>Extensions</div>
+              <ul>
+                <li><a href="../extensions/README.html">Overview</a></li>
+                <li><a href="../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
+                <li><a href="../extensions/tr-grid-cell-selection.html">Cell Selection</a></li>
+                <li><a href="../extensions/tr-grid-checkbox.html">Checkbox Column</a></li>
+                <li><a href="../extensions/tr-grid-column-fitter.html">Column Fitter</a></li>
+                <li><a href="../extensions/tr-grid-column-formatting.html">Column Formatting</a></li>
+                <li><a href="../extensions/tr-grid-column-grouping.html">Column Grouping</a></li>
+                <li><a href="../extensions/tr-grid-column-resizing.html">Column Resizing</a></li>
+                <li><a href="../extensions/tr-grid-column-selection.html">Column Selection</a></li>
+                <li><a href="../extensions/tr-grid-column-stack.html">Column Stack</a></li>
+                <li><a href="../extensions/tr-grid-conditional-coloring.html">Conditional Coloring</a></li>
+                <li><a href="../extensions/tr-grid-content-wrap.html">Content Wrap</a></li>
+                <li selected><a href="../extensions/tr-grid-contextmenu.html">Context Menu</a></li>
+                <li><a href="../extensions/tr-grid-filter-input.html">Filter Input</a></li>
+                <li><a href="../extensions/tr-grid-heat-map.html">Heat Map</a></li>
+                <li><a href="../extensions/tr-grid-in-cell-editing.html">In-Cell Editing</a></li>
+                <li><a href="../extensions/tr-grid-pagination.html">Pagination</a></li>
+                <li><a href="../extensions/tr-grid-percent-bar.html">Percent Bar</a></li>
+                <li><a href="../extensions/tr-grid-range-bar.html">Range Bar</a></li>
+                <li><a href="../extensions/tr-grid-row-dragging.html">Row Dragging</a></li>
+                <li><a href="../extensions/tr-grid-row-filtering.html">Row Filtering</a></li>
+                <li><a href="../extensions/tr-grid-row-grouping.html">Row Grouping</a></li>
+                <li><a href="../extensions/row-segmenting.html">Row Segmenting</a></li>
+                <li><a href="../extensions/tr-grid-row-selection.html">Row Selection</a></li>
+                <li><a href="../extensions/tr-grid-rowcoloring.html">Row Coloring</a></li>
+                <li><a href="../extensions/statistics-row.html">Statistics Row</a></li>
+                <li><a href="../extensions/tr-grid-textformatting.html">Text Formatting</a></li>
+                <li><a href="../extensions/tr-grid-titlewrap.html">Title Wrap</a></li>
+                <li><a href="../extensions/zoom.html">Zoom</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-6" collapsible collapsed>
+              <div collapser>Content Rendering</div>
+              <ul>
+                <li><a href="../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-7" collapsible collapsed>
+              <div collapser>Data</div>
+              <ul>
+                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-8" collapsible collapsed>
+              <div collapser>Columns</div>
+              <ul>
+                <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
+                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
+                <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
+                <li><a href="../columns/column-width.html">Column Width</a></li>
+                <li><a href="../columns/column-reordering.html">Column Reordering</a></li>
+                <li><a href="../columns/column-moving.html">Column Moving</a></li>
+                <li><a href="../columns/column-freezing.html">Column Freezing</a></li>
+                <li><a href="../columns/column-pinning.html">Column Pinning</a></li>
+                <li><a href="../columns/column-styling.html">Column Styling</a></li>
+                <li><a href="../columns/column-grouping.html">Column Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-9" collapsible collapsed>
+              <div collapser>Rows</div>
+              <ul>
+                <li><a href="../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
+                <li><a href="../rows/row-height.html">Row Height</a></li>
+                <li><a href="../rows/row-show-hide.html">Row Showing / Hiding</a></li>
+                <li><a href="../rows/row-reordering.html">Row Reordering</a></li>
+                <li><a href="../rows/add-header-footer.html">Adding Header &amp; Footer Sections</a></li>
+                <li><a href="../rows/row-grouping.html">Row Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-10" collapsible collapsed>
+              <div collapser>Scrollbars</div>
+              <ul>
+                <li><a href="../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
+                <li><a href="../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
+                <li><a href="../scrollbars/scroll-speed.html">Scroll Speed</a></li>
+                <li><a href="../scrollbars/non-overlap-scrollbars.html">Non-Overlap Scrollbars</a></li>
+                <li><a href="../scrollbars/scrollbar-visibility.html">Scrollbar Visibility</a></li>
+                <li><a href="../scrollbars/left-side-column-pinning.html">Left Side Column Pinning/Freezing</a></li>
+                <li><a href="../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-11" collapsible collapsed>
+              <div collapser>Sorting</div>
+              <ul>
+                <li><a href="../sorting/sorting.html">Basic Sorting</a></li>
+                <li><a href="../sorting/default-sorting.html">Default Sort</a></li>
+                <li><a href="../sorting/server-side-sorting.html">Server Side Sorting</a></li>
+                <li><a href="../sorting/multi-column-sorting.html">Multi-Column/3-States Sorting</a></li>
+                <li><a href="../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-12" collapsible collapsed>
+              <div collapser>Filtering</div>
+              <ul>
+                <li><a href="../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
+                <li><a href="../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
+                <li><a href="../filtering/custom-filter.html">Custom Filter UI</a></li>
+                <li><a href="../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-13" collapsible collapsed>
+              <div collapser>Editing</div>
+              <ul>
+                <li><a href="../editing/in-cell-editor.html">In-Cell Editing</a></li>
+                <li><a href="../editing/custom-editor.html">Custom Editor</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-14" collapsible collapsed>
+              <div collapser>Miscellaneous</div>
+              <ul>
+                <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
+                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+              </ul>
+            </li>
+          </ul>
+        </pandora-nav>
+      </div>
+      <div class="main">
+        <div class="reader">
+          <pandora-page>
+            <link rel="stylesheet" href="../resources/styles/elf-template.css">
+
+            <h2 id="context-menu">Context Menu</h2>
+            <p>The <a href="https://git.sami.int.thomsonreuters.com/tr-grid/tr-grid-contextmenu" target="_blank">Context Menu Extension</a> provides the capability to display a customized contextual menu when a user right-clicks on the grid. The menu items to be displayed are totally customizable based on the position of the mouse, the data, and also any customized logic of your application.</p>
+            <p>For contributions, check out the <a href="https://git.sami.int.thomsonreuters.com/tr-grid/tr-grid-contextmenu" target="_blank">Context Menu Extension repository</a>.</p>
+
+            <div class="pandora-code-viewer" id="pid-18">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;span id=&quot;text&quot;&gt;&lt;/span&gt;
+
+&lt;emerald-grid id=&quot;grid&quot;&gt;&lt;/emerald-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;industry&quot;];
+var records = tr.DataGenerator.generateRecords(fields, { numRows: 5 });
+var configObj = {
+  rowHighlight: true,
+  rowSelection: true,
+  columns: [
+    { title: &quot;Company&quot;, field: fields[0] },
+    { title: &quot;Market&quot;, field: fields[1], width: 120 },
+    { title: &quot;Last&quot;, field: fields[2], width: 100 },
+    { title: &quot;Net. Chng&quot;, field: fields[3], width: 100 },
+    { title: &quot;Industry&quot;, field: fields[4] }
+  ],
+  dataModel: {
+    data: records
+  },
+  contextMenu: {
+    items: {
+      HEADER: {
+        text: &apos;Header 1&apos;,
+        value: &apos;1&apos;,
+        callback: function(e) {
+          document.getElementById(&quot;text&quot;).textContent = &quot;Column: &quot; + (e.colIndex + 1) + &quot;, &quot; + e.item.text + &quot; Clicked!&quot;;
+        }
+      },
+      MENU_1: {
+        text: &apos;Menu 1&apos;,
+        value: &apos;1&apos;,
+        callback: function(e) {
+          document.getElementById(&quot;text&quot;).textContent = &quot;Column: &quot; + (e.colIndex + 1) + &quot;, &quot; + e.item.text + &quot; Clicked!&quot;;
+        }
+      },
+      MENU_2: {
+        text: &apos;Menu 2&apos;,
+        value: &apos;2&apos;,
+        callback: function(e) {
+          document.getElementById(&quot;text&quot;).textContent = &quot;Column: &quot; + (e.colIndex + 1) + &quot;, &quot; + e.item.text + &quot; Clicked!&quot;;
+        }
+      },
+      MENU_3: {
+        text: &apos;Menu 3&apos;,
+        value: &apos;3&apos;,
+        callback: function(e) {
+          document.getElementById(&quot;text&quot;).textContent = &quot;Column: &quot; + (e.colIndex + 1) + &quot;, &quot; + e.item.text + &quot; Clicked!&quot;;
+        }
+      }
+    },
+    onMenu: function(e) {
+      if (e.context === &apos;header&apos;) {
+        e.menu.addItem(&apos;HEADER&apos;);
+      }
+      if (e.context === &apos;content&apos;) {
+        e.menu.addItem(&apos;MENU_1&apos;);
+        e.menu.addItem(&apos;MENU_2&apos;);
+        e.menu.addSeparator();
+        e.menu.addItem(&apos;MENU_3&apos;);
+      }
+    }
+  },
+  extensions: [
+    new tr.ContextMenuExtension()
+  ]
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css">emerald-grid {
+  height: 169px;
+}</pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+            </div>
+            <h3 id="installation-and-how-to-import-to-a-project">Installation and how to import to a project</h3>
+            <p>Installation examples and details of how to import the extension to a project are available on the <a href="README.html">Overview</a> page.</p>
+            <h3 id="basic-menu-display">Basic menu display</h3>
+            <p>To show the menu, you need to define menu items in the grid&apos;s configuration object. Each menu item is assigned to a name so it can be referenced later at the display time in the <code>onMenu()</code> event handler. <code>onMenu()</code> is an event handler triggered when a user right-clicks at an area on the grid. You can choose to display the menu only at a specific place on the grid by checking the value of <code>e.context</code>.</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+    <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: {
+    <span class="hljs-attr">items</span>: {
+      <span class="hljs-attr">HEADER</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Header 1&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">// Do something</span>
+        <span class="hljs-built_in">console</span>.log(e.item);
+      }},
+      <span class="hljs-attr">MENU_1</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Menu 1&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">// Do something</span>
+        <span class="hljs-built_in">console</span>.log(e.item);
+      }},
+      <span class="hljs-attr">MENU_2</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Menu 2&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;2&apos;</span>, <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">// Do something</span>
+        <span class="hljs-built_in">console</span>.log(e.item);
+      }},
+      <span class="hljs-attr">MENU_3</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Menu 3&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;3&apos;</span>, <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">// Do something</span>
+        <span class="hljs-built_in">console</span>.log(e.item);
+      }}
+    },
+    <span class="hljs-attr">onMenu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (e.context === <span class="hljs-string">&apos;header&apos;</span>) {
+        e.menu.addItem(<span class="hljs-string">&apos;HEADER&apos;</span>);
+      }
+      <span class="hljs-keyword">if</span> (e.context === <span class="hljs-string">&apos;content&apos;</span>) {
+        e.menu.addItem(<span class="hljs-string">&apos;MENU_1&apos;</span>);
+        e.menu.addItem(<span class="hljs-string">&apos;MENU_2&apos;</span>);
+        e.menu.addSeparator();
+        e.menu.addItem(<span class="hljs-string">&apos;MENU_3&apos;</span>);
+      }
+    }
+  }
+};</code></pre>
+            <h3 id="custom-menu-display">Custom menu display</h3>
+            <p>To use the context menu with other UIs, this extension exposes the &apos;contextmenu&apos; event and provide related information to the event argument for integration. See the example below:</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Default UI is disabled</span>
+};
+<span class="hljs-keyword">var</span> cme = <span class="hljs-keyword">new</span> ContextMenu();
+cme.listen(<span class="hljs-string">&quot;contextmenu&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{ 
+    <span class="hljs-built_in">console</span>.log(e); 
+    <span class="hljs-comment">// Create your custom pop up menu here</span>
+});</code></pre>
+            <p>Or you can define the context menu event handler directly (see below), which is equivalent to the codes above:</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(e); 
+  },
+};</code></pre>
+            <h3 id="group-menu-display">Group menu display</h3>
+            <p>Several menu items can be grouped together under a name and can be inserted only once into the menu. From the snippet below, all three menus&#x2013;<code>SORT_ASCENDING</code>, <code>SORT_DESCENDING</code>, and <code>SORT_ORIGINAL</code>&#x2013;are inserted together.</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: {
+    <span class="hljs-attr">items</span>: {
+      <span class="hljs-attr">SORT_ASCENDING</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Sort Ascending&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;s&apos;</span>},
+      <span class="hljs-attr">SORT_DESCENDING</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Sort Descending&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;d&apos;</span>},
+      <span class="hljs-attr">SORT_ORIGINAL</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Original Order&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;n&apos;</span>},
+      <span class="hljs-attr">SORTING</span>: [
+        <span class="hljs-string">&apos;SORT_ASCENDING&apos;</span>,
+        <span class="hljs-string">&apos;SORT_DESCENDING&apos;</span>,
+        <span class="hljs-string">&apos;SORT_ORIGINAL&apos;</span>,
+      ]
+    },
+    <span class="hljs-attr">onMenu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (e.context === <span class="hljs-string">&apos;content&apos;</span>) {
+        <span class="hljs-comment">//Insert the whole group in 1 statement</span>
+        e.menu.addItem(<span class="hljs-string">&apos;SORTING&apos;</span>);
+      }
+    }
+  }
+};</code></pre>
+            <h3 id="runtime-menu-disabling">Runtime menu disabling</h3>
+            <p>You may find you want to disable or hide a menu item for a specific condition. You can do this by adding your condition inside the <code>onMenu()</code> event handler. The event argument of <code>onMenu()</code> contains a reference called <code>items</code> which is pointing back to the menu item definitions in the configuration object. So, you can set a property like <code>isDisabled</code> or <code>isVisible</code> to each menu item before the menu is rendered.</p>
+            <p>In the example below, the menu &apos;Hide Column&apos; is disabled for the first column of the grid.</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: {
+    <span class="hljs-attr">items</span>: {
+      <span class="hljs-attr">HIDE_COLUMN</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Hide Column&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;hide&apos;</span>},
+      <span class="hljs-attr">SHOW_ALL_COLUMNS</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Show All Columns&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;show&apos;</span>}
+    },
+    <span class="hljs-attr">onMenu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (e.context === <span class="hljs-string">&apos;header&apos;</span>) {
+        <span class="hljs-comment">//isDisabled is `true` when column index is 0</span>
+        e.items.HIDE_COLUMN.isDisabled = (e.colIndex === <span class="hljs-number">0</span>);
+
+        e.menu.addItem(<span class="hljs-string">&apos;HIDE_COLUMN&apos;</span>);
+        e.menu.addItem(<span class="hljs-string">&apos;SHOW_ALL_COLUMNS&apos;</span>);
+      }
+    }
+  }
+};</code></pre>
+            <h3 id="submenu">Submenu</h3>
+            <p>A multi-level submenu can be added to an item using the <code>items</code> property. With a submenu you can also handle a menu click event at the parent level, to simplify your code.</p>
+            <pre><code><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-comment">//...any other grid&apos;s options...</span>
+  <span class="hljs-attr">contextMenu</span>: {
+    <span class="hljs-attr">items</span>: {
+      <span class="hljs-attr">SET_ROW_COLOR</span>: {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Set Row Color&apos;</span>, <span class="hljs-attr">items</span>: [
+        {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Red&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;#FF0000&apos;</span>},
+        {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Green&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;#00FF00&apos;</span>},
+        {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Blue&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;#0000FF&apos;</span>},
+        {<span class="hljs-attr">isSeparator</span>: <span class="hljs-literal">true</span>},
+        {<span class="hljs-attr">text</span>: <span class="hljs-string">&apos;Clear Color&apos;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&apos;&apos;</span>}
+      ], <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">//Single place of callback handling for all sub-menu item clicking</span>
+        <span class="hljs-built_in">console</span>.log(e.item.getValue());
+      }},
+    },
+    <span class="hljs-attr">onMenu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (e.context === <span class="hljs-string">&apos;header&apos;</span>) {
+        <span class="hljs-comment">//isDisabled is `true` when column index is 0</span>
+        e.items.HIDE_COLUMN.isDisabled = (e.colIndex === <span class="hljs-number">0</span>);
+
+        e.menu.addItem(<span class="hljs-string">&apos;HIDE_COLUMN&apos;</span>);
+        e.menu.addItem(<span class="hljs-string">&apos;SHOW_ALL_COLUMNS&apos;</span>);
+      }
+    }
+  }
+};</code></pre>
+            <div></div>
+
+            <div id="elf-api-container">
+              <h2 style="margin-bottom:5px" id="api-refs">API Reference</h2>
+              <div id="main-template" class="elf-template">
+                <section>
+                  <article>
+                    <h3 class="subsection-title">Type Definitions</h3>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~Context">Context</h4>
+                      <div class="description"> All available context types for the extension</div>
+                      <h5>Type:</h5> <span class="param-type">&quot;header&quot;</span> | <span class="param-type">&quot;content&quot;</span> | <span class="param-type">&quot;footer&quot;</span> | <span class="param-type">&quot;filterRow&quot;</span>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~MenuItem">MenuItem</h4>
+                      <h5>Type:</h5> <span class="param-type">Object</span>
+                      <h5>Properties:</h5>
+                      <div class="props">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th>Attributes</th>
+                              <th class="last">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="name"><code>text</code></td>
+                              <td class="type"> <span class="param-type">string</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">Text to diplay at the item</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>value</code></td>
+                              <td class="type"> <span class="param-type">string</span> | <span class="param-type">number</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">Value attached to the item</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>isDisabled</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">If true the item will be disabled, default is false</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>isVisible</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">If false the item will not be displayed, default is true</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>isSeparator</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">If true the item is rendered as an item separator</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>items</code></td>
+                              <td class="type"> <span class="param-type">Array.&lt;<a href="ContextMenuPlugin.html#~MenuItem">ContextMenuPlugin~MenuItem</a>&gt;</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">Array of sub-menu items</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>renderer</code></td>
+                              <td class="type"> <span class="param-type">function</span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">Callback function to do custom rendering of the item, see more information in later section</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>callback</code></td>
+                              <td class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~MenuItemEventCallback">ContextMenuPlugin~MenuItemEventCallback</a></span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">Menu item clicked handler function</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~MenuItemEvent">MenuItemEvent</h4>
+                      <h5>Type:</h5> <span class="param-type">Object</span>
+                      <h5>Properties:</h5>
+                      <div class="props">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th class="last">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="name"><code>altKey</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="description last">Flag to indicate if ALT key is pressed when the mouse is clicked</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>cell</code></td>
+                              <td class="type"> <span class="param-type">tr.grid.Cell</span> </td>
+                              <td class="description last">Cell object at the mouse clicked position</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>colIndex</code></td>
+                              <td class="type"> <span class="param-type">number</span> </td>
+                              <td class="description last">Index number of the column that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>columnDef</code></td>
+                              <td class="type"> <span class="param-type">object</span> </td>
+                              <td class="description last">Column Definition of the column that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>context</code></td>
+                              <td class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~Context">ContextMenuPlugin~Context</a></span> </td>
+                              <td class="description last">Area of the grid that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>ctrlKey</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="description last">Flag to indicate if CTRL key is pressed when the mouse is clicked</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>item</code></td>
+                              <td class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~MenuItem">ContextMenuPlugin~MenuItem</a></span> </td>
+                              <td class="description last">The item the mouse is clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>items</code></td>
+                              <td class="type"> <span class="param-type">Object.&lt;string, <a href="ContextMenuPlugin.html#~MenuItem">ContextMenuPlugin~MenuItem</a>&gt;</span> </td>
+                              <td class="description last">Object reference to the menu items under items option</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>menu</code></td>
+                              <td class="type"> <span class="param-type"><a href="MenuEventAPI.html">MenuEventAPI</a></span> </td>
+                              <td class="description last">API for adding menu items to be rendered</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>rowIndex</code></td>
+                              <td class="type"> <span class="param-type">number</span> </td>
+                              <td class="description last">Index number of the row the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>section</code></td>
+                              <td class="type"> <span class="param-type">tr.LayoutGrid</span> </td>
+                              <td class="description last">Wraper Object of the grid&apos;s area the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>shiftKey</code></td>
+                              <td class="type"> <span class="param-type">boolean</span> </td>
+                              <td class="description last">Flag to indicate if SHIFT key is pressed when the mouse is clicked</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~MenuItemEventCallback"><span class="type-signature"></span>MenuItemEventCallback<span class="signature">(e)</span><span class="type-signature"></span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">e</div>
+                          <div class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~MenuItemEvent">ContextMenuPlugin~MenuItemEvent</a></span> </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~OnMenuEvent">OnMenuEvent</h4>
+                      <h5>Type:</h5> <span class="param-type">Object</span>
+                      <h5>Properties:</h5>
+                      <div class="props">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th class="last">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="name"><code>cell</code></td>
+                              <td class="type"> <span class="param-type">tr.grid.Cell</span> </td>
+                              <td class="description last">Cell object at the mouse clicked position</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>colIndex</code></td>
+                              <td class="type"> <span class="param-type">number</span> </td>
+                              <td class="description last">Index number of the column that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>columnDef</code></td>
+                              <td class="type"> <span class="param-type">object</span> </td>
+                              <td class="description last">Column Definition of the column that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>context</code></td>
+                              <td class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~Context">ContextMenuPlugin~Context</a></span> </td>
+                              <td class="description last">Area of the grid that the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>items</code></td>
+                              <td class="type"> <span class="param-type">object</span> </td>
+                              <td class="description last">Object reference to the menu items under items option</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>menu</code></td>
+                              <td class="type"> <span class="param-type"><a href="MenuEventAPI.html">MenuEventAPI</a></span> </td>
+                              <td class="description last">API for adding menu items to be rendered</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>rowIndex</code></td>
+                              <td class="type"> <span class="param-type">number</span> </td>
+                              <td class="description last">Index number of the row the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>section</code></td>
+                              <td class="type"> <span class="param-type">tr.LayoutGrid</span> </td>
+                              <td class="description last">Wraper Object of the grid&apos;s area the mouse clicked on</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>selectedColumns</code></td>
+                              <td class="type"> <span class="param-type">Array.&lt;number&gt;</span> </td>
+                              <td class="description last">Array of selected indices. Return null, if no selection</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>selectedRows</code></td>
+                              <td class="type"> <span class="param-type">Array.&lt;number&gt;</span> </td>
+                              <td class="description last">Array of selected indices. Return null, if no selection</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~OnMenuEventCallback"><span class="type-signature"></span>OnMenuEventCallback<span class="signature">(e)</span><span class="type-signature"></span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">e</div>
+                          <div class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~OnMenuEvent">ContextMenuPlugin~OnMenuEvent</a></span> </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~Options">Options</h4>
+                      <div class="description"> Available options describing `contextMenu` object specified in grid&apos;s option</div>
+                      <h5>Type:</h5> <span class="param-type">Object</span>
+                      <h5>Properties:</h5>
+                      <div class="props">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th>Attributes</th>
+                              <th class="last">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="name"><code>items</code></td>
+                              <td class="type"> <span class="param-type">Object.&lt;string, <a href="ContextMenuPlugin.html#~MenuItem">ContextMenuPlugin~MenuItem</a>&gt;</span> </td>
+                              <td class="attributes"> </td>
+                              <td class="description last"></td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>onMenu</code></td>
+                              <td class="type"> <span class="param-type"><a href="ContextMenuPlugin.html#~OnMenuEventCallback">ContextMenuPlugin~OnMenuEventCallback</a></span> </td>
+                              <td class="attributes"> &lt;optional&gt;<br> </td>
+                              <td class="description last">@ @property {Function=} contextmenu</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <h3 class="subsection-title">Methods</h3>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="config"><span class="type-signature"></span>config<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">options</div>
+                          <div class="type"> <span class="param-type">ContextMenuPlugin.Options</span> </div>
+                          <div class="attributes"> &lt;optional&gt; </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="getConfigObject"><span class="type-signature"></span>getConfigObject<span class="signature">(gridOptions<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &#x2192; {Object}</span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">gridOptions</div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
+                          <div class="attributes"> &lt;optional&gt; </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                      <h5>Returns:</h5>
+                      <div class="sub-content"> <span class="param-type">Object</span> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="getMenuModel"><span class="type-signature"></span>getMenuModel<span class="signature">()</span><span class="type-signature"> &#x2192; {Object}</span></h4>
+                      <div class="details"> </div>
+                      <h5>Returns:</h5>
+                      <div class="sub-content"> <span class="param-type">Object</span> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="getName"><span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &#x2192; {string}</span></h4>
+                      <div class="details"> </div>
+                      <h5>Returns:</h5>
+                      <div class="sub-content"> <span class="param-type">string</span> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="hasMultiTableSupport"><span class="type-signature"></span>hasMultiTableSupport<span class="signature">()</span><span class="type-signature"> &#x2192; {boolean}</span></h4>
+                      <div class="description"> Plugin that has multi-table support means that it can have multiple hosts/tables and share its states across those hosts/tables. </div>
+                      <div class="details"> <dt class="tag-overrides">Overrides:</dt>
+                        <dd class="tag-overrides"> <a href="GridPlugin.html#hasMultiTableSupport">GridPlugin#hasMultiTableSupport</a> </dd>
+                      </div>
+                      <h5>Returns:</h5>
+                      <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="initialize"><span class="type-signature"></span>initialize<span class="signature">(host, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">host</div>
+                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="attributes"> </div>
+                        </div>
+                        <div class="param">
+                          <div class="name">options</div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
+                          <div class="attributes"> &lt;optional&gt; </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="unload"><span class="type-signature"></span>unload<span class="signature">(host)</span><span class="type-signature"></span></h4>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">host</div>
+                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                  </article>
+                </section>
+              </div>
+            </div>
+
+          </pandora-page>
+          <div class="results"></div>
+        </div>
+      </div>
+    </div>
+  </pandora-book>
+</body>
+
+</html>

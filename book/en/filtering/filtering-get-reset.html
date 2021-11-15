@@ -1,0 +1,333 @@
+<!doctype html>
+<html pandora>
+
+<head>
+  <title>Get Filter States / Reset All</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="x-pandora-base" content="../">
+  <meta name="x-pandora-location" content="filtering/filtering-get-reset.html">
+  <link rel="stylesheet" href="../../../resources/styles/book.css">
+  <script defer src="../../../resources/scripts/book.js"></script>
+  <script defer src="../search.index.js"></script>
+  <link rel="icon" href="../resources/images/icon.png">
+</head>
+
+<body>
+  <pandora-book>
+    <div class="header" no-print>
+      <div class="book-icon" style="background-image:url(&quot;../resources/images/icon.png&quot;)"></div>
+      <h1><a href="../index.html">Grid Usage Guide</a></h1>
+      <div class="search">
+        <input type="search" placeholder="Type to search...">
+      </div>
+    </div>
+    <div class="content">
+      <div class="sidebar" no-print>
+        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+          <ul>
+            <li><a href="../index.html">Overview</a></li>
+            <li parent id="cid-0" collapsible collapsed>
+              <div collapser>General Concept</div>
+              <ul>
+                <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
+                <li><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
+                <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-1" collapsible collapsed>
+              <div collapser>Showcases</div>
+              <ul>
+                <li><a href="../showcases/comprehensive.html">Comprehensive</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-4" collapsible collapsed>
+              <div collapser>APIs</div>
+              <ul>
+                <li><a href="../apis/README.html">Overview</a></li>
+                <li parent id="cid-2" collapsible collapsed>
+                  <div collapser>Composite Grid (Emerald Grid)</div>
+                  <ul>
+                    <li><a href="../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
+                    <li><a href="../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
+                    <li><a href="../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
+                    <li><a href="../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
+                    <li><a href="../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
+                    <li><a href="../apis/composite_grid/tr.Event.html">tr.Event</a></li>
+                    <li><a href="../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
+                    <li><a href="../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
+                    <li><a href="../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
+                    <li><a href="../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
+                    <li><a href="../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                  </ul>
+                </li>
+                <li parent id="cid-3" collapsible collapsed>
+                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                  <ul>
+                    <li><a href="../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
+                    <li><a href="../apis/rt_grid/Grid.html">Grid</a></li>
+                    <li><a href="../apis/rt_grid/RowDefinition.html">RowDefinition</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li parent id="cid-5" collapsible collapsed>
+              <div collapser>Extensions</div>
+              <ul>
+                <li><a href="../extensions/README.html">Overview</a></li>
+                <li><a href="../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
+                <li><a href="../extensions/tr-grid-cell-selection.html">Cell Selection</a></li>
+                <li><a href="../extensions/tr-grid-checkbox.html">Checkbox Column</a></li>
+                <li><a href="../extensions/tr-grid-column-fitter.html">Column Fitter</a></li>
+                <li><a href="../extensions/tr-grid-column-formatting.html">Column Formatting</a></li>
+                <li><a href="../extensions/tr-grid-column-grouping.html">Column Grouping</a></li>
+                <li><a href="../extensions/tr-grid-column-resizing.html">Column Resizing</a></li>
+                <li><a href="../extensions/tr-grid-column-selection.html">Column Selection</a></li>
+                <li><a href="../extensions/tr-grid-column-stack.html">Column Stack</a></li>
+                <li><a href="../extensions/tr-grid-conditional-coloring.html">Conditional Coloring</a></li>
+                <li><a href="../extensions/tr-grid-content-wrap.html">Content Wrap</a></li>
+                <li><a href="../extensions/tr-grid-contextmenu.html">Context Menu</a></li>
+                <li><a href="../extensions/tr-grid-filter-input.html">Filter Input</a></li>
+                <li><a href="../extensions/tr-grid-heat-map.html">Heat Map</a></li>
+                <li><a href="../extensions/tr-grid-in-cell-editing.html">In-Cell Editing</a></li>
+                <li><a href="../extensions/tr-grid-pagination.html">Pagination</a></li>
+                <li><a href="../extensions/tr-grid-percent-bar.html">Percent Bar</a></li>
+                <li><a href="../extensions/tr-grid-range-bar.html">Range Bar</a></li>
+                <li><a href="../extensions/tr-grid-row-dragging.html">Row Dragging</a></li>
+                <li><a href="../extensions/tr-grid-row-filtering.html">Row Filtering</a></li>
+                <li><a href="../extensions/tr-grid-row-grouping.html">Row Grouping</a></li>
+                <li><a href="../extensions/row-segmenting.html">Row Segmenting</a></li>
+                <li><a href="../extensions/tr-grid-row-selection.html">Row Selection</a></li>
+                <li><a href="../extensions/tr-grid-rowcoloring.html">Row Coloring</a></li>
+                <li><a href="../extensions/statistics-row.html">Statistics Row</a></li>
+                <li><a href="../extensions/tr-grid-textformatting.html">Text Formatting</a></li>
+                <li><a href="../extensions/tr-grid-titlewrap.html">Title Wrap</a></li>
+                <li><a href="../extensions/zoom.html">Zoom</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-6" collapsible collapsed>
+              <div collapser>Content Rendering</div>
+              <ul>
+                <li><a href="../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-7" collapsible collapsed>
+              <div collapser>Data</div>
+              <ul>
+                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-8" collapsible collapsed>
+              <div collapser>Columns</div>
+              <ul>
+                <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
+                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
+                <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
+                <li><a href="../columns/column-width.html">Column Width</a></li>
+                <li><a href="../columns/column-reordering.html">Column Reordering</a></li>
+                <li><a href="../columns/column-moving.html">Column Moving</a></li>
+                <li><a href="../columns/column-freezing.html">Column Freezing</a></li>
+                <li><a href="../columns/column-pinning.html">Column Pinning</a></li>
+                <li><a href="../columns/column-styling.html">Column Styling</a></li>
+                <li><a href="../columns/column-grouping.html">Column Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-9" collapsible collapsed>
+              <div collapser>Rows</div>
+              <ul>
+                <li><a href="../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
+                <li><a href="../rows/row-height.html">Row Height</a></li>
+                <li><a href="../rows/row-show-hide.html">Row Showing / Hiding</a></li>
+                <li><a href="../rows/row-reordering.html">Row Reordering</a></li>
+                <li><a href="../rows/add-header-footer.html">Adding Header &amp; Footer Sections</a></li>
+                <li><a href="../rows/row-grouping.html">Row Grouping</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-10" collapsible collapsed>
+              <div collapser>Scrollbars</div>
+              <ul>
+                <li><a href="../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
+                <li><a href="../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
+                <li><a href="../scrollbars/scroll-speed.html">Scroll Speed</a></li>
+                <li><a href="../scrollbars/non-overlap-scrollbars.html">Non-Overlap Scrollbars</a></li>
+                <li><a href="../scrollbars/scrollbar-visibility.html">Scrollbar Visibility</a></li>
+                <li><a href="../scrollbars/left-side-column-pinning.html">Left Side Column Pinning/Freezing</a></li>
+                <li><a href="../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-11" collapsible collapsed>
+              <div collapser>Sorting</div>
+              <ul>
+                <li><a href="../sorting/sorting.html">Basic Sorting</a></li>
+                <li><a href="../sorting/default-sorting.html">Default Sort</a></li>
+                <li><a href="../sorting/server-side-sorting.html">Server Side Sorting</a></li>
+                <li><a href="../sorting/multi-column-sorting.html">Multi-Column/3-States Sorting</a></li>
+                <li><a href="../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-12" collapsible collapsed>
+              <div collapser>Filtering</div>
+              <ul>
+                <li><a href="../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
+                <li><a href="../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
+                <li><a href="../filtering/custom-filter.html">Custom Filter UI</a></li>
+                <li selected><a href="../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-13" collapsible collapsed>
+              <div collapser>Editing</div>
+              <ul>
+                <li><a href="../editing/in-cell-editor.html">In-Cell Editing</a></li>
+                <li><a href="../editing/custom-editor.html">Custom Editor</a></li>
+              </ul>
+            </li>
+            <li parent id="cid-14" collapsible collapsed>
+              <div collapser>Miscellaneous</div>
+              <ul>
+                <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
+                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+              </ul>
+            </li>
+          </ul>
+        </pandora-nav>
+      </div>
+      <div class="main">
+        <div class="reader">
+          <pandora-page>
+            <h1 id="get-reset-state">Get/Reset State</h1>
+            <p>The <a href="../extensions/tr-grid-row-filtering.html">Row Filtering Extension</a> provides APIs such as:</p>
+            <ul>
+              <li><code>getColumnFilterStates()</code> - API returns an array of the current filter states of each column&apos;s filter UI.</li>
+              <li><code>removeAllColumnFilters()</code> - API removes all the currently applied filters. </li>
+            </ul>
+            <p>For more details see the <a href="../extensions/tr-grid-row-filtering.html">Row Filter Extension API documentation</a>.</p>
+
+            <div class="pandora-code-viewer" id="pid-97">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;button id=&quot;get_states_btn&quot;&gt;Get Filter States&lt;/button&gt;
+&lt;button id=&quot;reset_all_btn&quot;&gt;Clear All Filters&lt;/button&gt;
+&lt;emerald-grid id=&quot;grid&quot;&gt;&lt;/emerald-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var filterInputExt = new tr.FilterInputExtension();
+var rowFilteringExt = new tr.RowFilteringExtension();
+
+var dateFormatter = {
+  render: function() {},
+  bind: function(rowIndex, colIndex, value, cell) {
+    var parts = value.toDateString().split(&quot; &quot;);
+    cell.setContent(parts[2] + &quot;-&quot; + parts[1] + &quot;-&quot; + parts[3]);
+  }
+};
+
+var configObj = {
+  rowHighlight: true,
+  columns: [
+    { title: &quot;Date&quot;, field: &quot;date&quot;, sortBy: &quot;date&quot;, filterInput: { type: &quot;date&quot; }, formatter: dateFormatter, alignment: &quot;c&quot; },
+    { title: &quot;Country&quot;, field: &quot;country&quot;, sortBy: &quot;country&quot;, width: 200, alignment: &quot;c&quot; },
+    { title: &quot;Currency&quot;, field: &quot;currency&quot;, sortBy: &quot;currency&quot;, filterInput: { type: &quot;select&quot;, entries: [&quot;PLN&quot;, &quot;EUR&quot;, &quot;SEK&quot;, &quot;GBP&quot;, &quot;DKK&quot;] }, width: 200, alignment: &quot;c&quot; },
+    { title: &quot;Rate&quot;, field: &quot;rate&quot;, sortBy: &quot;rate&quot;, alignment: &quot;right&quot;, filterInput: { type: &quot;number&quot; }, width: 200, alignment: &quot;c&quot; }
+  ],
+  dataModel: {
+    fields: [&quot;date&quot;, &quot;country&quot;, &quot;currency&quot;, &quot;rate&quot;],
+    format: &quot;rows&quot;,
+    data: []
+  },
+  extensions: [
+    rowFilteringExt,
+    filterInputExt
+  ]
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;
+
+document.getElementById(&apos;get_states_btn&apos;).addEventListener(&apos;click&apos;, function() {
+  var states = rowFilteringExt.getColumnFilterStates();
+  alert(JSON.stringify(states));
+});
+
+document.getElementById(&apos;reset_all_btn&apos;).addEventListener(&apos;click&apos;, function() {
+  // Remove all filters and update the UI where applicable (via reset() method)
+  rowFilteringExt.removeAllColumnFilters();
+});
+
+fetch(&apos;../resources/scripts/data/euro-currency-rate.json&apos;).then(o =&gt; o.json()).then(response =&gt; {
+  var dataTable = grid.api.getDataTable();
+  response = response.map(function(data) {
+    return {
+      date: new Date(data.date),
+      country: data.country,
+      currency: data.currency,
+      rate: data.rate
+    }
+  });
+  dataTable.addRows(response);
+});</pre>
+                  <pre class="pandora-tab-view tab-css">emerald-grid {
+  height: 300px;
+}</pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
+          </pandora-page>
+          <div class="results"></div>
+        </div>
+      </div>
+    </div>
+  </pandora-book>
+</body>
+
+</html>
