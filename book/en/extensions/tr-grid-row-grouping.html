@@ -23,7 +23,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print>
-        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+        <pandora-nav id="054b08f0-a736-46cc-a7bd-42269a3371a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent id="cid-0" collapsible collapsed>
@@ -32,6 +32,7 @@
                 <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
                 <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="../general_concept/typescript.html">Adding TypeScript</a></li>
                 <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
@@ -212,7 +213,7 @@
             <p>The <a href="https://git.sami.int.thomsonreuters.com/tr-grid/tr-grid-row-grouping" target="_blank">Row Grouping Extension</a> uses categorization based on column field. Each group will have arrow button for expansion and collapsing of its members. </p>
             <p>For contributions, check out the <a href="https://git.sami.int.thomsonreuters.com/tr-grid/tr-grid-row-grouping" target="_blank">Row Grouping Extension repository</a>.</p>
 
-            <div class="pandora-code-viewer" id="pid-31">
+            <div class="pandora-code-viewer" id="pid-35">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -303,14 +304,14 @@ grid.config = configObj;</pre>
             <p>To group your data together, You can specify <code>groupBy</code> option under <code>rowGrouping</code>. The value can be either a string or an array of column field. If input as an array, the Grid will display as a nested group.</p>
             <p>By default, there will be an extra row display as a header of each group.</p>
             <pre><code><span class="hljs-keyword">var</span> config = {
-  <span class="hljs-comment">// any other grid&apos;s options</span>
-  <span class="hljs-attr">columns</span>: [{
-    { <span class="hljs-attr">id</span>: <span class="hljs-string">&apos;c1&apos;</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Column 1&apos;</span>, <span class="hljs-attr">field</span>: <span class="hljs-string">&apos;col1&apos;</span> },
-    <span class="hljs-comment">// more column options</span>
-  }],
-  <span class="hljs-attr">rowGrouping</span>: {
-    <span class="hljs-attr">groupBy</span>: <span class="hljs-string">&apos;col1&apos;</span> <span class="hljs-comment">// Or [&apos;col2&apos;, &apos;col3&apos;, ...]</span>
-  },
+    <span class="hljs-comment">// any other grid&apos;s options</span>
+    <span class="hljs-attr">columns</span>: [{
+        { <span class="hljs-attr">id</span>: <span class="hljs-string">&apos;c1&apos;</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Column 1&apos;</span>, <span class="hljs-attr">field</span>: <span class="hljs-string">&apos;col1&apos;</span> },
+        <span class="hljs-comment">// more column options</span>
+    }],
+    <span class="hljs-attr">rowGrouping</span>: {
+        <span class="hljs-attr">groupBy</span>: <span class="hljs-string">&apos;col1&apos;</span> <span class="hljs-comment">// Or [&apos;col2&apos;, &apos;col3&apos;, ...]</span>
+    },
 };</code></pre>
             <h3 id="data-sorting">Data sorting</h3>
             <p>This extension can work with the <a href="../sorting/sorting.html">Sorting Extension</a> out-of-the-box. But only the data within the group will be sorted, not the columns which are grouped.</p>
@@ -318,7 +319,7 @@ grid.config = configObj;</pre>
               <p>Note: Try clicking on column header</p>
             </blockquote>
 
-            <div class="pandora-code-viewer" id="pid-32">
+            <div class="pandora-code-viewer" id="pid-36">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -409,19 +410,19 @@ grid.config = configObj;</pre>
             <h3 id="group-sorting">Group sorting</h3>
             <p>In some case you might want to prioritize some group over another. We provide a way to sort the group with <code>groupSortLogic</code> option. If so, you can sort a group using the <code>groupSortLogic</code> option. It receives the same compare function as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">Array.prototype.sort()</a>.</p>
             <pre><code><span class="hljs-keyword">var</span> config = {
-  <span class="hljs-comment">// any other grid&apos;s options</span>
-  <span class="hljs-attr">rowGrouping</span>: {
-    <span class="hljs-attr">groupSortLogic</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grp1, grp2</span>) </span>{ <span class="hljs-comment">// Sort in ascending order (A -&gt; Z)</span>
-      <span class="hljs-keyword">if</span>(grp1 &lt; grp2) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-      <span class="hljs-keyword">if</span>(grp1 &gt; grp2) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-      <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// any other grid&apos;s options</span>
+    <span class="hljs-attr">rowGrouping</span>: {
+        <span class="hljs-attr">groupSortLogic</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grp1, grp2</span>) </span>{ <span class="hljs-comment">// Sort in ascending order (A -&gt; Z)</span>
+            <span class="hljs-keyword">if</span>(grp1 &lt; grp2) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+            <span class="hljs-keyword">if</span>(grp1 &gt; grp2) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        },
+        <span class="hljs-attr">groupBy</span>: <span class="hljs-string">&apos;col1&apos;</span> <span class="hljs-comment">// Or [&apos;col2&apos;, &apos;col3&apos;, ...]</span>
     },
-    <span class="hljs-attr">groupBy</span>: <span class="hljs-string">&apos;col1&apos;</span> <span class="hljs-comment">// Or [&apos;col2&apos;, &apos;col3&apos;, ...]</span>
-  },
 };</code></pre>
             <p>You can now see that <code>DJI</code> has more priority over <code>HKEX</code>.</p>
 
-            <div class="pandora-code-viewer" id="pid-33">
+            <div class="pandora-code-viewer" id="pid-37">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -517,12 +518,12 @@ grid.config = configObj;</pre>
             <h3 id="nested-group">Nested group</h3>
             <p>This is achieved by setting <code>groupBy</code> options with array of fields.</p>
             <pre><code><span class="hljs-keyword">var</span> config = {
-  <span class="hljs-comment">// any other grid&apos;s options</span>
-  <span class="hljs-attr">rowGrouping</span>: {
-    <span class="hljs-attr">groupBy</span>: [<span class="hljs-string">&quot;group&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>]
-  },
+    <span class="hljs-comment">// any other grid&apos;s options</span>
+    <span class="hljs-attr">rowGrouping</span>: {
+        <span class="hljs-attr">groupBy</span>: [<span class="hljs-string">&quot;group&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>]
+    },
 };</code></pre>
-            <div class="pandora-code-viewer" id="pid-34">
+            <div class="pandora-code-viewer" id="pid-38">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -610,10 +611,152 @@ grid.config = configObj;</pre>
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
             </div>
+            <h3 id="rendering-group-header-rows">Rendering group header rows</h3>
+            <p>By default, group header rows are rendered by their group value. To override default rendering, you need to define <code>groupHeaderBinding</code> and <code>nonGroupBinding</code> methods in the configuration. <code>groupHeaderBinding</code> will be executed for every group header rows and is used for custom rendering. <code>nonGroupBinding</code> is used to cleared any special styles set in <code>groupHeaderBinding</code>, since the same cell are re-used for both group header rows and non-group header rows (content rows). </p>
+            <p>By default, group header rows are displayed as a single cell that spans across multiple columns. It works by stretching existing cells from the first column to fill entire grid&apos;s width. You can turn off cell spanning by setting <code>headerSpanning</code> to false in the configuration. The option can be useful, if you want to show some content, such as statistics, on group header rows for every column. You can also specify which cells to be stretched by setting <code>displayColumn</code> to other column (default is the first column).</p>
+
+            <div class="pandora-code-viewer" id="pid-39">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;emerald-grid id=&quot;grid&quot;&gt;
+
+&lt;/emerald-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">tr.DataGenerator.addFieldInfo(&quot;companyName&quot;, {
+  type: &quot;set&quot;,
+  members: [&quot;Kunze LLC&quot;, &quot;Rohan-Kohler&quot;]
+});
+tr.DataGenerator.addFieldInfo(&quot;industry&quot;, {
+  type: &quot;set&quot;,
+  members: [&quot;Chemicals&quot;, &quot;Auto&quot;, &quot;Finance&quot;, &quot;Electric&quot;, &quot;Biotechnology&quot;]
+});
+tr.DataGenerator.addFieldInfo(&quot;market&quot;, {
+  type: &quot;set&quot;,
+  members: [&quot;NASDAQ&quot;, &quot;DJI&quot;, &quot;NIKKEI&quot;]
+});
+var fields = [&quot;companyName&quot;, &quot;industry&quot;, &quot;CF_NETCHNG&quot;, &quot;integer&quot;, &quot;market&quot;];
+var records = tr.DataGenerator.generateRecords(fields, { seed: 1, numRows: 7 });
+
+function onGroupHeaderBinding(e) {
+  // Calculate Summation
+  var colCount = e.api.getColumnCount();
+  var fields = e.api.getColumnFields();
+  var rows = e.dataSource.getAllRowData();
+  var rowCount = rows.length;
+  var stats = [];
+  for (var c = 0; c &lt; colCount; ++c) {
+    var sum = 0;
+    var valid = false;
+    var field = fields[c];
+    for (var r = 0; r &lt; rowCount; ++r) {
+      var val = rows[r][field];
+      if (typeof val === &quot;number&quot;) {
+        sum += val;
+        valid = true;
+      }
+    }
+    if (valid) {
+      stats[c] = sum;
+    }
+  }
+
+  // Render cells
+  var section = e.section;
+  for (var c = 0; c &lt; colCount; ++c) {
+    var cell = section.getCell(c, e.rowIndex);
+    if (c === 0) {
+      cell.setContent(&quot;Group &quot; + e.groupId + &quot; (&quot; + rowCount + &quot;)&quot;);
+    } else {
+      cell.setContent(stats[c]);
+    }
+  }
+}
+
+var configObj = {
+  columnReorder: false,
+  rowHighlight: false,
+  rowSelection: true,
+  columnSelection: true,
+  sorting: {
+    sortableColumns: true,
+    initialSort: {
+      colIndex: 2,
+      order: &quot;d&quot;
+    }
+  },
+  rowGrouping: {
+    groupBy: fields[0],
+    headerSpanning: false,
+    groupHeaderBinding: onGroupHeaderBinding,
+    nonGroupBinding: function(e) {}
+  },
+  columns: [
+    { title: &quot;Company&quot;, field: fields[0] },
+    { title: &quot;Industry&quot;, field: fields[1] },
+    { title: &quot;Net. Chng&quot;, field: fields[2], alignment: &quot;center&quot; },
+    { title: &quot;Integer&quot;, field: fields[3], alignment: &quot;right&quot; },
+    { title: &quot;Market&quot;, field: fields[4] },
+  ],
+  dataModel: {
+    data: records
+  },
+  extensions: [
+    new tr.RowGroupingExtension()
+  ]
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css">emerald-grid {
+  height: 225px;
+}</pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
             <h3 id="null-undefined-group-hiding">Null/undefined group hiding</h3>
             <p>In many cases, a group of data might contain an <code>undefined</code> or <code>null</code> value. This may display an unexpected grouped title.</p>
 
-            <div class="pandora-code-viewer" id="pid-35">
+            <div class="pandora-code-viewer" id="pid-40">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -707,12 +850,12 @@ grid.config = configObj;</pre>
             </div>
             <p>Turn on an <code>autoGroupHiding</code> option to hide all the group header that display as <code>null</code> or <code>undefined</code>. The rows of data that are in a <code>null</code> group will still show and are distinct from the group above them by different indentation. </p>
             <pre><code><span class="hljs-keyword">var</span> config = {
-  <span class="hljs-comment">// any other grid&apos;s options</span>
-  <span class="hljs-attr">rowGrouping</span>: {
-    <span class="hljs-attr">autoGroupHiding</span>: <span class="hljs-literal">true</span>
-  },
+    <span class="hljs-comment">// any other grid&apos;s options</span>
+    <span class="hljs-attr">rowGrouping</span>: {
+        <span class="hljs-attr">autoGroupHiding</span>: <span class="hljs-literal">true</span>
+    },
 };</code></pre>
-            <div class="pandora-code-viewer" id="pid-36">
+            <div class="pandora-code-viewer" id="pid-41">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -808,7 +951,7 @@ grid.config = configObj;</pre>
             <h3 id="rows-in-multiple-groups">Rows in multiple groups</h3>
             <p>In the case that data used for grouping is an array, the data row will be added to multiple groups according to the array&apos;s member. See the following example for an illustration.</p>
 
-            <div class="pandora-code-viewer" id="pid-37">
+            <div class="pandora-code-viewer" id="pid-42">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -906,13 +1049,13 @@ grid.config = configObj;</pre>
               <p>Note: This mode currently supports at most 2 levels of grouping.</p>
             </blockquote>
             <pre><code><span class="hljs-keyword">var</span> config = {
-  <span class="hljs-comment">// any other grid&apos;s options</span>
-  <span class="hljs-attr">rowGrouping</span>: {
-    <span class="hljs-attr">contentAsHeader</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">groupBy</span>: [<span class="hljs-string">&apos;col1&apos;</span>, <span class="hljs-string">&apos;col2&apos;</span>] <span class="hljs-comment">// Support at most 2 level grouping if contentAsHeader is enabled.</span>
-  },
+    <span class="hljs-comment">// any other grid&apos;s options</span>
+    <span class="hljs-attr">rowGrouping</span>: {
+        <span class="hljs-attr">contentAsHeader</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">groupBy</span>: [<span class="hljs-string">&apos;col1&apos;</span>, <span class="hljs-string">&apos;col2&apos;</span>] <span class="hljs-comment">// Support at most 2 level grouping if contentAsHeader is enabled.</span>
+    },
 };</code></pre>
-            <div class="pandora-code-viewer" id="pid-38">
+            <div class="pandora-code-viewer" id="pid-43">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>

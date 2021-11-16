@@ -23,7 +23,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print>
-        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+        <pandora-nav id="054b08f0-a736-46cc-a7bd-42269a3371a3">
           <ul>
             <li selected><a href="index.html">Overview</a></li>
             <li parent id="cid-0" collapsible collapsed>
@@ -32,6 +32,7 @@
                 <li><a href="general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="general_concept/initializing-data.html">Initializing Data</a></li>
                 <li><a href="general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="general_concept/typescript.html">Adding TypeScript</a></li>
                 <li><a href="general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
@@ -206,7 +207,132 @@
       <div class="main">
         <div class="reader">
           <pandora-page>
-            <h1 id="tbd">TBD</h1>
+            <h1 id="grid">Grid</h1>
+            <p>Grid has been created mainly to handle a large number of rows. It achieves high performance by utilizing a <strong>row virtualization</strong> technique, and all of the display logics and layouts are calculated programmatically. So, it lacks the flexibility of managing the layout when compared to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">native table</a>. Grid can be viewed to have 3 layers of controls. The outer layer is EFX Grid, which provides high level configuration through HTML properties and attributes. The middle layer is API instance, which provides most runtime interactions through JavaScript methods. The inner layer is Core Grid, which provides internal interaction with UI elements. </p>
+            <h2 id="efx-grid">EFX Grid</h2>
+            <p>EFX Grid is a <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements" target="_blank">custom element</a>, providing simple ways to display and manipulate data in table layout. All HTML native properties and events are available in EFX Grid. It can be easily created by just writing the tag and setting the configuration as shown below:</p>
+            <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">efx-grid</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">efx-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">var</span> grid = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&quot;efx-grid&quot;</span>)[<span class="hljs-number">0</span>];
+        grid.config = {
+            <span class="hljs-comment">/* See the API Doc for all available options */</span>
+        };
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+            <blockquote>
+              <p>For more available properties in EFX Grid element, see <a href="./data/columns-and-data.html">this page</a>.</p>
+            </blockquote>
+            <h2 id="grid-apis">Grid APIs</h2>
+            <p><code>api</code> property from the grid element represents JavaScript-based Grid instance. The <code>api</code> property is an access point for all Grid APIs and for making change at runtime. The <code>api</code> property will be available only after the <code>config</code> is set and initialized. Put the code inside <code>whenDefined</code> callback, if you want to access the <code>api</code> property after the initialization process as shown below:</p>
+            <pre><code><span class="hljs-keyword">var</span> grid = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&quot;efx-grid&quot;</span>)[<span class="hljs-number">0</span>];
+grid.config = {
+    <span class="hljs-attr">whenDefined</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;config is set and applied&quot;</span>);
+        <span class="hljs-keyword">var</span> element = e.element;
+        <span class="hljs-keyword">var</span> dv = e.api.getDataView();
+    }
+};
+<span class="hljs-built_in">console</span>.log(grid.api); <span class="hljs-comment">// api instance will not be available immediately after configuration is set.</span></code></pre>
+            <blockquote>
+              <p>The document for the API instance can be found in the <a href="./apis/rt_grid/Grid.html">Grid APIs page</a>.</p>
+            </blockquote>
+            <h2 id="core-grid">Core Grid</h2>
+            <p>As Grid grows in complexity, Core Grid is created to maintain and manage UIs for table and data display. It contains mostly low-level APIs. Any advanced features and user interactions have been moved out to the API instance and Grid extensions. In some specific cases, you may want to access Core Grid, such as managing scrollbars. To get Core Grid instance, use <code>getCoreGrid()</code> method from the <code>api</code> property as shown below:</p>
+            <pre><code><span class="hljs-keyword">var</span> grid = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&quot;efx-grid&quot;</span>)[<span class="hljs-number">0</span>];
+grid.config = {
+    <span class="hljs-attr">whenDefined</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> core = e.api.getCoreGrid();
+        <span class="hljs-keyword">var</span> section = core.getSection(<span class="hljs-string">&quot;content&quot;</span>);
+    }
+};</code></pre>
+            <blockquote>
+              <p>The document for the Core Grid can be found in the <a href="./apis/composite_grid/tr.Grid.html">Core APIs page</a>.</p>
+            </blockquote>
+            <h2 id="example">Example</h2>
+
+            <div class="pandora-code-viewer" id="pid-0">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;atlas-blotter id=&quot;grid&quot;&gt;
+
+&lt;/atlas-blotter&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;industry&quot;];
+var records = tr.DataGenerator.generateRecords(fields, { numRows: 200 });
+var configObj = {
+  freezeColumn: 0,
+  rowHighlight: true,
+  columns: [
+    { title: &quot;Company&quot;, field: fields[0], width: 300 },
+    { title: &quot;Market&quot;, field: fields[1], width: 150 },
+    { title: &quot;Last&quot;, field: fields[2], width: 120 },
+    {
+      title: &quot;Pct. Chng&quot;,
+      field: fields[3],
+      width: 200,
+      formatter: tr.PercentBarFormatter.create({
+        textHidden: true
+      })
+    },
+    { title: &quot;Industry&quot;, field: fields[4], width: 250 }
+  ],
+  staticDataRows: records
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css">atlas-blotter {
+  height: 300px;
+}</pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="node_modules/@grid/formatters/dist/formatters.js" type="script">
+            </div>
+            <blockquote>
+              <p>The font &#x201C;Proxima Nova Fin&#x201D; shall only be used within Refinitiv products or services. The copyright owner must approve any use of such font outside of Refinitiv products or services, which may be subject to a fee. Please see <a href="https://www.fontspring.com/lic/fontspring/webfont#license_text" target="_blank">the license here</a>.</p>
+            </blockquote>
           </pandora-page>
           <div class="results"></div>
         </div>

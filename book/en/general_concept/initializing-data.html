@@ -23,7 +23,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print>
-        <pandora-nav id="fd8c1120-cc1c-4b8a-83d7-4bd4ddd7afd4">
+        <pandora-nav id="054b08f0-a736-46cc-a7bd-42269a3371a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent id="cid-0" collapsible collapsed>
@@ -32,6 +32,7 @@
                 <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li selected><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
                 <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
+                <li><a href="../general_concept/typescript.html">Adding TypeScript</a></li>
                 <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
@@ -206,7 +207,187 @@
       <div class="main">
         <div class="reader">
           <pandora-page>
-            <h2 id="tbd">TBD</h2>
+            <h1 id="initializing-data">Initializing data</h1>
+            <p>Grid accepts various data formats for initializing data. Note that Grid has its own internal data structure and its own data table for performing various kinds of data transformations and operations. The formats are ways to help you initially pass the data to Grid&apos;s internal data table. </p>
+            <p>Once the data is passed through the grid, the data in the configuration object will no longer have an effect on Grid&apos;s internal data. Do not try to modify the data from the configuration once the data applied. There is no two-way binding or property observer in the native JSON object. To modify and access the data, you must use Grid&apos;s APIs. This provides better overall performance for data manipulation. </p>
+            <p>Data in Grid can be initialized in <code>rows</code> or <code>arrays</code> format. Data will be defined through <code>staticDataRows</code> property. Grid will automatically detect the types from the given data.</p>
+            <h2 id="data-format-rows">Data format &#x2013; rows</h2>
+            <p>The <code>rows</code> format is an array of an object map. This is a data structure recommended for general use cases. The data object can contain any number of fields. <code>Fields</code> are not required for this format.</p>
+            <pre><code><span class="hljs-keyword">var</span> configObj = {
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-attr">staticDataRows</span>: [
+        {<span class="hljs-string">&quot;Field 1&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;Field 2&quot;</span>: <span class="hljs-number">2</span>}, <span class="hljs-comment">// First row</span>
+        {<span class="hljs-string">&quot;Field 1&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&quot;Field 2&quot;</span>: <span class="hljs-number">4</span>}, <span class="hljs-comment">// Second row</span>
+        <span class="hljs-comment">//...</span>
+    ],
+    <span class="hljs-comment">//...</span>
+};</code></pre>
+            <h2 id="array-of-object-example">Array of object example</h2>
+
+            <div class="pandora-code-viewer" id="pid-2">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;atlas-blotter&gt;&lt;/atlas-blotter&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var fields = [&quot;f1&quot;, &quot;f2&quot;, &quot;f3&quot;, &quot;f4&quot;];
+var configObj = {
+  columns: [
+    { title: &quot;Column 1&quot;, field: fields[0] },
+    { title: &quot;Column 2&quot;, field: fields[1] },
+    { title: &quot;Column 3&quot;, field: fields[2] },
+    { title: &quot;Column 4&quot;, field: fields[3] }
+  ],
+  staticDataRows: [
+    { f1: 1, f2: 2, f3: 3, f4: &quot;Some String&quot; },
+    { f1: 1, f4: &quot;Some String&quot; }, // There is no need to have the same field each row
+    { f1: 1, f2: 2, f3: 3, f4: &quot;Some String&quot;, f5: &quot;Extra Field Can be Added&quot; },
+    { f1: 1, f2: 2, f3: 3, f4: &quot;Some String&quot; },
+    { f1: 1, f2: 2, f3: 3, f4: &quot;Some String&quot; },
+    { f1: 1, f2: 2, f3: 3, f4: &quot;Some String&quot; }
+  ]
+};
+var grid = document.getElementsByTagName(&quot;atlas-blotter&quot;)[0];
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css"></pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
+            <h2 id="data-format-array">Data format &#x2013; array</h2>
+            <p>Use the <code>array</code> format if you want to specify the initial data in a two-dimensional array format. This format is the shortest way to write, and makes it easier to populate the data from the code. Grid will map the data to the the <code>field</code> property of the column configuration objects with order corresponding to the column order.</p>
+            <pre><code><span class="hljs-keyword">var</span> configObj2 = {
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-attr">columns</span>: [
+        { <span class="hljs-attr">field</span>: <span class="hljs-string">&quot;Field 1&quot;</span> },
+        { <span class="hljs-attr">field</span>: <span class="hljs-string">&quot;Field 2&quot;</span> },
+        <span class="hljs-comment">// ...</span>
+    ],
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-attr">staticDataRows</span>: [
+        [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-comment">// Fields will be taken from column configuration</span>
+        [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+        <span class="hljs-comment">//...</span>
+    ],
+    <span class="hljs-comment">//...</span>
+};</code></pre>
+            <h2 id="2d-data-example">2D data example</h2>
+
+            <div class="pandora-code-viewer" id="pid-3">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;atlas-blotter&gt;&lt;/atlas-blotter&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var fields = [&quot;f1&quot;, &quot;f2&quot;, &quot;f3&quot;, &quot;f4&quot;];
+var configObj = {
+  columns: [
+    { title: &quot;Column 1&quot;, field: fields[0] },
+    { title: &quot;Column 2&quot;, field: fields[1] },
+    { title: &quot;Column 3&quot;, field: fields[2] },
+    { title: &quot;Column 4&quot;, field: fields[3] }
+  ],
+  staticDataRows: [
+    [1, 2, 3, &quot;Some String&quot;],
+    [1, 2, 3, &quot;Some String&quot;],
+    [1, 2, 3, &quot;Some String&quot;],
+    [1, 2, 3, &quot;Some String&quot;],
+    [1, 2, 3, &quot;Some String&quot;]
+  ]
+};
+var grid = document.getElementsByTagName(&quot;atlas-blotter&quot;)[0];
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css"></pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-util/dist/mock-jet.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
+            <h1 id="initializing-data-for-real-time-rows">Initializing data for real-time rows</h1>
+            <p>Static data can also be defined in <code>values</code> property in the row configuration object. This is useful when we want to merge real-time data with the static data. </p>
+            <pre><code><span class="hljs-keyword">var</span> configObj = {
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-attr">rows</span>: [
+        { <span class="hljs-attr">ric</span>: <span class="hljs-string">&quot;ABC&quot;</span>, <span class="hljs-attr">values</span>: {<span class="hljs-string">&quot;Field 1&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;Field 2&quot;</span>: <span class="hljs-number">2</span>}},
+        { <span class="hljs-attr">ric</span>: <span class="hljs-string">&quot;ABC&quot;</span>, <span class="hljs-attr">values</span>: {<span class="hljs-string">&quot;Field 1&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&quot;Field 2&quot;</span>: <span class="hljs-number">4</span>}},
+    ],
+    <span class="hljs-comment">//...</span>
+};</code></pre>
           </pandora-page>
           <div class="results"></div>
         </div>
