@@ -23,7 +23,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print>
-        <pandora-nav id="fa6f905c-9db9-44bd-811a-4a794786b2d4">
+        <pandora-nav id="423cf427-74cb-4434-88f3-1d10c6a532fa">
           <ul>
             <li selected><a href="index.html">Overview</a></li>
             <li parent id="cid-0" collapsible collapsed>
@@ -273,11 +273,11 @@ grid.config = {
                   </ul>
                 </div>
                 <div class="pandora-tab-container">
-                  <pre class="pandora-tab-view tab-html">&lt;atlas-blotter id=&quot;grid&quot;&gt;
+                  <pre class="pandora-tab-view tab-html">&lt;efx-grid id=&quot;grid&quot;&gt;
 
-&lt;/atlas-blotter&gt;</pre>
-                  <pre class="pandora-tab-view tab-js">var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;industry&quot;];
-var records = tr.DataGenerator.generateRecords(fields, { numRows: 200 });
+&lt;/efx-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;date1&quot;, &quot;industry&quot;];
+var records = DataGenerator.generateRecords(fields, { numRows: 200 });
 var configObj = {
   freezeColumn: 0,
   rowHighlight: true,
@@ -289,24 +289,26 @@ var configObj = {
       title: &quot;Pct. Chng&quot;,
       field: fields[3],
       width: 200,
-      formatter: tr.PercentBarFormatter.create({
+      formatter: PercentBarFormatter.create({
         textHidden: true
       })
     },
-    { title: &quot;Industry&quot;, field: fields[4], width: 250 }
+    { title: &quot;IPO Date&quot;, field: fields[4], width: 180, alignment: &quot;center&quot;, formatType: &quot;dateTime&quot; },
+    { title: &quot;Industry&quot;, field: fields[5], width: 250 }
   ],
-  staticDataRows: records
+  staticDataRows: records,
+  extensions: [new TextFormattingExtension()]
 };
 
 var grid = document.getElementById(&quot;grid&quot;);
 grid.config = configObj;</pre>
-                  <pre class="pandora-tab-view tab-css">atlas-blotter {
+                  <pre class="pandora-tab-view tab-css">efx-grid {
   height: 300px;
 }</pre>
                   <div class="pandora-console"></div>
                 </div>
               </div>
-              <link rel="prefetch" href="node_modules/tr-grid-test-resource-v4/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -335,12 +337,9 @@ grid.config = configObj;</pre>
               <link rel="prefetch" href="node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="node_modules/tr-grid-util/dist/mock-jet.js" type="script">
-              <link rel="prefetch" href="node_modules/@grid/formatters/dist/formatters.js" type="script">
             </div>
-            <blockquote>
-              <p>The font &#x201C;Proxima Nova Fin&#x201D; shall only be used within Refinitiv products or services. The copyright owner must approve any use of such font outside of Refinitiv products or services, which may be subject to a fee. Please see <a href="https://www.fontspring.com/lic/fontspring/webfont#license_text" target="_blank">the license here</a>.</p>
-            </blockquote>
+            <h2 id="license-for-the-halo-theme">License for the Halo Theme</h2>
+            <p>The font &#x201C;Proxima Nova Fin&#x201D; shall only be used within Refinitiv products or services. The copyright owner must approve any use of such font outside of Refinitiv products or services, which may be subject to a fee. Please see <a href="https://www.fontspring.com/lic/fontspring/webfont#license_text" target="_blank">the license here</a>.</p>
           </pandora-page>
           <div class="results"></div>
         </div>
