@@ -1,11 +1,17 @@
-<!doctype html>
-<html pandora>
+<!DOCTYPE html>
+<html pandora="">
 
-<head>
-  <title>tr.DataView</title>
+<head><style id="linkStyle">
+    .link-icon {
+      width: 18px;
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgpMwidZAAAFl0lEQVRIDaVWWUxcVRhmWIYBhplh35dh34ct7EUEggIGA5EoAdrGB1ISH+aJwIvlpYY0GpSCDQ0IkphWX4iJiTEmLWqssW0UDCY+kFRTjQlLYmIVhkGu33e453KnTFOWk9w5//mX851/Of8Zg8/ZhgHmfvj2uE11dfULGxsbr7hcLofZbA53u907oNciIyO/cDgcN+fn5/+CGm34nXrQOIDWQ0NDoXl5eXPh4eEKlke+oKAgJS0t7aeGhoYq6mOcGpiGRu4wOjpqKywsXAKpAVosFndMTMwmPH3s7+9P/n+Ux8fH/1NfX18D+lTI0tNdgi4uLn62srJSi722Q0NDgyIiIr4G8AeKojz09fW17O7udmxtbV1YX1/fh44pNTX1Z4A/R/CTDM3T8fFxG/L2LYzp0bbJZFJSUlJueNuspqbmIiLggmwfh1OKioqc3vSexvMALS4u1kCDg4OVhISE93WGFnhmCgsLs0peVlbWpJ+fn0iH3W7/VPKPM/tTiZ4C9C5I4WlISAhBp+QG8CZE0pyR51DOpaWlL8bGxv4LUsEhfiXvOINXxsfpdNpKSko0UHqamJg4KTcAHSRpOdNz0lVVVbVIBa8TQ80DPHP4UgOF5I8r8zlI4SmvCICuSWsdKFOiH2YucOAeeM/7rmRnZ6/oFbzRApQChMoZGBiohTcpKUkLL8Sm7u5uERX9Jvqw4x5/CZnIcXJy8rxezxstgAcGBqxQXqMhPc3IyPjEmzJ4og4okyEmjRBP2mw2AYrrpiDsXeQ/bWghq6ioOGe1WoVhdHT0ZmdnZxaNmpqaYgoKCq7Am8Xm5uZcdSMjOpR2AFyjcRkpyJXc3Nybqp7nVFZWxjYYiI9FIcJXXl5+nvcUayUuLu4bzGIgb+fRLAQfV+SH/v7+aFUk7FDtbzNC4O3gU9DhvhscHAxTdQ4nhJCARwYOc0ECo+3dlgo4UFtUVJQAZoXn5+drxYYCep1XDbpsHKzk71Ggkaqt6PGClqDDw8NhMJpCCEdUJR8At6ib0OPf+/r64qQM3etN1SvKHiH8Ig2IxiDzCT0F9/6rkZGRKNXGiPkgjRKUzQGAD6jMnML4EpUbGxtT4Okf5PMAOP175HN0dXXFocJF4SHs2/C6h/ze3l4LDnUJV/AtFKfmKXr4AagsBBV0GTY85V5AQABPehG0GKCvgKDsb1SoC2F+jQLYmwHMKueh9gEs+7BWnNTDYN41nu/S0tIeYm+emZm5s7q66oBwB6B+qMary8vL81iLfKCyr+bk5PyItRmPuxGvjigk0uDJKoZDCl8hDtGxDkgBSj4PfjgQjkWsyNwxGAzM1TtSqjYGcdL29vY06H6E73JHR4fowa2trenQ/5P2+CPwGJF5WbVl+zR4ayxCjlC9hL8pBN1lkaSnp7+rGnKSnhBYC5NO7oMofIh3l/YKHoFfenp6YijXNxC9vkZDQXrLjrQkBTL3co35CDA60oR6zdxsEijMy6r+YeXqNvAg7Xb7IzAU3kPZynQN30NXbS6CR1Cj0UhPt2mPK3hbVqxez2MD/QI9WCSdjQA5LKDMi7cevCdB0ZHujY2NWWmLqqa3zx4A3oSWwtZXW1t7jhZPnlh/EC+g9ycmJiy0OzYolQHM3iuKA9V6nTwMMzchoD7sSMs13m/IRXjh6f3Z2VlR3bIJCevj/KARONWqdLFboeW96s0uMzPzuqonQR9MTU2JR/7EoARAmALxrP0Gkp7sERze3qisrHweTcPBDoWN76rVK14ZttUzgRKYo62trRzvrAg3luI1YU9m3uWrBL4bHw91b2FhQfyhO5Wn2EQO8Xa2tLSU4U4/lH9BIZQHETP/DwP01tzcnGiFrAG5wVlmAT49PR2A/1ZvoOnf4ROHFGyhZ6/hjn5cV1fXLAH0VS55J53/B87f0CGEUoUIAAAAAElFTkSuQmCC');
+      margin-left: -26px;
+    }
+  </style>
+  <title>DataView</title>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="x-pandora-base" content="../../">
-  <meta name="x-pandora-location" content="apis/composite_grid/tr.DataView.html">
+  <meta name="x-pandora-location" content="apis/core/DataView.html">
   <link rel="stylesheet" href="../../../../resources/styles/book.css">
   <script defer src="../../../../resources/scripts/book.js"></script>
   <script defer src="../../search.index.js"></script>
@@ -14,7 +20,7 @@
 
 <body>
   <pandora-book>
-    <div class="header" no-print>
+    <div class="header" no-print="">
       <div class="book-icon" style="background-image:url(&quot;../../resources/images/icon.png&quot;)"></div>
       <h1><a href="../../index.html">Grid Usage Guide</a></h1>
       <div class="search">
@@ -22,12 +28,12 @@
       </div>
     </div>
     <div class="content">
-      <div class="sidebar" no-print>
-        <pandora-nav id="423cf427-74cb-4434-88f3-1d10c6a532fa">
+      <div class="sidebar" no-print="">
+        <pandora-nav id="1b0c0ddd-a6a6-4ba3-b0c4-46892fc9ae75">
           <ul>
             <li><a href="../../index.html">Overview</a></li>
-            <li parent id="cid-0" collapsible collapsed>
-              <div collapser>General Concept</div>
+            <li parent="" id="cid-0" collapsible="" collapsed="">
+              <div collapser="">General Concept</div>
               <ul>
                 <li><a href="../../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../../general_concept/initializing-data.html">Initializing Data</a></li>
@@ -36,45 +42,46 @@
                 <li><a href="../../general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
-            <li parent id="cid-1" collapsible collapsed>
-              <div collapser>Showcases</div>
+            <li parent="" id="cid-1" collapsible="" collapsed="">
+              <div collapser="">Showcases</div>
               <ul>
                 <li><a href="../../showcases/comprehensive.html">Comprehensive</a></li>
               </ul>
             </li>
-            <li parent id="cid-4" collapsible collapsed>
-              <div collapser>APIs</div>
+            <li parent="" id="cid-4" collapsible="" collapsed="">
+              <div collapser="">APIs</div>
               <ul>
                 <li><a href="../../apis/README.html">Overview</a></li>
-                <li parent id="cid-2" collapsible collapsed>
-                  <div collapser>Composite Grid (Emerald Grid)</div>
+                <li parent="" id="cid-2" collapsible="" collapsed="">
+                  <div collapser="">Core</div>
                   <ul>
-                    <li><a href="../../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
-                    <li><a href="../../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
-                    <li selected><a href="../../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
-                    <li><a href="../../apis/composite_grid/tr.Event.html">tr.Event</a></li>
-                    <li><a href="../../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
-                    <li><a href="../../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                    <li><a href="../../apis/core/Cell.html">Cell</a></li>
+                    <li><a href="../../apis/core/CellSpans.html">CellSpans</a></li>
+                    <li><a href="../../apis/core/ColumnStats.html">ColumnStats</a></li>
+                    <li><a href="../../apis/core/DataCache.html">DataCache</a></li>
+                    <li><a href="../../apis/core/DataTable.html">DataTable</a></li>
+                    <li selected><a href="../../apis/core/DataView.html">DataView</a></li>
+                    <li><a href="../../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
+                    <li><a href="../../apis/core/ElementControl.html">ElementControl</a></li>
+                    <li><a href="../../apis/core/ElementWrapper.html">ElementWrapper</a></li>
+                    <li><a href="../../apis/core/Event.html">Event</a></li>
+                    <li><a href="../../apis/core/EventDispatcher.html">EventDispatcher</a></li>
+                    <li><a href="../../apis/core/Grid.html">Grid</a></li>
+                    <li><a href="../../apis/core/HScrollbar.html">HScrollbar</a></li>
+                    <li><a href="../../apis/core/IElementControl.html">IElementControl</a></li>
+                    <li><a href="../../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
+                    <li><a href="../../apis/core/LayoutGrid.html">LayoutGrid</a></li>
+                    <li><a href="../../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/Scrollbar.html">Scrollbar</a></li>
+                    <li><a href="../../apis/core/SectionSettings.html">SectionSettings</a></li>
+                    <li><a href="../../apis/core/Segment.html">Segment</a></li>
+                    <li><a href="../../apis/core/SegmentCollection.html">SegmentCollection</a></li>
+                    <li><a href="../../apis/core/SortableTitlePlugin.html">SortableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/VScrollbar.html">VScrollbar</a></li>
                   </ul>
                 </li>
-                <li parent id="cid-3" collapsible collapsed>
-                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                <li parent="" id="cid-3" collapsible="" collapsed="">
+                  <div collapser="">Real-time Grid (EFX Grid)</div>
                   <ul>
                     <li><a href="../../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
                     <li><a href="../../apis/rt_grid/Grid.html">Grid</a></li>
@@ -83,8 +90,8 @@
                 </li>
               </ul>
             </li>
-            <li parent id="cid-5" collapsible collapsed>
-              <div collapser>Extensions</div>
+            <li parent="" id="cid-5" collapsible="" collapsed="">
+              <div collapser="">Extensions</div>
               <ul>
                 <li><a href="../../extensions/README.html">Overview</a></li>
                 <li><a href="../../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
@@ -117,20 +124,20 @@
                 <li><a href="../../extensions/zoom.html">Zoom</a></li>
               </ul>
             </li>
-            <li parent id="cid-6" collapsible collapsed>
-              <div collapser>Content Rendering</div>
+            <li parent="" id="cid-6" collapsible="" collapsed="">
+              <div collapser="">Content Rendering</div>
               <ul>
                 <li><a href="../../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
               </ul>
             </li>
-            <li parent id="cid-7" collapsible collapsed>
-              <div collapser>Data</div>
+            <li parent="" id="cid-7" collapsible="" collapsed="">
+              <div collapser="">Data</div>
               <ul>
                 <li><a href="../../data/columns-and-data.html">Resetting/Clearing Data</a></li>
               </ul>
             </li>
-            <li parent id="cid-8" collapsible collapsed>
-              <div collapser>Columns</div>
+            <li parent="" id="cid-8" collapsible="" collapsed="">
+              <div collapser="">Columns</div>
               <ul>
                 <li><a href="../../columns/column-resetting.html">Column Resetting</a></li>
                 <li><a href="../../columns/column-alignment.html">Column Alignment</a></li>
@@ -145,8 +152,8 @@
                 <li><a href="../../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-9" collapsible collapsed>
-              <div collapser>Rows</div>
+            <li parent="" id="cid-9" collapsible="" collapsed="">
+              <div collapser="">Rows</div>
               <ul>
                 <li><a href="../../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
                 <li><a href="../../rows/row-height.html">Row Height</a></li>
@@ -156,8 +163,8 @@
                 <li><a href="../../rows/row-grouping.html">Row Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-10" collapsible collapsed>
-              <div collapser>Scrollbars</div>
+            <li parent="" id="cid-10" collapsible="" collapsed="">
+              <div collapser="">Scrollbars</div>
               <ul>
                 <li><a href="../../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
                 <li><a href="../../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
@@ -168,8 +175,8 @@
                 <li><a href="../../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
               </ul>
             </li>
-            <li parent id="cid-11" collapsible collapsed>
-              <div collapser>Sorting</div>
+            <li parent="" id="cid-11" collapsible="" collapsed="">
+              <div collapser="">Sorting</div>
               <ul>
                 <li><a href="../../sorting/sorting.html">Basic Sorting</a></li>
                 <li><a href="../../sorting/default-sorting.html">Default Sort</a></li>
@@ -178,8 +185,8 @@
                 <li><a href="../../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
               </ul>
             </li>
-            <li parent id="cid-12" collapsible collapsed>
-              <div collapser>Filtering</div>
+            <li parent="" id="cid-12" collapsible="" collapsed="">
+              <div collapser="">Filtering</div>
               <ul>
                 <li><a href="../../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
                 <li><a href="../../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
@@ -187,23 +194,23 @@
                 <li><a href="../../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
               </ul>
             </li>
-            <li parent id="cid-13" collapsible collapsed>
-              <div collapser>Editing</div>
+            <li parent="" id="cid-13" collapsible="" collapsed="">
+              <div collapser="">Editing</div>
               <ul>
                 <li><a href="../../editing/in-cell-editor.html">In-Cell Editing</a></li>
                 <li><a href="../../editing/custom-editor.html">Custom Editor</a></li>
               </ul>
             </li>
-            <li parent id="cid-14" collapsible collapsed>
-              <div collapser>Widgets</div>
+            <li parent="" id="cid-14" collapsible="" collapsed="">
+              <div collapser="">Widgets</div>
               <ul>
                 <li><a href="../../widgets/column-format-dialog.html">Column Format Dialog</a></li>
                 <li><a href="../../widgets/column-selection-dialog.html">Column Selection Dialog</a></li>
                 <li><a href="../../widgets/filter-dialog.html">Filter Dialog</a></li>
               </ul>
             </li>
-            <li parent id="cid-15" collapsible collapsed>
-              <div collapser>Miscellaneous</div>
+            <li parent="" id="cid-15" collapsible="" collapsed="">
+              <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../../misc/core-apis.html">Using Core APIs</a></li>
                 <li><a href="../../misc/real-time-market-data.html">Realtime Market Data</a></li>
@@ -222,25 +229,25 @@
             <div id="main-template" class="elf-template">
               <section>
                 <header>
-                  <h1 class="subsection-title"><span class="attribs"></span>tr.DataView<span class="signature">(source)</span></h1>
+                  <h1 class="subsection-title"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/apis/core/DataView.html" target="_top" class="link-icon"></a> <span class="attribs"></span>DataView<span class="signature">(source)</span></h1>
                 </header>
                 <article>
                   <div class="container-overview">
                     <div class="item">
                       <div class="item-type">class</div>
                       <h4 class="name" id="DataView">new DataView<span class="signature">(source)</span></h4>
-                      <div class="description"> DataView doesn&apos;t hold the actual data. It is just a transform view (by applying filtering or sorting) of the data from the <a href="tr.DataTable.html">tr.DataTable</a> </div>
+                      <div class="description"> DataView doesn't hold the actual data. It is just a transform view (by applying filtering or sorting) of the data from the <a href="DataTable.html">DataTable</a> </div>
                       <h5>Parameters:</h5>
                       <div class="params">
                         <div class="param">
                           <div class="name">source</div>
-                          <div class="type"> <span class="param-type"><a href="tr.DataTable.html">tr.DataTable</a></span> | <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                          <div class="type"> <span class="param-type"><a href="DataTable.html">DataTable</a></span> | <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                         </div>
                       </div>
                       <div class="details"> <dt class="tag-see">See:</dt>
                         <dd class="tag-see">
                           <ul>
-                            <li><a href="tr.DataTable.html">tr.DataTable</a></li>
+                            <li><a href="DataTable.html">DataTable</a></li>
                           </ul>
                         </dd>
                       </div>
@@ -249,7 +256,7 @@
                   <h3 class="subsection-title">Extends</h3>
                   <dd class="argument-list">
                     <ul>
-                      <li><a href="tr.EventDispatcher.html">tr.EventDispatcher</a></li>
+                      <li><a href="EventDispatcher.html">EventDispatcher</a></li>
                     </ul>
                   </dd>
                   <h3 class="subsection-title">Methods</h3>
@@ -282,9 +289,9 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:groupAdded">tr.DataView#event:groupAdded</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:groupAdded">DataView#event:groupAdded</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -356,9 +363,9 @@
                     <h4 class="name" id="clearFilter">clearFilter<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -433,7 +440,7 @@
                     <h4 class="name" id="dispose">dispose<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:preDisposed">tr.DataView#event:preDisposed</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:preDisposed">DataView#event:preDisposed</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -446,13 +453,13 @@
                         <div class="name">opt_options</div>
                         <div class="type"> <span class="param-type">Object</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> <a href="tr.DataCache.html#dump">tr.DataCache#dump</a> </div>
+                        <div class="description"> <a href="DataCache.html#dump">DataCache#dump</a> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataCache.html#dump">tr.DataCache#dump</a></li>
+                          <li><a href="DataCache.html#dump">DataCache#dump</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -464,7 +471,7 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="enableAutoGroupHiding">enableAutoGroupHiding<span class="signature">(opt_bool<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Automatically hide null or undefined group header, while keeping the group&apos;s items intact. </div>
+                    <div class="description"> Automatically hide null or undefined group header, while keeping the group's items intact. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -521,8 +528,8 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ColumnStats.html">tr.ColumnStats</a></span> </div>
-                    <div class="sub-content-desc"> tr.ColumnStats Object</div>
+                    <div class="sub-content"> <span class="param-type"><a href="ColumnStats.html">ColumnStats</a></span> </div>
+                    <div class="sub-content-desc"> ColumnStats Object</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -615,16 +622,16 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change. Otherwise, return false.</div>
                     <h5>Example:</h5>
-                    <pre><code>dv.filterIn(&quot;FIELD&quot;, &quot;Some value&quot;);
+                    <pre><code>dv.filterIn("FIELD", "Some value");
 dv.filterIn(function(rowId, rowData)) { // This is equivalent with the above statement
-    return rowData[&quot;FIELD&quot;] === &quot;Some value&quot;;
+    return rowData["FIELD"] === "Some value";
 });</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -651,9 +658,9 @@ dv.filterIn(function(rowId, rowData)) { // This is equivalent with the above sta
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -675,16 +682,16 @@ dv.filterIn(function(rowId, rowData)) { // This is equivalent with the above sta
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change. Otherwise, return false.</div>
                     <h5>Example:</h5>
-                    <pre><code>dv.filterIn(&quot;FIELD&quot;, &quot;Some value&quot;);
+                    <pre><code>dv.filterIn("FIELD", "Some value");
 dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above statement
-    return rowData[&quot;FIELD&quot;] !== &quot;Some value&quot;;
+    return rowData["FIELD"] !== "Some value";
 });</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -706,9 +713,9 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -716,7 +723,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="description"> Goes to the first page </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change, otherwise false</div>
@@ -736,7 +743,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="tr.DataView.html">tr.DataView</a>&gt;</span> </div>
+                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="DataView.html">DataView</a>&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -771,8 +778,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataView.html#getAllRowData">tr.DataView#getAllRowData</a></li>
-                          <li><a href="tr.DataView.html#getMultipleRowData">tr.DataView#getMultipleRowData</a></li>
+                          <li><a href="DataView.html#getAllRowData">DataView#getAllRowData</a></li>
+                          <li><a href="DataView.html#getMultipleRowData">DataView#getMultipleRowData</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -805,11 +812,18 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="getColumnStats">getColumnStats<span class="signature">()</span></h4>
+                    <h4 class="name" id="getColumnStats">getColumnStats<span class="signature">(cid)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">cid</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                      </div>
+                    </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ColumnStats.html">tr.ColumnStats</a></span> </div>
-                    <div class="sub-content-desc"> tr.ColumnStats. Return null if the column has not been enabled</div>
+                    <div class="sub-content"> <span class="param-type"><a href="ColumnStats.html">ColumnStats</a></span> </div>
+                    <div class="sub-content-desc"> ColumnStats. Return null if the column has not been enabled</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -841,6 +855,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       </div>
                     </div>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">Object.&lt;string, *&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -857,6 +873,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       </div>
                     </div>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">Object.&lt;string, *&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -865,26 +883,26 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataView.html#getDataTable">tr.DataView#getDataTable</a></li>
+                          <li><a href="DataView.html#getDataTable">DataView#getDataTable</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataTable.html">tr.DataTable</a></span> | <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataTable.html">DataTable</a></span> | <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getDataTable">getDataTable<span class="signature">()</span></h4>
-                    <div class="description"> Returns the root data source (tr.DataTable) of all data views </div>
+                    <div class="description"> Returns the root data source (DataTable) of all data views </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataView.html#getDataSource">tr.DataView#getDataSource</a></li>
+                          <li><a href="DataView.html#getDataSource">DataView#getDataSource</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataTable.html">tr.DataTable</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataTable.html">DataTable</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -919,12 +937,12 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       <div class="param">
                         <div class="name">groupRef</div>
                         <div class="type"> <span class="param-type">number</span> | <span class="param-type">string</span> </div>
-                        <div class="description"> Either index or group id can be used to retrieve tr.DataView </div>
+                        <div class="description"> Either index or group id can be used to retrieve DataView </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -973,7 +991,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="description"> Contains header and footer row data </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataCache.html">tr.DataCache</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataCache.html">DataCache</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1021,7 +1039,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getPageIndex">getPageIndex<span class="signature">()</span></h4>
-                    <div class="description"> <a href="tr.DataView.html#getCurrentPage">tr.DataView#getCurrentPage</a> </div>
+                    <div class="description"> <a href="DataView.html#getCurrentPage">DataView#getCurrentPage</a> </div>
                     <div class="details"> </div>
                   </div>
                   <div class="item">
@@ -1047,6 +1065,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       </div>
                     </div>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">Object.&lt;string, *&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1089,7 +1109,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="item-type">function</div>
                     <h4 class="name" id="getRowExpansionId">getRowExpansionId<span class="signature">(rid, idx<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Get row Id of the row expansion by providing the row Id of the row with row expansion (not row expansion itself). This is NOT recommended for normal usage, since the row expansion contains no data in the tr.DataView </div>
+                    <div class="description"> Get row Id of the row expansion by providing the row Id of the row with row expansion (not row expansion itself). This is NOT recommended for normal usage, since the row expansion contains no data in the DataView </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1140,7 +1160,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataView.html#getRowIndex">tr.DataView#getRowIndex</a></li>
+                          <li><a href="DataView.html#getRowIndex">DataView#getRowIndex</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -1161,7 +1181,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.DataView.html#getRowId">tr.DataView#getRowId</a></li>
+                          <li><a href="DataView.html#getRowId">DataView#getRowId</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -1215,7 +1235,7 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getTotalPages">getTotalPages<span class="signature">()</span></h4>
-                    <div class="description"> <a href="tr.DataView.html#getTotalPages">tr.DataView#getTotalPages</a> </div>
+                    <div class="description"> <a href="DataView.html#getTotalPages">DataView#getTotalPages</a> </div>
                     <div class="details"> </div>
                   </div>
                   <div class="item">
@@ -1247,18 +1267,18 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="gotoPage">gotoPage<span class="signature">()</span></h4>
-                    <div class="description"> <a href="tr.DataView.html#setPage">tr.DataView#setPage</a> </div>
+                    <div class="description"> <a href="DataView.html#setPage">DataView#setPage</a> </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="groupBy">groupBy<span class="signature">(cid, opt_predefinedGroups<span class="signature-attributes">opt</span>)</span>
                     </h4>
                     <div class="description"> string|function(Object.
-                      <string, *>):string|null </string,>
+                      <string, *="">):string|null </string,>
                     </div>
                     <h5>Parameters:</h5>
                     <div class="params">
@@ -1276,10 +1296,10 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:groupAdded">tr.DataView#event:groupAdded</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:groupCriteriaChanged">tr.DataView#event:groupCriteriaChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:groupAdded">DataView#event:groupAdded</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:groupCriteriaChanged">DataView#event:groupCriteriaChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1333,6 +1353,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       </div>
                     </div>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1562,8 +1584,8 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                     <div class="description"> Goes to the last page </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change, otherwise false</div>
@@ -1594,11 +1616,11 @@ dv.filterOut(function(rowId, rowData)) { // This is equivalent with the above st
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.EventDispatcher.html#listen">tr.EventDispatcher#listen</a> </dd>
+                      <dd class="inherited-from"> <a href="EventDispatcher.html#listen">EventDispatcher#listen</a> </dd>
                     </div>
                     <h5>Example:</h5>
-                    <pre><code>var grid = new tr.Grid();
-grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&quot;); });</code></pre> </div>
+                    <pre><code>var grid = new Grid();
+grid.listen("click", function(e) { console.log("Grid is clicked"); });</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="log">log<span class="signature">(opt_options<span class="signature-attributes">opt</span>)</span>
@@ -1616,14 +1638,14 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                     <h5>Example:</h5>
                     <pre><code>// Options have the following format:
 // {
-//  &quot;colNames&quot;: Array.&lt;string&gt;,
-//  &quot;rowCount&quot;: number,
-//  &quot;startIndex&quot;: number,
-//  &quot;getter&quot;: function(Object, string):*,
-//  &quot;withRowIds&quot;: boolean
+//  "colNames": Array.&lt;string&gt;,
+//  "rowCount": number,
+//  "startIndex": number,
+//  "getter": function(Object, string):*,
+//  "withRowIds": boolean
 //}
-dv.log({&quot;rowCount&quot;: 10}); // Showing 10 records
-dv.log({&quot;getter&quot;: function(rowData, colName){
+dv.log({"rowCount": 10}); // Showing 10 records
+dv.log({"getter": function(rowData, colName){
     var complexData = rowData[colName];
     return complextData.someProperty;
 }});</code></pre> </div>
@@ -1674,8 +1696,8 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     <div class="description"> Goes to the next page. If current page is already the last page, nothing is performed </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change, otherwise false</div>
@@ -1686,8 +1708,8 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     <div class="description"> Goes back to the previous page. If current page is already the first page, nothing is performed </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change, otherwise false</div>
@@ -1695,11 +1717,11 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="prevPage">prevPage<span class="signature">()</span></h4>
-                    <div class="description"> <a href="tr.DataView.html#previousPage">tr.DataView#previousPage</a> </div>
+                    <div class="description"> <a href="DataView.html#previousPage">DataView#previousPage</a> </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1723,7 +1745,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="removeRow">removeRow<span class="signature">(rowRef)</span></h4>
-                    <div class="description"> Permanently remove the specified row by row id or DataView&apos;s row index. If you want to temporarily remove the row, use tr.DataView.hideRows instead </div>
+                    <div class="description"> Permanently remove the specified row by row id or DataView's row index. If you want to temporarily remove the row, use DataView.hideRows instead </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1733,7 +1755,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1751,7 +1773,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="removeRows">removeRows<span class="signature">(refs)</span></h4>
-                    <div class="description"> Permanently remove the specified rows by row id or DataView&apos;s row index. If you want to temporarily remove the rows, use tr.DataView.hideRows instead </div>
+                    <div class="description"> Permanently remove the specified rows by row id or DataView's row index. If you want to temporarily remove the rows, use DataView.hideRows instead </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1871,7 +1893,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     <div class="item-type">function</div>
                     <h4 class="name" id="setColumnData">setColumnData<span class="signature">(cid, valueList, opt_ridList<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Set data in a column manner. This is faster than repeatedly calling <a href="tr.DataTable.html#setData">tr.DataTable#setData</a>. </div>
+                    <div class="description"> Set data in a column manner. This is faster than repeatedly calling <a href="DataTable.html#setData">DataTable#setData</a> </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1896,7 +1918,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setColumnSortingLogic">setColumnSortingLogic<span class="signature">(cid, func)</span></h4>
-                    <div class="description"> Specified sorting logic for the column with the given column id. This will override logic set by <a href="tr.DataView.html#setSortingLogic">tr.DataView#setSortingLogic</a>, when the column is sorted </div>
+                    <div class="description"> Specified sorting logic for the column with the given column id. This will override logic set by <a href="DataView.html#setSortingLogic">DataView#setSortingLogic</a>, when the column is sorted </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1905,7 +1927,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                       </div>
                       <div class="param">
                         <div class="name">func</div>
-                        <div class="type"> <span class="param-type">tr.DataTable.SortLogic</span> </div>
+                        <div class="type"> <span class="param-type">DataTable.SortLogic</span> </div>
                         <div class="description"> Use null to remove current sorting logic </div>
                       </div>
                     </div>
@@ -1943,7 +1965,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change, and false otherwise</div>
@@ -1969,7 +1991,7 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change, and false otherwise</div>
@@ -1981,12 +2003,12 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     <div class="params">
                       <div class="param">
                         <div class="name">source</div>
-                        <div class="type"> <span class="param-type"><a href="tr.DataTable.html">tr.DataTable</a></span> | <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                        <div class="type"> <span class="param-type"><a href="DataTable.html">DataTable</a></span> | <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2001,8 +2023,8 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change, otherwise false</div>
@@ -2020,9 +2042,9 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageCountChanged">tr.DataView#event:pageCountChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:pageIndexChanged">tr.DataView#event:pageIndexChanged</a></div>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageCountChanged">DataView#event:pageCountChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:pageIndexChanged">DataView#event:pageIndexChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2038,10 +2060,10 @@ move(ary, 1, 0); // [1, 0, 2] Move index 1 to the position before index 0</code>
                     </div>
                     <div class="details"> </div>
                     <h5>Example:</h5>
-                    <pre><code>dv.setPredefinedGroups([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]); // Create empty three empty groups
+                    <pre><code>dv.setPredefinedGroups(["a", "b", "c"]); // Create empty three empty groups
 dv.setPredefinedGroups([ // Create two empty groups, and each group has 3 sub-groups
-  [&quot;Main Group 1&quot;, &quot;Main 2&quot;],
-  [&quot;Sub 1&quot;, &quot;Sub 2&quot;, &quot;Sub 3&quot;]
+  ["Main Group 1", "Main 2"],
+  ["Sub 1", "Sub 2", "Sub 3"]
 ]);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2067,7 +2089,7 @@ dv.setPredefinedGroups([ // Create two empty groups, and each group has 3 sub-gr
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change, and false otherwise</div>
@@ -2097,7 +2119,7 @@ dv.setPredefinedGroups([ // Create two empty groups, and each group has 3 sub-gr
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Return true if there is any change, and false otherwise</div>
@@ -2133,7 +2155,7 @@ dv.setPredefinedGroups([ // Create two empty groups, and each group has 3 sub-gr
                     <div class="params">
                       <div class="param">
                         <div class="name">func</div>
-                        <div class="type"> <span class="param-type">tr.DataTable.SortLogic</span> </div>
+                        <div class="type"> <span class="param-type">DataTable.SortLogic</span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
@@ -2144,7 +2166,7 @@ dv.setPredefinedGroups([ // Create two empty groups, and each group has 3 sub-gr
 var dt = new DataTable();
 var dv = new DataView(dt);
 dv.setSortingLogic(customLogic);
-dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
+dv.sort("Column id", "ascending");</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="showRows">showRows<span class="signature">(rowRefs, opt_show<span class="signature-attributes">opt</span>)</span>
@@ -2187,7 +2209,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2221,7 +2243,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.DataView.html#event:dataChanged">tr.DataView#event:dataChanged</a></div>
+                    <div class="sub-content"><a href="DataView.html#event:dataChanged">DataView#event:dataChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2326,7 +2348,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                       <div class="param">
                         <div class="name">type</div>
                         <div class="type"> <span class="param-type">string</span> </div>
-                        <div class="description"> The name of the event without the &apos;on&apos; prefix. </div>
+                        <div class="description"> The name of the event without the 'on' prefix. </div>
                       </div>
                       <div class="param">
                         <div class="name">handler</div>
@@ -2335,7 +2357,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.EventDispatcher.html#unlisten">tr.EventDispatcher#unlisten</a> </dd>
+                      <dd class="inherited-from"> <a href="EventDispatcher.html#unlisten">EventDispatcher#unlisten</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2353,7 +2375,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.EventDispatcher.html#unlistenAll">tr.EventDispatcher#unlistenAll</a> </dd>
+                      <dd class="inherited-from"> <a href="EventDispatcher.html#unlistenAll">EventDispatcher#unlistenAll</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2390,7 +2412,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                         <tbody>
                           <tr>
                             <td class="name"><code>dataView</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="DataView.html">DataView</a></span> </td>
                             <td class="description last">Parent data view that create the new group</td>
                           </tr>
                           <tr>
@@ -2436,7 +2458,7 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                           <tr>
                             <td class="name"><code>type</code></td>
                             <td class="type"> <span class="param-type">string</span> </td>
-                            <td class="description last">Type of changes. Possible values are &quot;inserted&quot;, &quot;removed&quot;, &quot;updated&quot;, and undefined</td>
+                            <td class="description last">Type of changes. Possible values are "inserted", "removed", "updated", and undefined</td>
                           </tr>
                           <tr>
                             <td class="name"><code>rid</code></td>
@@ -2469,12 +2491,12 @@ dv.sort(&quot;Column id&quot;, &quot;ascending&quot;);</code></pre> </div>
                         <tbody>
                           <tr>
                             <td class="name"><code>dataView</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="DataView.html">DataView</a></span> </td>
                             <td class="description last">Parent data view that create the new group</td>
                           </tr>
                           <tr>
                             <td class="name"><code>newGroup</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="DataView.html">DataView</a></span> </td>
                             <td class="description last">Child data view that is newly created</td>
                           </tr>
                         </tbody>

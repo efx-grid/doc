@@ -1,11 +1,17 @@
-<!doctype html>
-<html pandora>
+<!DOCTYPE html>
+<html pandora="">
 
-<head>
-  <title>tr.Grid</title>
+<head><style id="linkStyle">
+    .link-icon {
+      width: 18px;
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgpMwidZAAAFl0lEQVRIDaVWWUxcVRhmWIYBhplh35dh34ct7EUEggIGA5EoAdrGB1ISH+aJwIvlpYY0GpSCDQ0IkphWX4iJiTEmLWqssW0UDCY+kFRTjQlLYmIVhkGu33e453KnTFOWk9w5//mX851/Of8Zg8/ZhgHmfvj2uE11dfULGxsbr7hcLofZbA53u907oNciIyO/cDgcN+fn5/+CGm34nXrQOIDWQ0NDoXl5eXPh4eEKlke+oKAgJS0t7aeGhoYq6mOcGpiGRu4wOjpqKywsXAKpAVosFndMTMwmPH3s7+9P/n+Ux8fH/1NfX18D+lTI0tNdgi4uLn62srJSi722Q0NDgyIiIr4G8AeKojz09fW17O7udmxtbV1YX1/fh44pNTX1Z4A/R/CTDM3T8fFxG/L2LYzp0bbJZFJSUlJueNuspqbmIiLggmwfh1OKioqc3vSexvMALS4u1kCDg4OVhISE93WGFnhmCgsLs0peVlbWpJ+fn0iH3W7/VPKPM/tTiZ4C9C5I4WlISAhBp+QG8CZE0pyR51DOpaWlL8bGxv4LUsEhfiXvOINXxsfpdNpKSko0UHqamJg4KTcAHSRpOdNz0lVVVbVIBa8TQ80DPHP4UgOF5I8r8zlI4SmvCICuSWsdKFOiH2YucOAeeM/7rmRnZ6/oFbzRApQChMoZGBiohTcpKUkLL8Sm7u5uERX9Jvqw4x5/CZnIcXJy8rxezxstgAcGBqxQXqMhPc3IyPjEmzJ4og4okyEmjRBP2mw2AYrrpiDsXeQ/bWghq6ioOGe1WoVhdHT0ZmdnZxaNmpqaYgoKCq7Am8Xm5uZcdSMjOpR2AFyjcRkpyJXc3Nybqp7nVFZWxjYYiI9FIcJXXl5+nvcUayUuLu4bzGIgb+fRLAQfV+SH/v7+aFUk7FDtbzNC4O3gU9DhvhscHAxTdQ4nhJCARwYOc0ECo+3dlgo4UFtUVJQAZoXn5+drxYYCep1XDbpsHKzk71Ggkaqt6PGClqDDw8NhMJpCCEdUJR8At6ib0OPf+/r64qQM3etN1SvKHiH8Ig2IxiDzCT0F9/6rkZGRKNXGiPkgjRKUzQGAD6jMnML4EpUbGxtT4Okf5PMAOP175HN0dXXFocJF4SHs2/C6h/ze3l4LDnUJV/AtFKfmKXr4AagsBBV0GTY85V5AQABPehG0GKCvgKDsb1SoC2F+jQLYmwHMKueh9gEs+7BWnNTDYN41nu/S0tIeYm+emZm5s7q66oBwB6B+qMary8vL81iLfKCyr+bk5PyItRmPuxGvjigk0uDJKoZDCl8hDtGxDkgBSj4PfjgQjkWsyNwxGAzM1TtSqjYGcdL29vY06H6E73JHR4fowa2trenQ/5P2+CPwGJF5WbVl+zR4ayxCjlC9hL8pBN1lkaSnp7+rGnKSnhBYC5NO7oMofIh3l/YKHoFfenp6YijXNxC9vkZDQXrLjrQkBTL3co35CDA60oR6zdxsEijMy6r+YeXqNvAg7Xb7IzAU3kPZynQN30NXbS6CR1Cj0UhPt2mPK3hbVqxez2MD/QI9WCSdjQA5LKDMi7cevCdB0ZHujY2NWWmLqqa3zx4A3oSWwtZXW1t7jhZPnlh/EC+g9ycmJiy0OzYolQHM3iuKA9V6nTwMMzchoD7sSMs13m/IRXjh6f3Z2VlR3bIJCevj/KARONWqdLFboeW96s0uMzPzuqonQR9MTU2JR/7EoARAmALxrP0Gkp7sERze3qisrHweTcPBDoWN76rVK14ZttUzgRKYo62trRzvrAg3luI1YU9m3uWrBL4bHw91b2FhQfyhO5Wn2EQO8Xa2tLSU4U4/lH9BIZQHETP/DwP01tzcnGiFrAG5wVlmAT49PR2A/1ZvoOnf4ROHFGyhZ6/hjn5cV1fXLAH0VS55J53/B87f0CGEUoUIAAAAAElFTkSuQmCC');
+      margin-left: -26px;
+    }
+  </style>
+  <title>Grid</title>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="x-pandora-base" content="../../">
-  <meta name="x-pandora-location" content="apis/composite_grid/tr.Grid.html">
+  <meta name="x-pandora-location" content="apis/core/Grid.html">
   <link rel="stylesheet" href="../../../../resources/styles/book.css">
   <script defer src="../../../../resources/scripts/book.js"></script>
   <script defer src="../../search.index.js"></script>
@@ -14,7 +20,7 @@
 
 <body>
   <pandora-book>
-    <div class="header" no-print>
+    <div class="header" no-print="">
       <div class="book-icon" style="background-image:url(&quot;../../resources/images/icon.png&quot;)"></div>
       <h1><a href="../../index.html">Grid Usage Guide</a></h1>
       <div class="search">
@@ -22,12 +28,12 @@
       </div>
     </div>
     <div class="content">
-      <div class="sidebar" no-print>
-        <pandora-nav id="423cf427-74cb-4434-88f3-1d10c6a532fa">
+      <div class="sidebar" no-print="">
+        <pandora-nav id="1b0c0ddd-a6a6-4ba3-b0c4-46892fc9ae75">
           <ul>
             <li><a href="../../index.html">Overview</a></li>
-            <li parent id="cid-0" collapsible collapsed>
-              <div collapser>General Concept</div>
+            <li parent="" id="cid-0" collapsible="" collapsed="">
+              <div collapser="">General Concept</div>
               <ul>
                 <li><a href="../../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../../general_concept/initializing-data.html">Initializing Data</a></li>
@@ -36,45 +42,46 @@
                 <li><a href="../../general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
-            <li parent id="cid-1" collapsible collapsed>
-              <div collapser>Showcases</div>
+            <li parent="" id="cid-1" collapsible="" collapsed="">
+              <div collapser="">Showcases</div>
               <ul>
                 <li><a href="../../showcases/comprehensive.html">Comprehensive</a></li>
               </ul>
             </li>
-            <li parent id="cid-4" collapsible collapsed>
-              <div collapser>APIs</div>
+            <li parent="" id="cid-4" collapsible="" collapsed="">
+              <div collapser="">APIs</div>
               <ul>
                 <li><a href="../../apis/README.html">Overview</a></li>
-                <li parent id="cid-2" collapsible collapsed>
-                  <div collapser>Composite Grid (Emerald Grid)</div>
+                <li parent="" id="cid-2" collapsible="" collapsed="">
+                  <div collapser="">Core</div>
                   <ul>
-                    <li><a href="../../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
-                    <li><a href="../../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
-                    <li><a href="../../apis/composite_grid/tr.Event.html">tr.Event</a></li>
-                    <li><a href="../../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
-                    <li selected><a href="../../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                    <li><a href="../../apis/core/Cell.html">Cell</a></li>
+                    <li><a href="../../apis/core/CellSpans.html">CellSpans</a></li>
+                    <li><a href="../../apis/core/ColumnStats.html">ColumnStats</a></li>
+                    <li><a href="../../apis/core/DataCache.html">DataCache</a></li>
+                    <li><a href="../../apis/core/DataTable.html">DataTable</a></li>
+                    <li><a href="../../apis/core/DataView.html">DataView</a></li>
+                    <li><a href="../../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
+                    <li><a href="../../apis/core/ElementControl.html">ElementControl</a></li>
+                    <li><a href="../../apis/core/ElementWrapper.html">ElementWrapper</a></li>
+                    <li><a href="../../apis/core/Event.html">Event</a></li>
+                    <li><a href="../../apis/core/EventDispatcher.html">EventDispatcher</a></li>
+                    <li selected><a href="../../apis/core/Grid.html">Grid</a></li>
+                    <li><a href="../../apis/core/HScrollbar.html">HScrollbar</a></li>
+                    <li><a href="../../apis/core/IElementControl.html">IElementControl</a></li>
+                    <li><a href="../../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
+                    <li><a href="../../apis/core/LayoutGrid.html">LayoutGrid</a></li>
+                    <li><a href="../../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/Scrollbar.html">Scrollbar</a></li>
+                    <li><a href="../../apis/core/SectionSettings.html">SectionSettings</a></li>
+                    <li><a href="../../apis/core/Segment.html">Segment</a></li>
+                    <li><a href="../../apis/core/SegmentCollection.html">SegmentCollection</a></li>
+                    <li><a href="../../apis/core/SortableTitlePlugin.html">SortableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/VScrollbar.html">VScrollbar</a></li>
                   </ul>
                 </li>
-                <li parent id="cid-3" collapsible collapsed>
-                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                <li parent="" id="cid-3" collapsible="" collapsed="">
+                  <div collapser="">Real-time Grid (EFX Grid)</div>
                   <ul>
                     <li><a href="../../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
                     <li><a href="../../apis/rt_grid/Grid.html">Grid</a></li>
@@ -83,8 +90,8 @@
                 </li>
               </ul>
             </li>
-            <li parent id="cid-5" collapsible collapsed>
-              <div collapser>Extensions</div>
+            <li parent="" id="cid-5" collapsible="" collapsed="">
+              <div collapser="">Extensions</div>
               <ul>
                 <li><a href="../../extensions/README.html">Overview</a></li>
                 <li><a href="../../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
@@ -117,20 +124,20 @@
                 <li><a href="../../extensions/zoom.html">Zoom</a></li>
               </ul>
             </li>
-            <li parent id="cid-6" collapsible collapsed>
-              <div collapser>Content Rendering</div>
+            <li parent="" id="cid-6" collapsible="" collapsed="">
+              <div collapser="">Content Rendering</div>
               <ul>
                 <li><a href="../../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
               </ul>
             </li>
-            <li parent id="cid-7" collapsible collapsed>
-              <div collapser>Data</div>
+            <li parent="" id="cid-7" collapsible="" collapsed="">
+              <div collapser="">Data</div>
               <ul>
                 <li><a href="../../data/columns-and-data.html">Resetting/Clearing Data</a></li>
               </ul>
             </li>
-            <li parent id="cid-8" collapsible collapsed>
-              <div collapser>Columns</div>
+            <li parent="" id="cid-8" collapsible="" collapsed="">
+              <div collapser="">Columns</div>
               <ul>
                 <li><a href="../../columns/column-resetting.html">Column Resetting</a></li>
                 <li><a href="../../columns/column-alignment.html">Column Alignment</a></li>
@@ -145,8 +152,8 @@
                 <li><a href="../../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-9" collapsible collapsed>
-              <div collapser>Rows</div>
+            <li parent="" id="cid-9" collapsible="" collapsed="">
+              <div collapser="">Rows</div>
               <ul>
                 <li><a href="../../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
                 <li><a href="../../rows/row-height.html">Row Height</a></li>
@@ -156,8 +163,8 @@
                 <li><a href="../../rows/row-grouping.html">Row Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-10" collapsible collapsed>
-              <div collapser>Scrollbars</div>
+            <li parent="" id="cid-10" collapsible="" collapsed="">
+              <div collapser="">Scrollbars</div>
               <ul>
                 <li><a href="../../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
                 <li><a href="../../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
@@ -168,8 +175,8 @@
                 <li><a href="../../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
               </ul>
             </li>
-            <li parent id="cid-11" collapsible collapsed>
-              <div collapser>Sorting</div>
+            <li parent="" id="cid-11" collapsible="" collapsed="">
+              <div collapser="">Sorting</div>
               <ul>
                 <li><a href="../../sorting/sorting.html">Basic Sorting</a></li>
                 <li><a href="../../sorting/default-sorting.html">Default Sort</a></li>
@@ -178,8 +185,8 @@
                 <li><a href="../../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
               </ul>
             </li>
-            <li parent id="cid-12" collapsible collapsed>
-              <div collapser>Filtering</div>
+            <li parent="" id="cid-12" collapsible="" collapsed="">
+              <div collapser="">Filtering</div>
               <ul>
                 <li><a href="../../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
                 <li><a href="../../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
@@ -187,23 +194,23 @@
                 <li><a href="../../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
               </ul>
             </li>
-            <li parent id="cid-13" collapsible collapsed>
-              <div collapser>Editing</div>
+            <li parent="" id="cid-13" collapsible="" collapsed="">
+              <div collapser="">Editing</div>
               <ul>
                 <li><a href="../../editing/in-cell-editor.html">In-Cell Editing</a></li>
                 <li><a href="../../editing/custom-editor.html">Custom Editor</a></li>
               </ul>
             </li>
-            <li parent id="cid-14" collapsible collapsed>
-              <div collapser>Widgets</div>
+            <li parent="" id="cid-14" collapsible="" collapsed="">
+              <div collapser="">Widgets</div>
               <ul>
                 <li><a href="../../widgets/column-format-dialog.html">Column Format Dialog</a></li>
                 <li><a href="../../widgets/column-selection-dialog.html">Column Selection Dialog</a></li>
                 <li><a href="../../widgets/filter-dialog.html">Filter Dialog</a></li>
               </ul>
             </li>
-            <li parent id="cid-15" collapsible collapsed>
-              <div collapser>Miscellaneous</div>
+            <li parent="" id="cid-15" collapsible="" collapsed="">
+              <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../../misc/core-apis.html">Using Core APIs</a></li>
                 <li><a href="../../misc/real-time-market-data.html">Realtime Market Data</a></li>
@@ -222,7 +229,7 @@
             <div id="main-template" class="elf-template">
               <section>
                 <header>
-                  <h1 class="subsection-title"><span class="attribs"></span>tr.Grid<span class="signature">(opt_initializer<span class="signature-attributes">opt</span>)</span>
+                  <h1 class="subsection-title"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/apis/core/Grid.html" target="_top" class="link-icon"></a> <span class="attribs"></span>Grid<span class="signature">(opt_initializer<span class="signature-attributes">opt</span>)</span>
                   </h1>
                 </header>
                 <article>
@@ -240,26 +247,27 @@
                           <div class="description"> this can be either element id (string) or DOM element. </div>
                         </div>
                       </div>
-                      <div class="details"> <dt class="implements">Implements:</dt>
-                        <dd class="implements">
-                          <ul>
-                            <li><a href="tr.IElementControl.html">tr.IElementControl</a></li>
-                          </ul>
-                        </dd>
-                      </div>
+                      <div class="details"> </div>
                     </div>
                   </div>
                   <h3 class="subsection-title">Extends</h3>
                   <dd class="argument-list">
                     <ul>
-                      <li><a href="tr.ElementControl.html">tr.ElementControl</a></li>
+                      <li><a href="ElementWrapper.html">ElementWrapper</a></li>
                     </ul>
                   </dd>
                   <h3 class="subsection-title">Type Definitions</h3>
                   <div class="item">
                     <div class="item-type">typedef</div>
+                    <h4 class="name" id="~CellReference">CellReference</h4>
+                    <div class="description"> A section in grid can be refered by the following object <br>`{Grid.MouseInfo}` : Object with valid x, y coordinates and section index <br>`<a href="ElementWrapper.html">ElementWrapper</a>` : a pointer to ElementWrapper instance <br>`Element` : cell element</div>
+                    <h5>Type:</h5> <span class="param-type">Grid.MouseInfo</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">typedef</div>
                     <h4 class="name" id="~ColumnOptions">ColumnOptions</h4>
-                    <div class="description"> Column options that can be provided to <a href="tr.Grid.html#insertColumn">tr.Grid#insertColumn</a></div>
+                    <div class="description"> Column options that can be provided to <a href="Grid.html#insertColumn">Grid#insertColumn</a></div>
                     <h5>Type:</h5> <span class="param-type">Object</span>
                     <h5>Properties:</h5>
                     <div class="props">
@@ -347,7 +355,7 @@
                           </tr>
                           <tr>
                             <td class="name"><code>layout</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.grid.TrackLayout.html">tr.grid.TrackLayout</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="TrackLayout.html">TrackLayout</a></span> </td>
                             <td class="attributes"> &lt;optional&gt;<br> </td>
                             <td class="description last">Deprecated</td>
                           </tr>
@@ -359,7 +367,7 @@
                   <div class="item">
                     <div class="item-type">typedef</div>
                     <h4 class="name" id="~MouseInfo">MouseInfo</h4>
-                    <div class="description"> Object returned from tr.Grid#getRelativePosition method</div>
+                    <div class="description"> Object returned from Grid#getRelativePosition method</div>
                     <h5>Type:</h5> <span class="param-type">Object</span>
                     <h5>Properties:</h5>
                     <div class="props">
@@ -409,12 +417,12 @@
                           </tr>
                           <tr>
                             <td class="name"><code>sectionSettings</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="SectionSettings.html">SectionSettings</a></span> </td>
                             <td class="description last"></td>
                           </tr>
                           <tr>
                             <td class="name"><code>section</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </td>
                             <td class="description last"></td>
                           </tr>
                           <tr>
@@ -424,7 +432,7 @@
                           </tr>
                           <tr>
                             <td class="name"><code>dataSource</code></td>
-                            <td class="type"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </td>
+                            <td class="type"> <span class="param-type"><a href="DataView.html">DataView</a></span> </td>
                             <td class="description last"></td>
                           </tr>
                         </tbody>
@@ -435,8 +443,8 @@
                   <div class="item">
                     <div class="item-type">typedef</div>
                     <h4 class="name" id="~SectionReference">SectionReference</h4>
-                    <div class="description"> A section in grid can be refered by the following object <br>`<a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a>` : A pointer to Section instance <br>`<a href="tr.grid.SectionSettings.html">tr.grid.SectionSettings</a>` : A pointer to SectionSettings instance <br>`number` : Section index <br>`string` : Section type (e.g. &quot;content&quot;, &quot;title&quot;, &quot;header&quot;, &quot;footer&quot;), or Section id (element id)</div>
-                    <h5>Type:</h5> <span class="param-type">number</span> | <span class="param-type">string</span> | <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> | <span class="param-type"><a href="tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></span>
+                    <div class="description"> A section in grid can be refered by the following object <br>`<a href="ILayoutGrid.html">ILayoutGrid</a>` : A pointer to Section instance <br>`<a href="SectionSettings.html">SectionSettings</a>` : A pointer to SectionSettings instance <br>`number` : Section index <br>`string` : Section type (e.g. "content", "title", "header", "footer"), or Section id (element id)</div>
+                    <h5>Type:</h5> <span class="param-type">number</span> | <span class="param-type">string</span> | <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> | <span class="param-type"><a href="SectionSettings.html">SectionSettings</a></span>
                     <div class="details"> </div>
                   </div>
                   <h3 class="subsection-title">Methods</h3>
@@ -452,12 +460,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#addClass">tr.ElementControl#addClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#addClass">tr.IElementControl#addClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#addClass">ElementWrapper#addClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -468,17 +471,12 @@
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                         <div class="description"> will be appended as a child of this element </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#addContent">tr.ElementControl#addContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#addContent">tr.IElementControl#addContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#addContent">ElementWrapper#addContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
@@ -499,11 +497,11 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content">tr.Grid#event:preSectionRender</div>
-                    <div class="sub-content">tr.Grid#event:columnRender</div>
-                    <div class="sub-content">tr.Grid#event:preSectionDataBinding</div>
-                    <div class="sub-content">tr.Grid#event:columnDataBinding</div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:postSectionDataBinding">tr.Grid#event:postSectionDataBinding</a></div>
+                    <div class="sub-content">Grid#event:preSectionRender</div>
+                    <div class="sub-content">Grid#event:columnRender</div>
+                    <div class="sub-content">Grid#event:preSectionDataBinding</div>
+                    <div class="sub-content">Grid#event:columnDataBinding</div>
+                    <div class="sub-content"><a href="Grid.html#event:postSectionDataBinding">Grid#event:postSectionDataBinding</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -524,7 +522,7 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> | <span class="param-type">null</span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> | <span class="param-type">null</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -550,9 +548,9 @@
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:sectionAdded">tr.Grid#event:sectionAdded</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:sectionAdded">Grid#event:sectionAdded</a></div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> | <span class="param-type">null</span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> | <span class="param-type">null</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -599,12 +597,15 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#disable">tr.ElementControl#disable</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#disable">tr.IElementControl#disable</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#disable">ElementWrapper#disable</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="dispose">dispose<span class="signature">()</span></h4>
+                    <div class="description"> <a href="ElementWrapper.html#dispose">ElementWrapper#dispose</a> </div>
+                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#dispose">ElementWrapper#dispose</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -622,19 +623,14 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#enable">tr.ElementControl#enable</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#enable">tr.IElementControl#enable</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#enable">ElementWrapper#enable</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="enableClass">enableClass<span class="signature">(str, opt_enabled<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Adds or removes CSS class by specifying &quot;enabled&quot; parameter </div>
+                    <div class="description"> Adds or removes CSS class by specifying "enabled" parameter </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -650,12 +646,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#enableClass">tr.ElementControl#enableClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#enableClass">tr.IElementControl#enableClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#enableClass">ElementWrapper#enableClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -746,12 +737,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#fillParentHeight">tr.ElementControl#fillParentHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#fillParentHeight">tr.IElementControl#fillParentHeight</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#fillParentHeight">ElementWrapper#fillParentHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -761,7 +747,7 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="fillParentWidth">fillParentWidth<span class="signature">(opt_percent<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Sets width in percentage corresponding to the parent </div>
+                    <div class="description"> <a href="ElementWrapper.html#fillParentWidth">ElementWrapper#fillParentWidth</a> </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -772,12 +758,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#fillParentWidth">tr.ElementControl#fillParentWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#fillParentWidth">tr.IElementControl#fillParentWidth</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#fillParentWidth">ElementWrapper#fillParentWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -786,7 +767,7 @@
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="focus">focus<span class="signature">()</span></h4>
-                    <div class="description"> Focus grid element without bringing grid into window&apos;s view. This is useful when grid is very wide or tall, since window can be scrolled to focused element by default in some browsers. </div>
+                    <div class="description"> Focus grid element without bringing grid into window's view. This is useful when grid is very wide or tall, since window can be scrolled to focused element by default in some browsers. </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
@@ -800,7 +781,7 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="freezeColumn">freezeColumn<span class="signature">(frozenColIndex<span class="signature-attributes">opt</span>, numRightColumn<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Left columns will be frozen and horizontal scrollbar will automatically appear for the rest columns. This will happens only when the container of grid does NOT have enough space for the grid&apos;s content. </div>
+                    <div class="description"> Left columns will be frozen and horizontal scrollbar will automatically appear for the rest columns. This will happens only when the container of grid does NOT have enough space for the grid's content. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -820,11 +801,11 @@
                     <h5>Example:</h5>
                     <pre><code>grid.freezeColumn(0); // The first column is pinned to the left side
 grid.freezeColumn(1); // The first two columns are pinned to the left side
-grid.freezeColumn(-1); // Grid&apos;s horizontal scrollbar will cover entire are of the grid.
-grid.freezeColumn(null); // Turn off grid&apos;s horizontal scrollbar
+grid.freezeColumn(-1); // Grid's horizontal scrollbar will cover entire are of the grid.
+grid.freezeColumn(null); // Turn off grid's horizontal scrollbar
 grid.freezeColumn(-1, 1); // The last column is pinned to the right side
 grid.freezeColumn(-1, 2); // The last two columns are pinned to the right side
-grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only the middle part</code></pre> </div>
+grid.freezeColumn(0, 2); // Grid's horizontal scrollbar will affect only the middle part</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="freezeFooter">freezeFooter<span class="signature">(frozenCount)</span></h4>
@@ -854,12 +835,12 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#isLayoutFrozen">tr.Grid#isLayoutFrozen</a></li>
+                          <li><a href="Grid.html#isLayoutFrozen">Grid#isLayoutFrozen</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> Previous freezing state (Used for restoring original state)</div>
@@ -868,7 +849,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     <div class="item-type">function</div>
                     <h4 class="name" id="freezeSection">freezeSection<span class="signature">(opt_frozenSection<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Vertical scrollbar will automatically appear for the rest of the sections, when container of Grid does NOT have enough space for Grid&apos;s content. </div>
+                    <div class="description"> Vertical scrollbar will automatically appear for the rest of the sections, when container of Grid does NOT have enough space for Grid's content. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -894,7 +875,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a>&gt;</span> </div>
+                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="ILayoutGrid.html">ILayoutGrid</a>&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -910,7 +891,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="tr.grid.SectionSettings.html">tr.grid.SectionSettings</a>&gt;</span> </div>
+                    <div class="sub-content"> <span class="param-type">Array.&lt;<a href="SectionSettings.html">SectionSettings</a>&gt;</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -923,12 +904,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getAttribute">tr.ElementControl#getAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getAttribute">tr.IElementControl#getAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getAttribute">ElementWrapper#getAttribute</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -938,12 +914,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     <h4 class="name" id="getBoundingClientRect">getBoundingClientRect<span class="signature">()</span></h4>
                     <div class="description"> The returned value is a TextRectangle object, which contains read-only left,top, right and bottom properties describing the border-box, in pixels, with the top-leftrelative to the top-left of the viewport. </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getBoundingClientRect">tr.ElementControl#getBoundingClientRect</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getBoundingClientRect">tr.IElementControl#getBoundingClientRect</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getBoundingClientRect">ElementWrapper#getBoundingClientRect</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Object</span> </div>
@@ -956,7 +927,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> </div>
                       </div>
                       <div class="param">
@@ -978,7 +949,7 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -988,37 +959,32 @@ grid.freezeColumn(0, 2); // Grid&apos;s horizontal scrollbar will affect only th
                     <div class="params">
                       <div class="param">
                         <div class="name">cellRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.MouseInfo</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> </div>
+                        <div class="type"> <span class="param-type">Grid.CellReference</span> </div>
                         <div class="description"> Reference to cell element. This can be something inside the cell as well. </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#getRelativePosition">tr.Grid#getRelativePosition</a></li>
+                          <li><a href="Grid.html#getRelativePosition">Grid#getRelativePosition</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                     <div class="sub-content-desc"> Information about the given cell</div>
                     <h5>Example:</h5>
-                    <pre><code>grid.getCellInfo({&quot;colIndex&quot;: 0, &quot;rowIndex&quot;: 0}); // Get cell information about the top left cell in the content section
-grid.getCellInfo(document.createElement(&quot;some_element&quot;); // Get cell information for cell that contains the element with id &quot;some_element&quot;
+                    <pre><code>grid.getCellInfo({"colIndex": 0, "rowIndex": 0}); // Get cell information about the top left cell in the content section
+grid.getCellInfo(document.createElement("some_element"); // Get cell information for cell that contains the element with id "some_element"
 grid.getCellInfo(mouseEventArg); // Get cell information from the given MouseEvent argument (this is the same as getRelativePosition() method)
-var cellInfo = grid.getCellInfo({&quot;colIndex&quot;: 1, &quot;rowIndex&quot;: 1});
+var cellInfo = grid.getCellInfo({"colIndex": 1, "rowIndex": 1});
 cellInfo.colIndex = cellInfo.colIndex + 1; // Get next cell to the right
 grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getClass">getClass<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getClass">tr.ElementControl#getClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getClass">tr.IElementControl#getClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getClass">ElementWrapper#getClass</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1036,7 +1002,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
-                    <div class="sub-content-desc"> Possible returned values are &quot;default&quot;|&quot;left&quot;|&quot;center&quot;|&quot;right&quot;</div>
+                    <div class="sub-content-desc"> Possible returned values are "default"|"left"|"center"|"right"</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1088,7 +1054,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#setColumnDataBindingHandler">tr.Grid#setColumnDataBindingHandler</a></li>
+                          <li><a href="Grid.html#setColumnDataBindingHandler">Grid#setColumnDataBindingHandler</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -1194,7 +1160,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getColumnVirtualizer">getColumnVirtualizer<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.grid.Virtualizer.html">tr.grid.Virtualizer</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="Virtualizer.html">Virtualizer</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1240,12 +1206,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getContent">tr.ElementControl#getContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getContent">tr.IElementControl#getContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getContent">ElementWrapper#getContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type">NodeList</span> </div>
@@ -1265,7 +1226,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                       <div class="param">
                         <div class="name">colRef</div>
@@ -1316,7 +1277,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getDataSource">getDataSource<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                     <div class="sub-content-desc"> dataSource</div>
                   </div>
                   <div class="item">
@@ -1331,12 +1292,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getElement">getElement<span class="signature">()</span></h4>
                     <div class="description"> Gets top element of this control </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getElement">tr.ElementControl#getElement</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getElement">tr.IElementControl#getElement</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getElement">ElementWrapper#getElement</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
@@ -1377,12 +1333,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getHeight">getHeight<span class="signature">()</span></h4>
                     <div class="description"> Gets offsetHeight </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getHeight">tr.ElementControl#getHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getHeight">tr.IElementControl#getHeight</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getHeight">ElementWrapper#getHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -1401,18 +1352,13 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getHScrollbar">getHScrollbar<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getId">getId<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getId">tr.ElementControl#getId</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getId">tr.IElementControl#getId</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getId">ElementWrapper#getId</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1422,19 +1368,14 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getLastSection">getLastSection<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getLeft">getLeft<span class="signature">()</span></h4>
-                    <div class="description"> Gets the left position that is relative to its parent&apos;s client area </div>
+                    <div class="description"> Gets the left position that is relative to its parent's client area </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getLeft">tr.ElementControl#getLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getLeft">tr.IElementControl#getLeft</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getLeft">ElementWrapper#getLeft</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -1461,13 +1402,13 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">cellRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.MouseInfo</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> </div>
+                        <div class="type"> <span class="param-type">Grid.CellReference</span> </div>
                         <div class="description"> Reference to cell element. This can be something inside the cell as well. </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                     <div class="sub-content-desc"> Information about the next cell from left to right and top to bottom. Returns null if the given parameter is invalid</div>
                   </div>
                   <div class="item">
@@ -1479,7 +1420,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">cellRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.MouseInfo</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> </div>
+                        <div class="type"> <span class="param-type">Grid.CellReference</span> </div>
                         <div class="attributes"> </div>
                         <div class="default"> </div>
                         <div class="description"> Reference to cell element. This can be something inside the cell as well. </div>
@@ -1493,7 +1434,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                     <div class="sub-content-desc"> Information about the next cell in the row. Returns null if the given parameter is invalid</div>
                   </div>
                   <div class="item">
@@ -1504,7 +1445,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">identifier</div>
-                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
                         <div class="description"> This can be MouseEvent, index, or section id or pointer reference &lt;br&gt;If not specified, the first item is returned </div>
                       </div>
@@ -1517,18 +1458,13 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getNextSibling">getNextSibling<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getNextSibling">tr.ElementControl#getNextSibling</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getNextSibling">tr.IElementControl#getNextSibling</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getNextSibling">ElementWrapper#getNextSibling</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
@@ -1537,12 +1473,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="item-type">function</div>
                     <h4 class="name" id="getParent">getParent<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getParent">tr.ElementControl#getParent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getParent">tr.IElementControl#getParent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getParent">ElementWrapper#getParent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
@@ -1603,13 +1534,13 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">cellRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.MouseInfo</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> </div>
+                        <div class="type"> <span class="param-type">Grid.CellReference</span> </div>
                         <div class="description"> Reference to cell element. This can be something inside the cell as well. </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                     <div class="sub-content-desc"> Information about the previous cell in the row. Returns null if the given parameter is invalid</div>
                   </div>
                   <div class="item">
@@ -1621,7 +1552,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">cellRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.MouseInfo</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> </div>
+                        <div class="type"> <span class="param-type">Grid.CellReference</span> </div>
                         <div class="attributes"> </div>
                         <div class="default"> </div>
                         <div class="description"> Reference to cell element. This can be something inside the cell as well. </div>
@@ -1635,7 +1566,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                     <div class="sub-content-desc"> Information about the previous cell in the row. Returns null if the given parameter is invalid</div>
                   </div>
                   <div class="item">
@@ -1646,7 +1577,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">identifier</div>
-                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
                         <div class="description"> This can be MouseEvent, index, or section id or pointer reference &lt;br&gt;If not specified, the last item is returned </div>
                       </div>
@@ -1659,7 +1590,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1670,9 +1601,9 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">obj</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Event</span> | <span class="param-type">MouseEvent</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Event</span> | <span class="param-type">MouseEvent</span> </div>
                         <div class="attributes"> </div>
-                        <div class="description"> Element, Browser&apos;s Event object, Browser&apos;s Mouse Event object are all valid </div>
+                        <div class="description"> Element, Browser's Event object, Browser's Mouse Event object are all valid </div>
                       </div>
                       <div class="param">
                         <div class="name">context</div>
@@ -1683,7 +1614,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">tr.Grid.MouseInfo</span> </div>
+                    <div class="sub-content"> <span class="param-type">Grid.MouseInfo</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1717,46 +1648,42 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getRowVirtualizer">getRowVirtualizer<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.grid.Virtualizer.html">tr.grid.Virtualizer</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="Virtualizer.html">Virtualizer</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getScrollHeight">getScrollHeight<span class="signature">()</span></h4>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getScrollLeft">getScrollLeft<span class="signature">()</span></h4>
-                    <div class="description"> Note that if element display style is set to &quot;none&quot; or not in the document, scroll value will automatically reset to zero and will not be restored when it is back to visible state </div>
+                    <div class="description"> Note that if element display style is set to "none" or not in the document, scroll value will automatically reset to zero and will not be restored when it is back to visible state </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#getScrollLeft">tr.ElementControl#getScrollLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getScrollLeft">tr.IElementControl#getScrollLeft</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#getScrollLeft">ElementWrapper#getScrollLeft</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
+                    <div class="sub-content-desc"> pixels</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getScrollTop">getScrollTop<span class="signature">()</span></h4>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#getScrollTop">tr.ElementControl#getScrollTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getScrollTop">tr.IElementControl#getScrollTop</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#getScrollTop">ElementWrapper#getScrollTop</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
+                    <div class="sub-content-desc"> pixels</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getScrollWidth">getScrollWidth<span class="signature">()</span></h4>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1765,12 +1692,12 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1787,7 +1714,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">identifier</div>
-                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">MouseEvent</span> | <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
                         <div class="description"> This can be MouseEvent, index, or section id or pointer reference </div>
                       </div>
@@ -1804,12 +1731,12 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="SectionSettings.html">SectionSettings</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1818,7 +1745,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
@@ -1837,12 +1764,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getStyle">tr.ElementControl#getStyle</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getStyle">tr.IElementControl#getStyle</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getStyle">ElementWrapper#getStyle</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1852,12 +1774,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getTextContent">getTextContent<span class="signature">()</span></h4>
                     <div class="description"> Gets textContent (IE9+) value from this element </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getTextContent">tr.ElementControl#getTextContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTextContent">tr.IElementControl#getTextContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTextContent">ElementWrapper#getTextContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1865,14 +1782,9 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getTooltip">getTooltip<span class="signature">()</span></h4>
-                    <div class="description"> Gets tooltip text from &quot;title&quot; attribute </div>
+                    <div class="description"> Gets tooltip text from "title" attribute </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getTooltip">tr.ElementControl#getTooltip</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTooltip">tr.IElementControl#getTooltip</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTooltip">ElementWrapper#getTooltip</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1880,14 +1792,9 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getTop">getTop<span class="signature">()</span></h4>
-                    <div class="description"> Gets the top position that is relative to its parent&apos;s client area </div>
+                    <div class="description"> Gets the top position that is relative to its parent's client area </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getTop">tr.ElementControl#getTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTop">tr.IElementControl#getTop</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTop">ElementWrapper#getTop</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -1895,7 +1802,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getVMouseWheelHandler">getVMouseWheelHandler<span class="signature">()</span></h4>
-                    <div class="description"> Allows other elements such as background to accept wheel event and scroll grid&apos;s vertical scrollbar </div>
+                    <div class="description"> Allows other elements such as background to accept wheel event and scroll grid's vertical scrollbar </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">function</span> </div>
@@ -1905,7 +1812,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getVScrollbar">getVScrollbar<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1920,12 +1827,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="getWidth">getWidth<span class="signature">()</span></h4>
                     <div class="description"> Gets offsetWidth </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#getWidth">tr.ElementControl#getWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getWidth">tr.IElementControl#getWidth</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getWidth">ElementWrapper#getWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -1939,7 +1841,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> </div>
                         <div class="default"> </div>
                         <div class="description"> Specify section that the given rowIndex is related to. Use null for the first scrollable section (first non-frozen section) </div>
@@ -1975,12 +1877,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#hasClass">tr.ElementControl#hasClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#hasClass">tr.IElementControl#hasClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#hasClass">ElementWrapper#hasClass</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -2016,12 +1913,14 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="item-type">function</div>
                     <h4 class="name" id="hasHiddenRow">hasHiddenRow<span class="signature">()</span></h4>
                     <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="hide">hide<span class="signature">(opt_hidden<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Sets display style as inline style to the element with value of &quot;none&quot; </div>
+                    <div class="description"> Sets display style as inline style to the element with value of "none" </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -2032,12 +1931,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#hide">tr.ElementControl#hide</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#hide">tr.IElementControl#hide</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#hide">ElementWrapper#hide</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2056,7 +1950,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#toggleBorders">tr.Grid#toggleBorders</a></li>
+                          <li><a href="Grid.html#toggleBorders">Grid#toggleBorders</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -2083,15 +1977,15 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#isColumnVisible">tr.Grid#isColumnVisible</a></li>
-                          <li><a href="tr.Grid.html#hideColumns">tr.Grid#hideColumns</a></li>
-                          <li><a href="tr.Grid.html#showAllColumns">tr.Grid#showAllColumns</a></li>
+                          <li><a href="Grid.html#isColumnVisible">Grid#isColumnVisible</a></li>
+                          <li><a href="Grid.html#hideColumns">Grid#hideColumns</a></li>
+                          <li><a href="Grid.html#showAllColumns">Grid#showAllColumns</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnVisibilityChanged">tr.Grid#event:columnVisibilityChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnVisibilityChanged">Grid#event:columnVisibilityChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2115,14 +2009,14 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#hideColumn">tr.Grid#hideColumn</a></li>
-                          <li><a href="tr.Grid.html#showAllColumns">tr.Grid#showAllColumns</a></li>
+                          <li><a href="Grid.html#hideColumn">Grid#hideColumn</a></li>
+                          <li><a href="Grid.html#showAllColumns">Grid#showAllColumns</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnVisibilityChanged">tr.Grid#event:columnVisibilityChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnVisibilityChanged">Grid#event:columnVisibilityChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2155,41 +2049,31 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="insertAfter">insertAfter<span class="signature">(previousSibling)</span></h4>
-                    <div class="description"> Inserts this element after the specified sibling. Parent of this element will be changed to sibling&apos;s parent If sibling parent does not exist, nothing is performed. If previousSibling is null, this element will place itself at the end of its parent child list </div>
+                    <div class="description"> Inserts this element after the specified sibling. Parent of this element will be changed to sibling's parentIf sibling parent does not exist, nothing is performed.If previousSibling is null, this element will place itself at the end of its parent child list </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">previousSibling</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#insertAfter">tr.ElementControl#insertAfter</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#insertAfter">tr.IElementControl#insertAfter</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#insertAfter">ElementWrapper#insertAfter</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="insertBefore">insertBefore<span class="signature">(nextSibling)</span></h4>
-                    <div class="description"> Inserts this element before the specified sibling. Parent of this element will be changed to sibling&apos;s parent If sibling parent does not exist, nothing is performed. If nextSibling is null, this element will place itself at the end of its parent child list </div>
+                    <div class="description"> <a href="ElementWrapper.html#insertBefore">ElementWrapper#insertBefore</a> </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">nextSibling</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#insertBefore">tr.ElementControl#insertBefore</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#insertBefore">tr.IElementControl#insertBefore</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#insertBefore">ElementWrapper#insertBefore</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2205,19 +2089,19 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                       <div class="param">
                         <div class="name">jsonObj</div>
-                        <div class="type"> <span class="param-type">tr.Grid.ColumnOptions</span> </div>
+                        <div class="type"> <span class="param-type">Grid.ColumnOptions</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
                         <div class="description"> Column definition object </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnAdded">tr.Grid#event:columnAdded</a></div>
-                    <div class="sub-content">tr.Grid#event:preSectionRender</div>
-                    <div class="sub-content">tr.Grid#event:columnRender</div>
-                    <div class="sub-content">tr.Grid#event:preSectionDataBinding</div>
-                    <div class="sub-content">tr.Grid#event:columnDataBinding</div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:postSectionDataBinding">tr.Grid#event:postSectionDataBinding</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnAdded">Grid#event:columnAdded</a></div>
+                    <div class="sub-content">Grid#event:preSectionRender</div>
+                    <div class="sub-content">Grid#event:columnRender</div>
+                    <div class="sub-content">Grid#event:preSectionDataBinding</div>
+                    <div class="sub-content">Grid#event:columnDataBinding</div>
+                    <div class="sub-content"><a href="Grid.html#event:postSectionDataBinding">Grid#event:postSectionDataBinding</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2232,7 +2116,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                       </div>
                       <div class="param">
                         <div class="name">cols</div>
-                        <div class="type"> <span class="param-type">number</span> | <span class="param-type">tr.Grid.ColumnOptions</span> | <span class="param-type">Array.&lt;tr.Grid.ColumnOptions&gt;</span> </div>
+                        <div class="type"> <span class="param-type">number</span> | <span class="param-type">Grid.ColumnOptions</span> | <span class="param-type">Array.&lt;Grid.ColumnOptions&gt;</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
                         <div class="description"> Column definition object or column count </div>
                       </div>
@@ -2249,7 +2133,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isColumnVisible">isColumnVisible<span class="signature">(colIndex)</span></h4>
-                    <div class="description"> Use <a href="tr.Grid.html#hideColumn">tr.Grid#hideColumn</a> to hide the column </div>
+                    <div class="description"> Use <a href="Grid.html#hideColumn">Grid#hideColumn</a> to hide the column </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -2274,12 +2158,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <h4 class="name" id="isEnabled">isEnabled<span class="signature">()</span></h4>
                     <div class="description"> Check if control element is enabled </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#isEnabled">tr.ElementControl#isEnabled</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEnabled">tr.IElementControl#isEnabled</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isEnabled">ElementWrapper#isEnabled</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -2289,12 +2168,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="item-type">function</div>
                     <h4 class="name" id="isEndOfHorizontalScroll">isEndOfHorizontalScroll<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#isEndOfHorizontalScroll">tr.ElementControl#isEndOfHorizontalScroll</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEndOfHorizontalScroll">tr.IElementControl#isEndOfHorizontalScroll</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isEndOfHorizontalScroll">ElementWrapper#isEndOfHorizontalScroll</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -2303,12 +2177,7 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="item-type">function</div>
                     <h4 class="name" id="isEndOfVerticalScroll">isEndOfVerticalScroll<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#isEndOfVerticalScroll">tr.ElementControl#isEndOfVerticalScroll</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEndOfVerticalScroll">tr.IElementControl#isEndOfVerticalScroll</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isEndOfVerticalScroll">ElementWrapper#isEndOfVerticalScroll</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -2338,18 +2207,45 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isVisible">isVisible<span class="signature">()</span></h4>
-                    <div class="description"> Check to see if display has &quot;none&quot; as a inline style. Note that any change in visibility and class name may not be reflected by the returned value. </div>
+                    <div class="description"> Check to see if display has "none" as a inline style. Note that any change in visibility and class name may not be reflected by the returned value. </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#isVisible">tr.ElementControl#isVisible</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isVisible">tr.IElementControl#isVisible</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isVisible">ElementWrapper#isVisible</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="listen">listen<span class="signature">(type, handler, opt_priority<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <div class="description"> Add a event listener to either native or custom event provided from the instance. </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">type</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="attributes"> </div>
+                        <div class="description"> All standard HTML element event types are allowed </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">handler</div>
+                        <div class="type"> <span class="param-type">function</span> </div>
+                        <div class="attributes"> </div>
+                        <div class="description"> Callback method </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">opt_priority</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> The higher the priority, the sooner the listener get executed. Undefined priority listener will be executed last </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#listen">ElementWrapper#listen</a> </dd>
+                    </div>
+                    <h5>Example:</h5>
+                    <pre><code>var grid = new Grid();
+grid.listen("click", function(e) { console.log("Grid is clicked"); });</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="loadPlugin">loadPlugin<span class="signature">(pluginRef, opt_options<span class="signature-attributes">opt</span>)</span>
@@ -2375,9 +2271,9 @@ grid.getCellInfo(cellInfo);</code></pre> </div>
                     <div class="sub-content"> <span class="param-type">*</span> </div>
                     <div class="sub-content-desc"> Return the plugin that has been successfully loaded. Returns null if the plugin is not loaded</div>
                     <h5>Example:</h5>
-                    <pre><code>grid.loadPlugin(&quot;CheckboxPlugin&quot;);
-grid.loadPlugin(&quot;ColumnResizing&quot;);
-grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
+                    <pre><code>grid.loadPlugin("CheckboxPlugin");
+grid.loadPlugin("ColumnResizing");
+grid.loadPlugin(new Grid.InCellEditingPlugin());</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="moveColumn">moveColumn<span class="signature">(fromCol, destCol)</span></h4>
@@ -2396,7 +2292,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content">tr.Grid#event:columnMoved</div>
+                    <div class="sub-content">Grid#event:columnMoved</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2444,13 +2340,13 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#removeColumnAt">tr.Grid#removeColumnAt</a></li>
+                          <li><a href="Grid.html#removeColumnAt">Grid#removeColumnAt</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnRemoved">tr.Grid#event:columnRemoved</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnRemoved">Grid#event:columnRemoved</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2475,12 +2371,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#removeAttribute">tr.ElementControl#removeAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeAttribute">tr.IElementControl#removeAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeAttribute">ElementWrapper#removeAttribute</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2494,12 +2385,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#removeClass">tr.ElementControl#removeClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeClass">tr.IElementControl#removeClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeClass">ElementWrapper#removeClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2515,13 +2401,13 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#removeAllColumns">tr.Grid#removeAllColumns</a></li>
+                          <li><a href="Grid.html#removeAllColumns">Grid#removeAllColumns</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnRemoved">tr.Grid#event:columnRemoved</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnRemoved">Grid#event:columnRemoved</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Object</span> </div>
                     <div class="sub-content-desc"> Return column definition object</div>
@@ -2534,17 +2420,12 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                         <div class="description"> If null is given, nothing is done </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#removeContent">tr.ElementControl#removeContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeContent">tr.IElementControl#removeContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeContent">ElementWrapper#removeContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -2555,7 +2436,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <h4 class="name" id="removeLastSection">removeLastSection<span class="signature">()</span></h4>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2581,7 +2462,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                       <div class="param">
                         <div class="name">rowRef</div>
@@ -2601,12 +2482,12 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2620,7 +2501,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="ILayoutGrid.html">ILayoutGrid</a></span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2711,7 +2592,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> </div>
                         <div class="default"> </div>
                         <div class="description"> Specify section that the given rowIndex is related to. Use null for the first scrollable section (first non-frozen section) </div>
@@ -2764,16 +2645,11 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                       <div class="param">
                         <div class="name">val</div>
                         <div class="type"> <span class="param-type">string</span> </div>
-                        <div class="description"> Uses empty string (&quot;&quot;) to remove the attribute value </div>
+                        <div class="description"> Uses empty string ("") to remove the attribute value </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setAttribute">tr.ElementControl#setAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setAttribute">tr.IElementControl#setAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setAttribute">ElementWrapper#setAttribute</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2785,16 +2661,11 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                       <div class="param">
                         <div class="name">json</div>
                         <div class="type"> <span class="param-type">Object</span> </div>
-                        <div class="description"> Key is the attribute names and value is string value (i.e. &quot;readonly&quot;, &quot;50&quot;, &quot;checkbox&quot;) </div>
+                        <div class="description"> Key is the attribute names and value is string value (i.e. "readonly", "50", "checkbox") </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setAttributes">tr.ElementControl#setAttributes</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setAttributes">tr.IElementControl#setAttributes</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setAttributes">ElementWrapper#setAttributes</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2823,12 +2694,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setClass">tr.ElementControl#setClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setClass">tr.IElementControl#setClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setClass">ElementWrapper#setClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -2846,7 +2712,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                         <div class="name">alignment</div>
                         <div class="type"> <span class="param-type">string</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> Available options are &quot;center&quot;|&quot;right&quot;|&quot;left&quot;|&quot;c&quot;|&quot;r&quot;|&quot;l&quot;. Use empty string (falsy value) to reset back to default aliganment. </div>
+                        <div class="description"> Available options are "center"|"right"|"left"|"c"|"r"|"l". Use empty string (falsy value) to reset back to default aliganment. </div>
                       </div>
                     </div>
                     <div class="details"> </div>
@@ -2864,12 +2730,12 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnAdded">tr.Grid#event:columnAdded</a></div>
-                    <div class="sub-content">tr.Grid#event:preSectionRender</div>
-                    <div class="sub-content">tr.Grid#event:columnRender</div>
-                    <div class="sub-content">tr.Grid#event:preSectionDataBinding</div>
-                    <div class="sub-content">tr.Grid#event:columnDataBinding</div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:postSectionDataBinding">tr.Grid#event:postSectionDataBinding</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnAdded">Grid#event:columnAdded</a></div>
+                    <div class="sub-content">Grid#event:preSectionRender</div>
+                    <div class="sub-content">Grid#event:columnRender</div>
+                    <div class="sub-content">Grid#event:preSectionDataBinding</div>
+                    <div class="sub-content">Grid#event:columnDataBinding</div>
+                    <div class="sub-content"><a href="Grid.html#event:postSectionDataBinding">Grid#event:postSectionDataBinding</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -2906,7 +2772,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li>{<a href="tr.Grid.html#setDefaultDataBindingHandler">tr.Grid#setDefaultDataBindingHandler</a>}</li>
+                          <li>{<a href="Grid.html#setDefaultDataBindingHandler">Grid#setDefaultDataBindingHandler</a>}</li>
                         </ul>
                       </dd>
                     </div>
@@ -2944,7 +2810,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li>{<a href="tr.Grid.html#setDefaultRenderingHandler">tr.Grid#setDefaultRenderingHandler</a>}</li>
+                          <li>{<a href="Grid.html#setDefaultRenderingHandler">Grid#setDefaultRenderingHandler</a>}</li>
                         </ul>
                       </dd>
                     </div>
@@ -2969,7 +2835,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
@@ -3028,7 +2894,7 @@ grid.loadPlugin(new tr.grid.InCellEditingPlugin());</code></pre> </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any changed</div>
@@ -3057,7 +2923,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any changed</div>
@@ -3072,7 +2938,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">string</span> | <span class="param-type">Element</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">*</span> </div>
+                        <div class="type"> <span class="param-type">string</span> | <span class="param-type">Element</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">*</span> </div>
                         <div class="attributes"> </div>
                         <div class="description"> Use null to clear content. If string is given, &lt;span&gt; tag is automatically added to host the string. </div>
                       </div>
@@ -3084,12 +2950,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setContent">tr.ElementControl#setContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setContent">tr.IElementControl#setContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setContent">ElementWrapper#setContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
@@ -3102,7 +2963,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                       <div class="param">
                         <div class="name">colRef</div>
@@ -3180,15 +3041,15 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">dataSource</div>
-                        <div class="type"> <span class="param-type"><a href="tr.DataTable.html">tr.DataTable</a></span> | <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                        <div class="type"> <span class="param-type"><a href="DataTable.html">DataTable</a></span> | <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:dataSourceChanged">tr.Grid#event:dataSourceChanged</a></div>
-                    <div class="sub-content">tr.Grid#event:postDataSourceChanged</div>
+                    <div class="sub-content"><a href="Grid.html#event:dataSourceChanged">Grid#event:dataSourceChanged</a></div>
+                    <div class="sub-content">Grid#event:postDataSourceChanged</div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.DataView.html">tr.DataView</a></span> </div>
+                    <div class="sub-content"> <span class="param-type"><a href="DataView.html">DataView</a></span> </div>
                     <div class="sub-content-desc"> Returns the root data view</div>
                   </div>
                   <div class="item">
@@ -3218,7 +3079,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li>{<a href="tr.Grid.html#setColumnDataBindingHandler">tr.Grid#setColumnDataBindingHandler</a>}</li>
+                          <li>{<a href="Grid.html#setColumnDataBindingHandler">Grid#setColumnDataBindingHandler</a>}</li>
                         </ul>
                       </dd>
                     </div>
@@ -3238,7 +3099,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li>{<a href="tr.Grid.html#setColumnRenderingHandler">tr.Grid#setColumnRenderingHandler</a>}</li>
+                          <li>{<a href="Grid.html#setColumnRenderingHandler">Grid#setColumnRenderingHandler</a>}</li>
                         </ul>
                       </dd>
                     </div>
@@ -3278,7 +3139,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setHeight">setHeight<span class="signature">(val)</span></h4>
-                    <div class="description"> For complex sizing, use setStyle(&quot;height&quot;, &quot;-webkit-calc(100% - 10px)&quot;) instead. </div>
+                    <div class="description"> For complex sizing, use setStyle("height", "-webkit-calc(100% - 10px)") instead. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -3288,12 +3149,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setHeight">tr.ElementControl#setHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setHeight">tr.IElementControl#setHeight</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setHeight">ElementWrapper#setHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -3322,12 +3178,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setId">tr.ElementControl#setId</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setId">tr.IElementControl#setId</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setId">ElementWrapper#setId</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3342,12 +3193,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setLeft">tr.ElementControl#setLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setLeft">tr.IElementControl#setLeft</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setLeft">ElementWrapper#setLeft</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -3369,7 +3215,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -3391,7 +3237,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> True if there is any change</div>
@@ -3400,11 +3246,12 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="item-type">function</div>
                     <h4 class="name" id="setParent">setParent<span class="signature">(parent, opt_prepend<span class="signature-attributes">opt</span>)</span>
                     </h4>
+                    <div class="description"> <a href="ElementWrapper.html#setParent">ElementWrapper#setParent</a> </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">parent</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
                         <div class="attributes"> </div>
                         <div class="description"> Uses null to clear parent </div>
                       </div>
@@ -3416,12 +3263,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#setParent">tr.ElementControl#setParent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setParent">tr.IElementControl#setParent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#setParent">ElementWrapper#setParent</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3470,7 +3312,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                       </div>
                       <div class="param">
                         <div class="name">num</div>
@@ -3494,12 +3336,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setStyle">tr.ElementControl#setStyle</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setStyle">tr.IElementControl#setStyle</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setStyle">ElementWrapper#setStyle</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3511,16 +3348,11 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       <div class="param">
                         <div class="name">json</div>
                         <div class="type"> <span class="param-type">Object</span> </div>
-                        <div class="description"> Key is the property names and value is style value (i.e. &quot;center&quot;, &quot;#FF00FF&quot;, &quot;10px&quot;) </div>
+                        <div class="description"> Key is the property names and value is style value (i.e. "center", "#FF00FF", "10px") </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setStyles">tr.ElementControl#setStyles</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setStyles">tr.IElementControl#setStyles</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setStyles">ElementWrapper#setStyles</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3535,18 +3367,13 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setTextContent">tr.ElementControl#setTextContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTextContent">tr.IElementControl#setTextContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTextContent">ElementWrapper#setTextContent</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setTooltip">setTooltip<span class="signature">(str)</span></h4>
-                    <div class="description"> Sets tooltip text to &quot;title&quot; attribute </div>
+                    <div class="description"> Sets tooltip text to "title" attribute </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -3555,12 +3382,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setTooltip">tr.ElementControl#setTooltip</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTooltip">tr.IElementControl#setTooltip</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTooltip">ElementWrapper#setTooltip</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3575,12 +3397,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setTop">tr.ElementControl#setTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTop">tr.IElementControl#setTop</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTop">ElementWrapper#setTop</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -3589,7 +3406,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setWidth">setWidth<span class="signature">(val)</span></h4>
-                    <div class="description"> For complex sizing, use setStyle(&quot;width&quot;, &quot;-webkit-calc(100% - 10px)&quot;) instead. </div>
+                    <div class="description"> For complex sizing, use setStyle("width", "-webkit-calc(100% - 10px)") instead. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -3599,12 +3416,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#setWidth">tr.ElementControl#setWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setWidth">tr.IElementControl#setWidth</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setWidth">ElementWrapper#setWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -3614,7 +3426,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="item-type">function</div>
                     <h4 class="name" id="show">show<span class="signature">(opt_shown<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Sets display style as inline style to the element with value of empty string </div>
+                    <div class="description"> <a href="ElementWrapper.html#show">ElementWrapper#show</a> </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -3625,12 +3437,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementControl.html#show">tr.ElementControl#show</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#show">tr.IElementControl#show</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="ElementWrapper.html#show">ElementWrapper#show</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -3639,14 +3446,14 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#hideColumn">tr.Grid#hideColumn</a></li>
-                          <li><a href="tr.Grid.html#hideColumns">tr.Grid#hideColumns</a></li>
+                          <li><a href="Grid.html#hideColumn">Grid#hideColumn</a></li>
+                          <li><a href="Grid.html#hideColumns">Grid#hideColumns</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:columnVisibilityChanged">tr.Grid#event:columnVisibilityChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:columnVisibilityChanged">Grid#event:columnVisibilityChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -3664,7 +3471,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#toggleBorders">tr.Grid#toggleBorders</a></li>
+                          <li><a href="Grid.html#toggleBorders">Grid#toggleBorders</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -3699,7 +3506,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">subGrid</div>
-                        <div class="type"> <span class="param-type"><a href="tr.Grid.html">tr.Grid</a></span> </div>
+                        <div class="type"> <span class="param-type"><a href="Grid.html">Grid</a></span> </div>
                       </div>
                     </div>
                     <div class="details"> </div>
@@ -3722,34 +3529,26 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="toggleClass">toggleClass<span class="signature">(str, opt_replacement<span class="signature-attributes">opt</span>)</span>
+                    <h4 class="name" id="toggleClass">toggleClass<span class="signature">(cls, forcedVal<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Toggles the specified class with the replacement </div>
+                    <div class="description"> Toggles the specified class </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
-                        <div class="name">str</div>
+                        <div class="name">cls</div>
                         <div class="type"> <span class="param-type">string</span> </div>
                         <div class="attributes"> </div>
                       </div>
                       <div class="param">
-                        <div class="name">opt_replacement</div>
-                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="name">forcedVal</div>
+                        <div class="type"> <span class="param-type">boolean</span> | <span class="param-type">null</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If not specified, empty string is used. </div>
+                        <div class="description"> If specified, force CSS class state as the specified value </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#toggleClass">tr.ElementControl#toggleClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#toggleClass">tr.IElementControl#toggleClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#toggleClass">ElementWrapper#toggleClass</a> </dd>
                     </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
-                    <div class="sub-content-desc"> Returns true if the given css (str) is added, otherwise false</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -3804,12 +3603,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <h4 class="name" id="toString">toString<span class="signature">()</span></h4>
                     <div class="description"> Return a string that represents the object mainly for debugging </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementControl.html#toString">tr.ElementControl#toString</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#toString">tr.IElementControl#toString</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#toString">ElementWrapper#toString</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -3830,18 +3624,57 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="details"> <dt class="tag-see">See:</dt>
                       <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.Grid.html#freezeLayout">tr.Grid#freezeLayout</a></li>
+                          <li><a href="Grid.html#freezeLayout">Grid#freezeLayout</a></li>
                         </ul>
                       </dd>
                     </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="unhideAllRows">unhideAllRows<span class="signature">()</span></h4>
                     <div class="description"> Unhide all hidden rows in the Grid </div>
                     <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="unlisten">unlisten<span class="signature">(type, handler)</span></h4>
+                    <div class="description"> Removes an event listener which was added with listen(). The same function handler must be sent in, or else it will not be removed </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">type</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="description"> The name of the event without the 'on' prefix. </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">handler</div>
+                        <div class="type"> <span class="param-type">function</span> </div>
+                        <div class="description"> The listener function to remove. </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#unlisten">ElementWrapper#unlisten</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="unlistenAll">unlistenAll<span class="signature">(opt_type<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <div class="description"> Removes all listeners from an object. If no type is specified, it will remove all listeners that have been registered.You can also optionally remove listeners of a particular type. </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_type</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> Type of event to, default is all types. </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#unlistenAll">ElementWrapper#unlistenAll</a> </dd>
+                    </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -3864,7 +3697,7 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="description"> Sometimes there is a change in layout without Grid noticing it (e.g tab pane is switched, or parent is hidden from view). <br>Hence, the layout must be manually and explicitly update by calling this method. </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content"><a href="tr.Grid.html#event:widthChanged">tr.Grid#event:widthChanged</a></div>
+                    <div class="sub-content"><a href="Grid.html#event:widthChanged">Grid#event:widthChanged</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -3875,9 +3708,9 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     <div class="params">
                       <div class="param">
                         <div class="name">sectionRef</div>
-                        <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                        <div class="type"> <span class="param-type">Grid.SectionReference</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If not defined, &quot;content&quot; is used </div>
+                        <div class="description"> If not defined, "content" is used </div>
                       </div>
                       <div class="param">
                         <div class="name">fromRowIndex</div>
@@ -3900,9 +3733,9 @@ grid.setColumnWidth(1, 100, true); // The second column will have a percentage w
                     </div>
                     <div class="details"> </div>
                     <h5>Fires:</h5>
-                    <div class="sub-content">tr.Grid#event:preSectionDataBinding</div>
-                    <div class="sub-content">tr.Grid#event:columnDataBinding</div>
-                    <div class="sub-content"><a href="tr.Grid.html#event:postSectionDataBinding">tr.Grid#event:postSectionDataBinding</a></div>
+                    <div class="sub-content">Grid#event:preSectionDataBinding</div>
+                    <div class="sub-content">Grid#event:columnDataBinding</div>
+                    <div class="sub-content"><a href="Grid.html#event:postSectionDataBinding">Grid#event:postSectionDataBinding</a></div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>

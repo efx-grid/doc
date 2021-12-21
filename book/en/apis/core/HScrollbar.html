@@ -1,11 +1,17 @@
-<!doctype html>
-<html pandora>
+<!DOCTYPE html>
+<html pandora="">
 
-<head>
-  <title>tr.grid.Cell</title>
+<head><style id="linkStyle">
+    .link-icon {
+      width: 18px;
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgpMwidZAAAFl0lEQVRIDaVWWUxcVRhmWIYBhplh35dh34ct7EUEggIGA5EoAdrGB1ISH+aJwIvlpYY0GpSCDQ0IkphWX4iJiTEmLWqssW0UDCY+kFRTjQlLYmIVhkGu33e453KnTFOWk9w5//mX851/Of8Zg8/ZhgHmfvj2uE11dfULGxsbr7hcLofZbA53u907oNciIyO/cDgcN+fn5/+CGm34nXrQOIDWQ0NDoXl5eXPh4eEKlke+oKAgJS0t7aeGhoYq6mOcGpiGRu4wOjpqKywsXAKpAVosFndMTMwmPH3s7+9P/n+Ux8fH/1NfX18D+lTI0tNdgi4uLn62srJSi722Q0NDgyIiIr4G8AeKojz09fW17O7udmxtbV1YX1/fh44pNTX1Z4A/R/CTDM3T8fFxG/L2LYzp0bbJZFJSUlJueNuspqbmIiLggmwfh1OKioqc3vSexvMALS4u1kCDg4OVhISE93WGFnhmCgsLs0peVlbWpJ+fn0iH3W7/VPKPM/tTiZ4C9C5I4WlISAhBp+QG8CZE0pyR51DOpaWlL8bGxv4LUsEhfiXvOINXxsfpdNpKSko0UHqamJg4KTcAHSRpOdNz0lVVVbVIBa8TQ80DPHP4UgOF5I8r8zlI4SmvCICuSWsdKFOiH2YucOAeeM/7rmRnZ6/oFbzRApQChMoZGBiohTcpKUkLL8Sm7u5uERX9Jvqw4x5/CZnIcXJy8rxezxstgAcGBqxQXqMhPc3IyPjEmzJ4og4okyEmjRBP2mw2AYrrpiDsXeQ/bWghq6ioOGe1WoVhdHT0ZmdnZxaNmpqaYgoKCq7Am8Xm5uZcdSMjOpR2AFyjcRkpyJXc3Nybqp7nVFZWxjYYiI9FIcJXXl5+nvcUayUuLu4bzGIgb+fRLAQfV+SH/v7+aFUk7FDtbzNC4O3gU9DhvhscHAxTdQ4nhJCARwYOc0ECo+3dlgo4UFtUVJQAZoXn5+drxYYCep1XDbpsHKzk71Ggkaqt6PGClqDDw8NhMJpCCEdUJR8At6ib0OPf+/r64qQM3etN1SvKHiH8Ig2IxiDzCT0F9/6rkZGRKNXGiPkgjRKUzQGAD6jMnML4EpUbGxtT4Okf5PMAOP175HN0dXXFocJF4SHs2/C6h/ze3l4LDnUJV/AtFKfmKXr4AagsBBV0GTY85V5AQABPehG0GKCvgKDsb1SoC2F+jQLYmwHMKueh9gEs+7BWnNTDYN41nu/S0tIeYm+emZm5s7q66oBwB6B+qMary8vL81iLfKCyr+bk5PyItRmPuxGvjigk0uDJKoZDCl8hDtGxDkgBSj4PfjgQjkWsyNwxGAzM1TtSqjYGcdL29vY06H6E73JHR4fowa2trenQ/5P2+CPwGJF5WbVl+zR4ayxCjlC9hL8pBN1lkaSnp7+rGnKSnhBYC5NO7oMofIh3l/YKHoFfenp6YijXNxC9vkZDQXrLjrQkBTL3co35CDA60oR6zdxsEijMy6r+YeXqNvAg7Xb7IzAU3kPZynQN30NXbS6CR1Cj0UhPt2mPK3hbVqxez2MD/QI9WCSdjQA5LKDMi7cevCdB0ZHujY2NWWmLqqa3zx4A3oSWwtZXW1t7jhZPnlh/EC+g9ycmJiy0OzYolQHM3iuKA9V6nTwMMzchoD7sSMs13m/IRXjh6f3Z2VlR3bIJCevj/KARONWqdLFboeW96s0uMzPzuqonQR9MTU2JR/7EoARAmALxrP0Gkp7sERze3qisrHweTcPBDoWN76rVK14ZttUzgRKYo62trRzvrAg3luI1YU9m3uWrBL4bHw91b2FhQfyhO5Wn2EQO8Xa2tLSU4U4/lH9BIZQHETP/DwP01tzcnGiFrAG5wVlmAT49PR2A/1ZvoOnf4ROHFGyhZ6/hjn5cV1fXLAH0VS55J53/B87f0CGEUoUIAAAAAElFTkSuQmCC');
+      margin-left: -26px;
+    }
+  </style>
+  <title>HScrollbar</title>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="x-pandora-base" content="../../">
-  <meta name="x-pandora-location" content="apis/composite_grid/tr.grid.Cell.html">
+  <meta name="x-pandora-location" content="apis/core/HScrollbar.html">
   <link rel="stylesheet" href="../../../../resources/styles/book.css">
   <script defer src="../../../../resources/scripts/book.js"></script>
   <script defer src="../../search.index.js"></script>
@@ -14,7 +20,7 @@
 
 <body>
   <pandora-book>
-    <div class="header" no-print>
+    <div class="header" no-print="">
       <div class="book-icon" style="background-image:url(&quot;../../resources/images/icon.png&quot;)"></div>
       <h1><a href="../../index.html">Grid Usage Guide</a></h1>
       <div class="search">
@@ -22,12 +28,12 @@
       </div>
     </div>
     <div class="content">
-      <div class="sidebar" no-print>
-        <pandora-nav id="423cf427-74cb-4434-88f3-1d10c6a532fa">
+      <div class="sidebar" no-print="">
+        <pandora-nav id="1b0c0ddd-a6a6-4ba3-b0c4-46892fc9ae75">
           <ul>
             <li><a href="../../index.html">Overview</a></li>
-            <li parent id="cid-0" collapsible collapsed>
-              <div collapser>General Concept</div>
+            <li parent="" id="cid-0" collapsible="" collapsed="">
+              <div collapser="">General Concept</div>
               <ul>
                 <li><a href="../../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../../general_concept/initializing-data.html">Initializing Data</a></li>
@@ -36,45 +42,46 @@
                 <li><a href="../../general_concept/disposing-grid.html">Disposing Grid</a></li>
               </ul>
             </li>
-            <li parent id="cid-1" collapsible collapsed>
-              <div collapser>Showcases</div>
+            <li parent="" id="cid-1" collapsible="" collapsed="">
+              <div collapser="">Showcases</div>
               <ul>
                 <li><a href="../../showcases/comprehensive.html">Comprehensive</a></li>
               </ul>
             </li>
-            <li parent id="cid-4" collapsible collapsed>
-              <div collapser>APIs</div>
+            <li parent="" id="cid-4" collapsible="" collapsed="">
+              <div collapser="">APIs</div>
               <ul>
                 <li><a href="../../apis/README.html">Overview</a></li>
-                <li parent id="cid-2" collapsible collapsed>
-                  <div collapser>Composite Grid (Emerald Grid)</div>
+                <li parent="" id="cid-2" collapsible="" collapsed="">
+                  <div collapser="">Core</div>
                   <ul>
-                    <li><a href="../../apis/composite_grid/tr.ColumnStats.html">tr.ColumnStats</a></li>
-                    <li><a href="../../apis/composite_grid/tr.CompositeGrid.html">tr.CompositeGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataCache.html">tr.DataCache</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataTable.html">tr.DataTable</a></li>
-                    <li><a href="../../apis/composite_grid/tr.DataView.html">tr.DataView</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementControl.html">tr.ElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ElementWrapper.html">tr.ElementWrapper</a></li>
-                    <li><a href="../../apis/composite_grid/tr.Event.html">tr.Event</a></li>
-                    <li><a href="../../apis/composite_grid/tr.EventDispatcher.html">tr.EventDispatcher</a></li>
-                    <li><a href="../../apis/composite_grid/tr.Grid.html">tr.Grid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.IElementControl.html">tr.IElementControl</a></li>
-                    <li><a href="../../apis/composite_grid/tr.ILayoutGrid.html">tr.ILayoutGrid</a></li>
-                    <li><a href="../../apis/composite_grid/tr.LayoutGrid.html">tr.LayoutGrid</a></li>
-                    <li selected><a href="../../apis/composite_grid/tr.grid.Cell.html">tr.grid.Cell</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.CellSpans.html">tr.grid.CellSpans</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.DragAndDropTitlePlugin.html">tr.grid.DragAndDropTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.HScrollbar.html">tr.grid.HScrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.ResizableTitlePlugin.html">tr.grid.ResizableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.Scrollbar.html">tr.grid.Scrollbar</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SectionSettings.html">tr.grid.SectionSettings</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.SortableTitlePlugin.html">tr.grid.SortableTitlePlugin</a></li>
-                    <li><a href="../../apis/composite_grid/tr.grid.VScrollbar.html">tr.grid.VScrollbar</a></li>
+                    <li><a href="../../apis/core/Cell.html">Cell</a></li>
+                    <li><a href="../../apis/core/CellSpans.html">CellSpans</a></li>
+                    <li><a href="../../apis/core/ColumnStats.html">ColumnStats</a></li>
+                    <li><a href="../../apis/core/DataCache.html">DataCache</a></li>
+                    <li><a href="../../apis/core/DataTable.html">DataTable</a></li>
+                    <li><a href="../../apis/core/DataView.html">DataView</a></li>
+                    <li><a href="../../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
+                    <li><a href="../../apis/core/ElementControl.html">ElementControl</a></li>
+                    <li><a href="../../apis/core/ElementWrapper.html">ElementWrapper</a></li>
+                    <li><a href="../../apis/core/Event.html">Event</a></li>
+                    <li><a href="../../apis/core/EventDispatcher.html">EventDispatcher</a></li>
+                    <li><a href="../../apis/core/Grid.html">Grid</a></li>
+                    <li selected><a href="../../apis/core/HScrollbar.html">HScrollbar</a></li>
+                    <li><a href="../../apis/core/IElementControl.html">IElementControl</a></li>
+                    <li><a href="../../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
+                    <li><a href="../../apis/core/LayoutGrid.html">LayoutGrid</a></li>
+                    <li><a href="../../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/Scrollbar.html">Scrollbar</a></li>
+                    <li><a href="../../apis/core/SectionSettings.html">SectionSettings</a></li>
+                    <li><a href="../../apis/core/Segment.html">Segment</a></li>
+                    <li><a href="../../apis/core/SegmentCollection.html">SegmentCollection</a></li>
+                    <li><a href="../../apis/core/SortableTitlePlugin.html">SortableTitlePlugin</a></li>
+                    <li><a href="../../apis/core/VScrollbar.html">VScrollbar</a></li>
                   </ul>
                 </li>
-                <li parent id="cid-3" collapsible collapsed>
-                  <div collapser>Real-time Grid (Atlas Blotter)</div>
+                <li parent="" id="cid-3" collapsible="" collapsed="">
+                  <div collapser="">Real-time Grid (EFX Grid)</div>
                   <ul>
                     <li><a href="../../apis/rt_grid/ColumnDefinition.html">ColumnDefinition</a></li>
                     <li><a href="../../apis/rt_grid/Grid.html">Grid</a></li>
@@ -83,8 +90,8 @@
                 </li>
               </ul>
             </li>
-            <li parent id="cid-5" collapsible collapsed>
-              <div collapser>Extensions</div>
+            <li parent="" id="cid-5" collapsible="" collapsed="">
+              <div collapser="">Extensions</div>
               <ul>
                 <li><a href="../../extensions/README.html">Overview</a></li>
                 <li><a href="../../extensions/tr-grid-auto-tooltip.html">Auto Tooltip</a></li>
@@ -117,20 +124,20 @@
                 <li><a href="../../extensions/zoom.html">Zoom</a></li>
               </ul>
             </li>
-            <li parent id="cid-6" collapsible collapsed>
-              <div collapser>Content Rendering</div>
+            <li parent="" id="cid-6" collapsible="" collapsed="">
+              <div collapser="">Content Rendering</div>
               <ul>
                 <li><a href="../../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
               </ul>
             </li>
-            <li parent id="cid-7" collapsible collapsed>
-              <div collapser>Data</div>
+            <li parent="" id="cid-7" collapsible="" collapsed="">
+              <div collapser="">Data</div>
               <ul>
                 <li><a href="../../data/columns-and-data.html">Resetting/Clearing Data</a></li>
               </ul>
             </li>
-            <li parent id="cid-8" collapsible collapsed>
-              <div collapser>Columns</div>
+            <li parent="" id="cid-8" collapsible="" collapsed="">
+              <div collapser="">Columns</div>
               <ul>
                 <li><a href="../../columns/column-resetting.html">Column Resetting</a></li>
                 <li><a href="../../columns/column-alignment.html">Column Alignment</a></li>
@@ -145,8 +152,8 @@
                 <li><a href="../../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-9" collapsible collapsed>
-              <div collapser>Rows</div>
+            <li parent="" id="cid-9" collapsible="" collapsed="">
+              <div collapser="">Rows</div>
               <ul>
                 <li><a href="../../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
                 <li><a href="../../rows/row-height.html">Row Height</a></li>
@@ -156,8 +163,8 @@
                 <li><a href="../../rows/row-grouping.html">Row Grouping</a></li>
               </ul>
             </li>
-            <li parent id="cid-10" collapsible collapsed>
-              <div collapser>Scrollbars</div>
+            <li parent="" id="cid-10" collapsible="" collapsed="">
+              <div collapser="">Scrollbars</div>
               <ul>
                 <li><a href="../../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
                 <li><a href="../../scrollbars/horizontal-scrollbar.html">Horizontal Scrollbar</a></li>
@@ -168,8 +175,8 @@
                 <li><a href="../../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
               </ul>
             </li>
-            <li parent id="cid-11" collapsible collapsed>
-              <div collapser>Sorting</div>
+            <li parent="" id="cid-11" collapsible="" collapsed="">
+              <div collapser="">Sorting</div>
               <ul>
                 <li><a href="../../sorting/sorting.html">Basic Sorting</a></li>
                 <li><a href="../../sorting/default-sorting.html">Default Sort</a></li>
@@ -178,8 +185,8 @@
                 <li><a href="../../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
               </ul>
             </li>
-            <li parent id="cid-12" collapsible collapsed>
-              <div collapser>Filtering</div>
+            <li parent="" id="cid-12" collapsible="" collapsed="">
+              <div collapser="">Filtering</div>
               <ul>
                 <li><a href="../../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
                 <li><a href="../../filtering/filtering-auto-filter-row.html">Filter UI</a></li>
@@ -187,23 +194,23 @@
                 <li><a href="../../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
               </ul>
             </li>
-            <li parent id="cid-13" collapsible collapsed>
-              <div collapser>Editing</div>
+            <li parent="" id="cid-13" collapsible="" collapsed="">
+              <div collapser="">Editing</div>
               <ul>
                 <li><a href="../../editing/in-cell-editor.html">In-Cell Editing</a></li>
                 <li><a href="../../editing/custom-editor.html">Custom Editor</a></li>
               </ul>
             </li>
-            <li parent id="cid-14" collapsible collapsed>
-              <div collapser>Widgets</div>
+            <li parent="" id="cid-14" collapsible="" collapsed="">
+              <div collapser="">Widgets</div>
               <ul>
                 <li><a href="../../widgets/column-format-dialog.html">Column Format Dialog</a></li>
                 <li><a href="../../widgets/column-selection-dialog.html">Column Selection Dialog</a></li>
                 <li><a href="../../widgets/filter-dialog.html">Filter Dialog</a></li>
               </ul>
             </li>
-            <li parent id="cid-15" collapsible collapsed>
-              <div collapser>Miscellaneous</div>
+            <li parent="" id="cid-15" collapsible="" collapsed="">
+              <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../../misc/core-apis.html">Using Core APIs</a></li>
                 <li><a href="../../misc/real-time-market-data.html">Realtime Market Data</a></li>
@@ -222,67 +229,22 @@
             <div id="main-template" class="elf-template">
               <section>
                 <header>
-                  <h1 class="subsection-title"><span class="attribs"></span>tr.grid.Cell<span class="signature">(opt_element<span class="signature-attributes">opt</span>, opt_section<span class="signature-attributes">opt</span>)</span>
-                  </h1>
+                  <h1 class="subsection-title"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/apis/core/HScrollbar.html" target="_top" class="link-icon"></a> <span class="attribs"></span>HScrollbar<span class="signature">()</span></h1>
                 </header>
                 <article>
                   <div class="container-overview">
                     <div class="item">
                       <div class="item-type">class</div>
-                      <h4 class="name" id="Cell">new Cell<span class="signature">(opt_element<span class="signature-attributes">opt</span>, opt_section<span class="signature-attributes">opt</span>)</span>
-                      </h4>
-                      <div class="description"> Cell container. Please see <a href="tr.IElementControl.html">tr.IElementControl</a> for full APIs and parameter lists </div>
-                      <h5>Parameters:</h5>
-                      <div class="params">
-                        <div class="param">
-                          <div class="name">opt_element</div>
-                          <div class="type"> <span class="param-type">Element</span> </div>
-                          <div class="attributes"> &lt;optional&gt; </div>
-                        </div>
-                        <div class="param">
-                          <div class="name">opt_section</div>
-                          <div class="type"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
-                          <div class="attributes"> &lt;optional&gt; </div>
-                          <div class="description"> Parent section </div>
-                        </div>
-                      </div>
-                      <div class="details"> <dt class="implements">Implements:</dt>
-                        <dd class="implements">
-                          <ul>
-                            <li><a href="tr.IElementControl.html">tr.IElementControl</a></li>
-                          </ul>
-                        </dd>
-                      </div>
+                      <h4 class="name" id="HScrollbar">new HScrollbar<span class="signature">()</span></h4>
+                      <div class="details"> </div>
                     </div>
                   </div>
                   <h3 class="subsection-title">Extends</h3>
                   <dd class="argument-list">
                     <ul>
-                      <li><a href="tr.ElementWrapper.html">tr.ElementWrapper</a></li>
+                      <li><a href="Scrollbar.html">Scrollbar</a></li>
                     </ul>
                   </dd>
-                  <h3 class="subsection-title">Members</h3>
-                  <div class="item">
-                    <div class="item-type">member</div>
-                    <h4 class="name" id="freezeLayout">freezeLayout</h4>
-                    <div class="details"> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">member</div>
-                    <h4 class="name" id="isFrozen">isFrozen</h4>
-                    <div class="details"> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">member</div>
-                    <h4 class="name" id="setAutoContentClipping">setAutoContentClipping</h4>
-                    <div class="details"> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
-                    </div>
-                  </div>
                   <h3 class="subsection-title">Methods</h3>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -296,12 +258,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#addClass">tr.ElementWrapper#addClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#addClass">tr.IElementControl#addClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#addClass">ElementWrapper#addClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -312,85 +269,140 @@
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                         <div class="description"> will be appended as a child of this element </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#addContent">tr.ElementWrapper#addContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#addContent">tr.IElementControl#addContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#addContent">ElementWrapper#addContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
+                    <h4 class="name" id="addWheelListener">addWheelListener<span class="signature">(elem)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">elem</div>
+                        <div class="type"> <span class="param-type">Element</span> </div>
+                        <div class="description"> Element that will trigger scrolling by mouse wheel </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#addWheelListener">Scrollbar#addWheelListener</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="attachToExternalElement">attachToExternalElement<span class="signature">(host)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">host</div>
+                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#attachToExternalElement">Scrollbar#attachToExternalElement</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="calculateContentSize">calculateContentSize<span class="signature">()</span></h4>
+                    <div class="description"> Must be implemented by the inheritance </div>
+                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#calculateContentSize">Scrollbar#calculateContentSize</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
                     <h4 class="name" id="disable">disable<span class="signature">(opt_disabled<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Disable control element </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">opt_disabled</div>
                         <div class="type"> <span class="param-type">boolean</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If false the element will be shown </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#disable">tr.ElementWrapper#disable</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#disable">tr.IElementControl#disable</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#disable">Scrollbar#disable</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="dispose">dispose<span class="signature">()</span></h4>
-                    <div class="description"> Calls this method, if it is NO LONGER needed and we want to free up memory.Any usage after disposition will cause exception error </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#dispose">tr.ElementWrapper#dispose</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#dispose">tr.IElementControl#dispose</a></li>
-                        </ul>
-                      </dd>
+                    <h4 class="name" id="disableKeyboardInput">disableKeyboardInput<span class="signature">(opt_disabled<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_disabled</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#disableKeyboardInput">Scrollbar#disableKeyboardInput</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="disableMouseWheel">disableMouseWheel<span class="signature">(opt_disabled<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_disabled</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#disableMouseWheel">Scrollbar#disableMouseWheel</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="disableTouchInput">disableTouchInput<span class="signature">(opt_disabled<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">opt_disabled</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#disableTouchInput">Scrollbar#disableTouchInput</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="enable">enable<span class="signature">(opt_enabled<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Enable control element </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">opt_enabled</div>
                         <div class="type"> <span class="param-type">boolean</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If false the element will be hidden </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#enable">tr.ElementWrapper#enable</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#enable">tr.IElementControl#enable</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#enable">Scrollbar#enable</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="enableClass">enableClass<span class="signature">(str, opt_enabled<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Adds or removes CSS class by specifying &quot;enabled&quot; parameter </div>
+                    <div class="description"> Adds or removes CSS class by specifying "enabled" parameter </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -406,12 +418,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#enableClass">tr.ElementWrapper#enableClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#enableClass">tr.IElementControl#enableClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#enableClass">ElementWrapper#enableClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -428,13 +435,8 @@
                         <div class="description"> If not defined, 100% height is used </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#fillParentHeight">tr.ElementWrapper#fillParentHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#fillParentHeight">tr.IElementControl#fillParentHeight</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#fillParentHeight">ElementWrapper#fillParentHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -454,17 +456,19 @@
                         <div class="description"> If not defined, 100% width is used </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#fillParentWidth">tr.ElementWrapper#fillParentWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#fillParentWidth">tr.IElementControl#fillParentWidth</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#fillParentWidth">ElementWrapper#fillParentWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                     <div class="sub-content-desc"> true if there is any change, otherwise false</div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="flash">flash<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#flash">Scrollbar#flash</a> </dd>
+                    </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -477,27 +481,28 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getAttribute">tr.ElementWrapper#getAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getAttribute">tr.IElementControl#getAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getAttribute">ElementWrapper#getAttribute</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
+                    <h4 class="name" id="getAutoHide">getAutoHide<span class="signature">()</span></h4>
+                    <div class="description"> Get scrollbar autohide status </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#getAutoHide">Scrollbar#getAutoHide</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                    <div class="sub-content-desc"> true if autohide, false if not</div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
                     <h4 class="name" id="getBoundingClientRect">getBoundingClientRect<span class="signature">()</span></h4>
                     <div class="description"> The returned value is a TextRectangle object, which contains read-only left,top, right and bottom properties describing the border-box, in pixels, with the top-leftrelative to the top-left of the viewport. </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getBoundingClientRect">tr.ElementWrapper#getBoundingClientRect</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getBoundingClientRect">tr.IElementControl#getBoundingClientRect</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getBoundingClientRect">ElementWrapper#getBoundingClientRect</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Object</span> </div>
@@ -506,52 +511,45 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="getClass">getClass<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getClass">tr.ElementWrapper#getClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getClass">tr.IElementControl#getClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getClass">ElementWrapper#getClass</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="getContent">getContent<span class="signature">(opt_allContent<span class="signature-attributes">opt</span>)</span>
-                    </h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">opt_allContent</div>
-                        <div class="type"> <span class="param-type">boolean</span> </div>
-                        <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If true all children will be returned </div>
-                      </div>
-                    </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getContent">tr.ElementWrapper#getContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getContent">tr.IElementControl#getContent</a></li>
-                        </ul>
-                      </dd>
+                    <h4 class="name" id="getContentSize">getContentSize<span class="signature">()</span></h4>
+                    <div class="description"> This is equivalent to scrollHeight or scrollWidth </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#getContentSize">Scrollbar#getContentSize</a> </dd>
                     </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type">NodeList</span> </div>
-                    <div class="sub-content-desc"> Returns the last child, if there are multiple children. Returns null if there is no child</div>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                    <div class="sub-content-desc"> Content size without zoom factor</div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getContentWidth">getContentWidth<span class="signature">()</span></h4>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getDefaultMouseWheelLogic">getDefaultMouseWheelLogic<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#getDefaultMouseWheelLogic">Scrollbar#getDefaultMouseWheelLogic</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">function</span> </div>
+                    <div class="sub-content-desc"> Mouse wheel logic that is attached to this instance</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getElement">getElement<span class="signature">()</span></h4>
                     <div class="description"> Gets top element of this control </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getElement">tr.ElementWrapper#getElement</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getElement">tr.IElementControl#getElement</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getElement">ElementWrapper#getElement</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
@@ -560,13 +558,8 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="getHeight">getHeight<span class="signature">()</span></h4>
                     <div class="description"> Gets offsetHeight </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getHeight">tr.ElementWrapper#getHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getHeight">tr.IElementControl#getHeight</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getHeight">ElementWrapper#getHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -576,12 +569,7 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="getId">getId<span class="signature">()</span></h4>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getId">tr.ElementWrapper#getId</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getId">tr.IElementControl#getId</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getId">ElementWrapper#getId</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -589,12 +577,32 @@
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getLeft">getLeft<span class="signature">()</span></h4>
-                    <div class="description"> Gets the left position that is relative to its parent&apos;s client area </div>
+                    <div class="description"> Gets the left position that is relative to its parent's client area </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getLeft">tr.ElementWrapper#getLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getLeft">ElementWrapper#getLeft</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getNextSibling">getNextSibling<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getNextSibling">ElementWrapper#getNextSibling</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getScrollGap">getScrollGap<span class="signature">()</span></h4>
+                    <div class="description"> Get available space for scrolling which is equivalent to content size subtracted by view size </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#getScrollGap">Scrollbar#getScrollGap</a> </dd> <dt class="tag-see">See:</dt>
+                      <dd class="tag-see">
                         <ul>
-                          <li><a href="tr.IElementControl.html#getLeft">tr.IElementControl#getLeft</a></li>
+                          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight">scrollHeight</a></li>
+                          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth">scrollWidth</a></li>
                         </ul>
                       </dd>
                     </div>
@@ -603,64 +611,22 @@
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="getNextSibling">getNextSibling<span class="signature">()</span></h4>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getNextSibling">tr.ElementWrapper#getNextSibling</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getNextSibling">tr.IElementControl#getNextSibling</a></li>
-                        </ul>
-                      </dd>
-                    </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="getParent">getParent<span class="signature">()</span></h4>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getParent">tr.ElementWrapper#getParent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getParent">tr.IElementControl#getParent</a></li>
-                        </ul>
-                      </dd>
-                    </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
                     <h4 class="name" id="getScrollLeft">getScrollLeft<span class="signature">()</span></h4>
+                    <div class="description"> Note that if element display style is set to "none" or not in the document, scroll value will automatically reset to zero and will not be restored when it is back to visible state </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getScrollLeft">tr.ElementWrapper#getScrollLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getScrollLeft">tr.IElementControl#getScrollLeft</a></li>
-                        </ul>
-                      </dd> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#getScrollLeft">Scrollbar#getScrollLeft</a> </dd>
                     </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getScrollTop">getScrollTop<span class="signature">()</span></h4>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getScrollTop">tr.ElementWrapper#getScrollTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getScrollTop">tr.IElementControl#getScrollTop</a></li>
-                        </ul>
-                      </dd> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getScrollTop">ElementWrapper#getScrollTop</a> </dd>
                     </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="getSection">getSection<span class="signature">()</span></h4>
-                    <div class="details"> </div>
                     <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type"><a href="tr.ILayoutGrid.html">tr.ILayoutGrid</a></span> </div>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -673,12 +639,7 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getStyle">tr.ElementWrapper#getStyle</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getStyle">tr.IElementControl#getStyle</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getStyle">ElementWrapper#getStyle</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -687,36 +648,18 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="getTextContent">getTextContent<span class="signature">()</span></h4>
                     <div class="description"> Gets textContent (IE9+) value from this element </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getTextContent">tr.ElementWrapper#getTextContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTextContent">tr.IElementControl#getTextContent</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTextContent">ElementWrapper#getTextContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="getTextElement">getTextElement<span class="signature">()</span></h4>
-                    <div class="details"> </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> </div>
-                    <div class="sub-content-desc"> return the element of the text content</div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
                     <h4 class="name" id="getTooltip">getTooltip<span class="signature">()</span></h4>
-                    <div class="description"> Gets tooltip text from &quot;title&quot; attribute </div>
+                    <div class="description"> Gets tooltip text from "title" attribute </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getTooltip">tr.ElementWrapper#getTooltip</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTooltip">tr.IElementControl#getTooltip</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTooltip">ElementWrapper#getTooltip</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -724,14 +667,28 @@
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="getTop">getTop<span class="signature">()</span></h4>
-                    <div class="description"> Gets the top position that is relative to its parent&apos;s client area </div>
+                    <div class="description"> Gets the top position that is relative to its parent's client area </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#getTop">tr.ElementWrapper#getTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getTop">tr.IElementControl#getTop</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#getTop">ElementWrapper#getTop</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getTrackSize">getTrackSize<span class="signature">()</span></h4>
+                    <div class="description"> Horizontal scrollbar will be shrunk if vertical scrollbar exists at the same time </div>
+                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#getTrackSize">Scrollbar#getTrackSize</a> </dd>
+                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">number</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="getTrackThickness">getTrackThickness<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#getTrackThickness">Scrollbar#getTrackThickness</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -741,12 +698,7 @@
                     <h4 class="name" id="getWidth">getWidth<span class="signature">()</span></h4>
                     <div class="description"> Gets offsetWidth </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#getWidth">tr.ElementWrapper#getWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#getWidth">tr.IElementControl#getWidth</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#getWidth">Scrollbar#getWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">number</span> </div>
@@ -763,20 +715,8 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#hasClass">tr.ElementWrapper#hasClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#hasClass">tr.IElementControl#hasClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#hasClass">ElementWrapper#hasClass</a> </dd>
                     </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="hasElement">hasElement<span class="signature">()</span></h4>
-                    <div class="details"> </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
@@ -784,7 +724,7 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="hide">hide<span class="signature">(opt_hidden<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Sets display style as inline style to the element with value of &quot;none&quot; </div>
+                    <div class="description"> Sets display style as inline style to the element with value of "none" </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -795,155 +735,81 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#hide">tr.ElementWrapper#hide</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#hide">tr.IElementControl#hide</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#hide">ElementWrapper#hide</a> </dd>
                     </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="initialize">initialize<span class="signature">()</span></h4>
-                    <div class="description"> Use for lazy initialization only. Force an element to be created, if it does not exist. </div>
-                    <div class="details"> </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="insertAfter">insertAfter<span class="signature">(previousSibling)</span></h4>
-                    <div class="description"> Inserts this element after the specified sibling. Parent of this element will be changed to sibling&apos;s parent If sibling parent does not exist, nothing is performed. If previousSibling is null, this element will place itself at the end of its parent child list </div>
+                    <div class="description"> Inserts this element after the specified sibling. Parent of this element will be changed to sibling's parentIf sibling parent does not exist, nothing is performed.If previousSibling is null, this element will place itself at the end of its parent child list </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">previousSibling</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#insertAfter">tr.ElementWrapper#insertAfter</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#insertAfter">tr.IElementControl#insertAfter</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#insertAfter">ElementWrapper#insertAfter</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="insertBefore">insertBefore<span class="signature">(nextSibling)</span></h4>
-                    <div class="description"> Inserts this element before the specified sibling. Parent of this element will be changed to sibling&apos;s parent If sibling parent does not exist, nothing is performed. If nextSibling is null, this element will place itself at the end of its parent child list </div>
+                    <div class="description"> Inserts this element before the specified sibling. Parent of this element will be changed to sibling's parentIf sibling parent does not exist, nothing is performed.If nextSibling is null, this element will place itself at the end of its parent child list </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">nextSibling</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
+                        <div class="type"> <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#insertBefore">tr.ElementWrapper#insertBefore</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#insertBefore">tr.IElementControl#insertBefore</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#insertBefore">ElementWrapper#insertBefore</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="insertFloatingIcon">insertFloatingIcon<span class="signature">(elem, opt_order<span class="signature-attributes">opt</span>)</span>
-                    </h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">elem</div>
-                        <div class="type"> <span class="param-type">Element</span> </div>
-                        <div class="attributes"> </div>
-                      </div>
-                      <div class="param">
-                        <div class="name">opt_order</div>
-                        <div class="type"> <span class="param-type">number</span> </div>
-                        <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> The greater the order, the farther the position to the right </div>
-                      </div>
+                    <h4 class="name" id="isActive">isActive<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#isActive">Scrollbar#isActive</a> </dd>
                     </div>
-                    <div class="details"> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="insertFrontIcon">insertFrontIcon<span class="signature">(elem, opt_order<span class="signature-attributes">opt</span>)</span>
-                    </h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">elem</div>
-                        <div class="type"> <span class="param-type">Element</span> </div>
-                        <div class="attributes"> </div>
-                      </div>
-                      <div class="param">
-                        <div class="name">opt_order</div>
-                        <div class="type"> <span class="param-type">number</span> </div>
-                        <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> The greater the order, the farther the position to the right </div>
-                      </div>
-                    </div>
-                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isEnabled">isEnabled<span class="signature">()</span></h4>
-                    <div class="description"> Check if control element is enabled </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#isEnabled">tr.ElementWrapper#isEnabled</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEnabled">tr.IElementControl#isEnabled</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#isEnabled">Scrollbar#isEnabled</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
-                    <div class="sub-content-desc"> true if element is enabled</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isEndOfHorizontalScroll">isEndOfHorizontalScroll<span class="signature">()</span></h4>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#isEndOfHorizontalScroll">tr.ElementWrapper#isEndOfHorizontalScroll</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEndOfHorizontalScroll">tr.IElementControl#isEndOfHorizontalScroll</a></li>
-                        </ul>
-                      </dd> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#isEndOfHorizontalScroll">Scrollbar#isEndOfHorizontalScroll</a> </dd>
                     </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isEndOfVerticalScroll">isEndOfVerticalScroll<span class="signature">()</span></h4>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#isEndOfVerticalScroll">tr.ElementWrapper#isEndOfVerticalScroll</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isEndOfVerticalScroll">tr.IElementControl#isEndOfVerticalScroll</a></li>
-                        </ul>
-                      </dd> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isEndOfVerticalScroll">ElementWrapper#isEndOfVerticalScroll</a> </dd>
                     </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="isVisible">isVisible<span class="signature">()</span></h4>
-                    <div class="description"> Check to see if display has &quot;none&quot; as a inline style. Note that any change in visibility and class name may not be reflected by the returned value. </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#isVisible">tr.ElementWrapper#isVisible</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#isVisible">tr.IElementControl#isVisible</a></li>
-                        </ul>
-                      </dd>
+                    <div class="description"> Check to see if display has "none" as a inline style. Note that any change in visibility and class name may not be reflected by the returned value. </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#isVisible">ElementWrapper#isVisible</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -952,14 +818,14 @@
                     <div class="item-type">function</div>
                     <h4 class="name" id="listen">listen<span class="signature">(type, handler, opt_priority<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> See all available event list here <a href="tr.IElementControl.html#event:blur">tr.IElementControl#event:blur</a> </div>
+                    <div class="description"> Add a event listener to either native or custom event provided from the instance. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
                         <div class="name">type</div>
                         <div class="type"> <span class="param-type">string</span> </div>
                         <div class="attributes"> </div>
-                        <div class="description"> All standard HTML element event types are allowed. See all available event list here <a href="tr.IElementControl.html#event:blur">tr.IElementControl#event:blur</a> </div>
+                        <div class="description"> All standard HTML element event types are allowed </div>
                       </div>
                       <div class="param">
                         <div class="name">handler</div>
@@ -975,28 +841,11 @@
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#listen">tr.ElementWrapper#listen</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#listen">tr.IElementControl#listen</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#listen">ElementWrapper#listen</a> </dd>
                     </div>
                     <h5>Example:</h5>
-                    <pre><code>var grid = new tr.Grid();
-grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&quot;); });</code></pre> </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="lockContent">lockContent<span class="signature">(opt_locked)</span></h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">opt_locked</div>
-                        <div class="type"> <span class="param-type">boolean</span> </div>
-                      </div>
-                    </div>
-                    <div class="details"> </div>
-                  </div>
+                    <pre><code>var grid = new Grid();
+grid.listen("click", function(e) { console.log("Grid is clicked"); });</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="removeAttribute">removeAttribute<span class="signature">(str)</span></h4>
@@ -1009,12 +858,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#removeAttribute">tr.ElementWrapper#removeAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeAttribute">tr.IElementControl#removeAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeAttribute">ElementWrapper#removeAttribute</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1028,12 +872,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#removeClass">tr.ElementWrapper#removeClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeClass">tr.IElementControl#removeClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeClass">ElementWrapper#removeClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1044,17 +883,12 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> </div>
+                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">Node</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> </div>
                         <div class="description"> If null is given, nothing is done </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#removeContent">tr.ElementWrapper#removeContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#removeContent">tr.IElementControl#removeContent</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#removeContent">ElementWrapper#removeContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -1062,58 +896,18 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="removeFloatingIcon">removeFloatingIcon<span class="signature">(elemRef)</span></h4>
+                    <h4 class="name" id="removeWheelListener">removeWheelListener<span class="signature">(elem)</span></h4>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
-                        <div class="name">elemRef</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">string</span> </div>
-                        <div class="description"> This can be the element or className (string) of the icon </div>
+                        <div class="name">elem</div>
+                        <div class="type"> <span class="param-type">Element</span> </div>
+                        <div class="description"> Element that will trigger scrolling by mouse wheel </div>
                       </div>
                     </div>
-                    <div class="details"> </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">null</span> </div>
-                    <div class="sub-content-desc"> removed element</div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="removeFrontIcon">removeFrontIcon<span class="signature">(elemRef)</span></h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">elemRef</div>
-                        <div class="type"> <span class="param-type">Element</span> | <span class="param-type">string</span> </div>
-                        <div class="description"> This can be the element or className (string) of the icon </div>
-                      </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#removeWheelListener">Scrollbar#removeWheelListener</a> </dd>
                     </div>
-                    <div class="details"> </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">Element</span> | <span class="param-type">null</span> </div>
-                    <div class="sub-content-desc"> removed element</div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="removeIcon">removeIcon<span class="signature">()</span></h4>
-                    <div class="details"> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="reset">reset<span class="signature">()</span></h4>
-                    <div class="description"> Reset all styles, classes, and content in this cell and restore its default classes </div>
-                    <div class="details"> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="resetClass">resetClass<span class="signature">()</span></h4>
-                    <div class="description"> Reset all classes in this cell and restore its default classes </div>
-                    <div class="details"> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="resetToInitialState">resetToInitialState<span class="signature">()</span></h4>
-                    <div class="description"> Reset everything to initial state </div>
-                    <div class="details"> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1128,16 +922,11 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       <div class="param">
                         <div class="name">val</div>
                         <div class="type"> <span class="param-type">string</span> </div>
-                        <div class="description"> Uses empty string (&quot;&quot;) to remove the attribute value </div>
+                        <div class="description"> Uses empty string ("") to remove the attribute value </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setAttribute">tr.ElementWrapper#setAttribute</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setAttribute">tr.IElementControl#setAttribute</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setAttribute">ElementWrapper#setAttribute</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1149,16 +938,27 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       <div class="param">
                         <div class="name">json</div>
                         <div class="type"> <span class="param-type">Object</span> </div>
-                        <div class="description"> Key is the attribute names and value is string value (i.e. &quot;readonly&quot;, &quot;50&quot;, &quot;checkbox&quot;) </div>
+                        <div class="description"> Key is the attribute names and value is string value (i.e. "readonly", "50", "checkbox") </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setAttributes">tr.ElementWrapper#setAttributes</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setAttributes">tr.IElementControl#setAttributes</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setAttributes">ElementWrapper#setAttributes</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="setAutoHide">setAutoHide<span class="signature">(hide)</span></h4>
+                    <div class="description"> Set scrollbar autohide status If set to false, scrollbar will always be shown and no fading </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">hide</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="description"> true if autohide, false if not </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#setAutoHide">Scrollbar#setAutoHide</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1173,12 +973,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setClass">tr.ElementWrapper#setClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setClass">tr.IElementControl#setClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setClass">ElementWrapper#setClass</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1190,7 +985,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                     <div class="params">
                       <div class="param">
                         <div class="name">content</div>
-                        <div class="type"> <span class="param-type">string</span> | <span class="param-type">Element</span> | <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">*</span> </div>
+                        <div class="type"> <span class="param-type">string</span> | <span class="param-type">Element</span> | <span class="param-type"><a href="ElementWrapper.html">ElementWrapper</a></span> | <span class="param-type">*</span> </div>
                         <div class="attributes"> </div>
                         <div class="description"> Use null to clear content. If string is given, &lt;span&gt; tag is automatically added to host the string. </div>
                       </div>
@@ -1201,35 +996,16 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                         <div class="description"> If undefined, content is added without modification. If string is given, it is added to title attribute of the content </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#setContent">tr.ElementWrapper#setContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setContent">tr.IElementControl#setContent</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setContent">ElementWrapper#setContent</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">Element</span> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="setContentTooltip">setContentTooltip<span class="signature">(str)</span></h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">str</div>
-                        <div class="type"> <span class="param-type">string</span> </div>
-                      </div>
-                    </div>
-                    <div class="details"> </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
                     <h4 class="name" id="setHeight">setHeight<span class="signature">(val)</span></h4>
-                    <div class="description"> For complex sizing, use setStyle(&quot;height&quot;, &quot;-webkit-calc(100% - 10px)&quot;) instead. </div>
+                    <div class="description"> For complex sizing, use setStyle("height", "-webkit-calc(100% - 10px)") instead. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1238,13 +1014,8 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                         <div class="description"> in pixel </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#setHeight">tr.ElementWrapper#setHeight</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setHeight">tr.IElementControl#setHeight</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setHeight">ElementWrapper#setHeight</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -1261,12 +1032,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setId">tr.ElementWrapper#setId</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setId">tr.IElementControl#setId</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setId">ElementWrapper#setId</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1281,12 +1047,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setLeft">tr.ElementWrapper#setLeft</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setLeft">tr.IElementControl#setLeft</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setLeft">ElementWrapper#setLeft</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -1294,31 +1055,43 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="setParent">setParent<span class="signature">(parent, opt_prepend<span class="signature-attributes">opt</span>)</span>
-                    </h4>
+                    <h4 class="name" id="setMouseWheelSpeed">setMouseWheelSpeed<span class="signature">(val)</span></h4>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
-                        <div class="name">parent</div>
-                        <div class="type"> <span class="param-type"><a href="tr.IElementControl.html">tr.IElementControl</a></span> | <span class="param-type">Element</span> | <span class="param-type">Node</span> </div>
-                        <div class="attributes"> </div>
-                        <div class="description"> Uses null to clear parent </div>
+                        <div class="name">val</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
                       </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#setMouseWheelSpeed">Scrollbar#setMouseWheelSpeed</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="setScrollingStep">setScrollingStep<span class="signature">(px)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
                       <div class="param">
-                        <div class="name">opt_prepend</div>
-                        <div class="type"> <span class="param-type">boolean</span> </div>
-                        <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If false (default), this element is appended to child list of the parent </div>
+                        <div class="name">px</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#setParent">tr.ElementWrapper#setParent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setParent">tr.IElementControl#setParent</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#setScrollingStep">Scrollbar#setScrollingStep</a> </dd>
                     </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="setScrollLeft">setScrollLeft<span class="signature">(px)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">px</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1335,12 +1108,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setStyle">tr.ElementWrapper#setStyle</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setStyle">tr.IElementControl#setStyle</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setStyle">ElementWrapper#setStyle</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1352,16 +1120,11 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       <div class="param">
                         <div class="name">json</div>
                         <div class="type"> <span class="param-type">Object</span> </div>
-                        <div class="description"> Key is the property names and value is style value (i.e. &quot;center&quot;, &quot;#FF00FF&quot;, &quot;10px&quot;) </div>
+                        <div class="description"> Key is the property names and value is style value (i.e. "center", "#FF00FF", "10px") </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setStyles">tr.ElementWrapper#setStyles</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setStyles">tr.IElementControl#setStyles</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setStyles">ElementWrapper#setStyles</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1375,19 +1138,14 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                         <div class="type"> <span class="param-type">string</span> </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#setTextContent">tr.ElementWrapper#setTextContent</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTextContent">tr.IElementControl#setTextContent</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTextContent">ElementWrapper#setTextContent</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setTooltip">setTooltip<span class="signature">(str)</span></h4>
-                    <div class="description"> Sets tooltip text to &quot;title&quot; attribute </div>
+                    <div class="description"> Sets tooltip text to "title" attribute </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1396,12 +1154,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setTooltip">tr.ElementWrapper#setTooltip</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTooltip">tr.IElementControl#setTooltip</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTooltip">ElementWrapper#setTooltip</a> </dd>
                     </div>
                   </div>
                   <div class="item">
@@ -1416,12 +1169,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#setTop">tr.ElementWrapper#setTop</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setTop">tr.IElementControl#setTop</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#setTop">ElementWrapper#setTop</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -1429,8 +1177,26 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
+                    <h4 class="name" id="setTrackSize">setTrackSize<span class="signature">(size, paneSize)</span></h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">size</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">paneSize</div>
+                        <div class="type"> <span class="param-type">number</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#setTrackSize">Scrollbar#setTrackSize</a> </dd>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
                     <h4 class="name" id="setWidth">setWidth<span class="signature">(val)</span></h4>
-                    <div class="description"> For complex sizing, use setStyle(&quot;width&quot;, &quot;-webkit-calc(100% - 10px)&quot;) instead. </div>
+                    <div class="description"> For complex sizing, use setStyle("width", "-webkit-calc(100% - 10px)") instead. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1440,12 +1206,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#setWidth">tr.ElementWrapper#setWidth</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#setWidth">tr.IElementControl#setWidth</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="tag-overrides"> <a href="Scrollbar.html#setWidth">Scrollbar#setWidth</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
@@ -1465,57 +1226,39 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                         <div class="description"> If false the element will be hidden </div>
                       </div>
                     </div>
-                    <div class="details"> <dt class="tag-overrides">Overrides:</dt>
-                      <dd class="tag-overrides"> <a href="tr.ElementWrapper.html#show">tr.ElementWrapper#show</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#show">tr.IElementControl#show</a></li>
-                        </ul>
-                      </dd>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#show">ElementWrapper#show</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="toggleClass">toggleClass<span class="signature">(str, opt_replacement<span class="signature-attributes">opt</span>)</span>
+                    <h4 class="name" id="toggleClass">toggleClass<span class="signature">(cls, forcedVal<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Toggles the specified class with the replacement </div>
+                    <div class="description"> Toggles the specified class </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
-                        <div class="name">str</div>
+                        <div class="name">cls</div>
                         <div class="type"> <span class="param-type">string</span> </div>
                         <div class="attributes"> </div>
                       </div>
                       <div class="param">
-                        <div class="name">opt_replacement</div>
-                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="name">forcedVal</div>
+                        <div class="type"> <span class="param-type">boolean</span> | <span class="param-type">null</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
-                        <div class="description"> If not specified, empty string is used. </div>
+                        <div class="description"> If specified, force CSS class state as the specified value </div>
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#toggleClass">tr.ElementWrapper#toggleClass</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#toggleClass">tr.IElementControl#toggleClass</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#toggleClass">ElementWrapper#toggleClass</a> </dd>
                     </div>
-                    <h5>Returns:</h5>
-                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
-                    <div class="sub-content-desc"> Returns true if the given css (str) is added, otherwise false</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="toString">toString<span class="signature">()</span></h4>
                     <div class="description"> Return a string that represents the object mainly for debugging </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#toString">tr.ElementWrapper#toString</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#toString">tr.IElementControl#toString</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#toString">ElementWrapper#toString</a> </dd>
                     </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">string</span> </div>
@@ -1529,7 +1272,7 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       <div class="param">
                         <div class="name">type</div>
                         <div class="type"> <span class="param-type">string</span> </div>
-                        <div class="description"> The name of the event without the &apos;on&apos; prefix. </div>
+                        <div class="description"> The name of the event without the 'on' prefix. </div>
                       </div>
                       <div class="param">
                         <div class="name">handler</div>
@@ -1538,19 +1281,14 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#unlisten">tr.ElementWrapper#unlisten</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#unlisten">tr.IElementControl#unlisten</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#unlisten">ElementWrapper#unlisten</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="unlistenAll">unlistenAll<span class="signature">(opt_type<span class="signature-attributes">opt</span>)</span>
                     </h4>
-                    <div class="description"> Removes all listeners from an object. If no type is specified, it will remove all listeners that have been registered. You can also optionally remove listeners of a particular type. </div>
+                    <div class="description"> Removes all listeners from an object. If no type is specified, it will remove all listeners that have been registered.You can also optionally remove listeners of a particular type. </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1561,33 +1299,18 @@ grid.listen(&quot;click&quot;, function(e) { console.log(&quot;Grid is clicked&q
                       </div>
                     </div>
                     <div class="details"> <dt class="inherited-from">Inherited From:</dt>
-                      <dd class="inherited-from"> <a href="tr.ElementWrapper.html#unlistenAll">tr.ElementWrapper#unlistenAll</a> </dd> <dt class="implements">Implements:</dt>
-                      <dd class="implements">
-                        <ul>
-                          <li><a href="tr.IElementControl.html#unlistenAll">tr.IElementControl#unlistenAll</a></li>
-                        </ul>
-                      </dd>
+                      <dd class="inherited-from"> <a href="ElementWrapper.html#unlistenAll">ElementWrapper#unlistenAll</a> </dd>
                     </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="updateIcon">updateIcon<span class="signature">(icon)</span></h4>
-                    <h5>Parameters:</h5>
-                    <div class="params">
-                      <div class="param">
-                        <div class="name">icon</div>
-                        <div class="type"> <span class="param-type">Element</span> </div>
-                      </div>
+                    <h4 class="name" id="update">update<span class="signature">()</span></h4>
+                    <div class="details"> <dt class="inherited-from">Inherited From:</dt>
+                      <dd class="inherited-from"> <a href="Scrollbar.html#update">Scrollbar#update</a> </dd>
                     </div>
-                    <div class="details"> </div>
-                  </div>
-                  <div class="item">
-                    <div class="item-type">function</div>
-                    <h4 class="name" id="updatePadding">updatePadding<span class="signature">()</span></h4>
-                    <div class="description"> Force updating cell padding due to the floating icons in the cell </div>
-                    <div class="details"> <dt class="important tag-deprecated">Deprecated:</dt>
-                      <dd class="yes-def tag-deprecated">Yes</dd>
-                    </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                    <div class="sub-content-desc"> Return true if there is any change, otherwise false</div>
                   </div>
                 </article>
               </section>
