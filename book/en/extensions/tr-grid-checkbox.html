@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="1b0c0ddd-a6a6-4ba3-b0c4-46892fc9ae75">
+        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -37,6 +37,7 @@
               <ul>
                 <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
+                <li><a href="../general_concept/accessing-data.html">Accessing Data</a></li>
                 <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
                 <li><a href="../general_concept/typescript.html">Adding TypeScript</a></li>
                 <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
@@ -124,19 +125,47 @@
                 <li><a href="../extensions/zoom.html">Zoom</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-6" collapsible="" collapsed="">
+            <li parent="" id="cid-7" collapsible="" collapsed="">
               <div collapser="">Content Rendering</div>
               <ul>
+                <li><a href="../rendering/column-formatter.html">Default Rendering</a></li>
+                <li><a href="../rendering/custom-formatter.html">Custom Rendering</a></li>
+                <li><a href="../rendering/change-formatter.html">Changing Formatter at Runtime</a></li>
                 <li><a href="../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
-              </ul>
-            </li>
-            <li parent="" id="cid-7" collapsible="" collapsed="">
-              <div collapser="">Data</div>
-              <ul>
-                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+                <li parent="" id="cid-6" collapsible="" collapsed=""><a href="../rendering/predefined-formatter.html">Predefined Formatter</a>
+                  <ul>
+                    <li><a href="../rendering/predefined_formatters/simple-image-formatter.html">SimpleImageFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-input-formatter.html">SimpleInputFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-link-formatter.html">SimpleLinkFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-ticker-formatter.html">SimpleTickerFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-toggle-formatter.html">SimpleToggleFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/percent-bar-formatter.html">PercentBarFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/text-formatter.html">TextFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-button-formatter.html">EFButtonFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-checkbox-formatter.html">EFCheckboxFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-combo-box-formatter.html">EFComboBoxFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-datetime-picker-formatter.html">EFDateTimePickerFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-icon-formatter.html">EFIconFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-number-field-formatter.html">EFNumberFieldFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-radio-button-formatter.html">EFRadioButtonFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-select-formatter.html">EFSelectFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-text-field-formatter.html">EFTextFieldFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-toggle-formatter.html">EFToggleFormatter</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li parent="" id="cid-8" collapsible="" collapsed="">
+              <div collapser="">Data</div>
+              <ul>
+                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+                <li><a href="../data/create.html">Creating Data</a></li>
+                <li><a href="../data/read.html">Reading Data</a></li>
+                <li><a href="../data/update.html">Updating Data</a></li>
+                <li><a href="../data/delete.html">Deleting Data</a></li>
+              </ul>
+            </li>
+            <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
@@ -149,10 +178,11 @@
                 <li><a href="../columns/column-freezing.html">Column Freezing</a></li>
                 <li><a href="../columns/column-pinning.html">Column Pinning</a></li>
                 <li><a href="../columns/column-styling.html">Column Styling</a></li>
+                <li><a href="../columns/custom-title-formatter.html">Column Custom Title</a></li>
                 <li><a href="../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-9" collapsible="" collapsed="">
+            <li parent="" id="cid-10" collapsible="" collapsed="">
               <div collapser="">Rows</div>
               <ul>
                 <li><a href="../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
@@ -163,7 +193,7 @@
                 <li><a href="../rows/row-grouping.html">Row Grouping</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-10" collapsible="" collapsed="">
+            <li parent="" id="cid-11" collapsible="" collapsed="">
               <div collapser="">Scrollbars</div>
               <ul>
                 <li><a href="../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
@@ -175,17 +205,18 @@
                 <li><a href="../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-11" collapsible="" collapsed="">
+            <li parent="" id="cid-12" collapsible="" collapsed="">
               <div collapser="">Sorting</div>
               <ul>
                 <li><a href="../sorting/sorting.html">Basic Sorting</a></li>
                 <li><a href="../sorting/default-sorting.html">Default Sort</a></li>
                 <li><a href="../sorting/server-side-sorting.html">Server Side Sorting</a></li>
+                <li><a href="../sorting/custom-sort-logic.html">Custom Sort Logic</a></li>
                 <li><a href="../sorting/multi-column-sorting.html">Multi-Column/3-States Sorting</a></li>
                 <li><a href="../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-12" collapsible="" collapsed="">
+            <li parent="" id="cid-13" collapsible="" collapsed="">
               <div collapser="">Filtering</div>
               <ul>
                 <li><a href="../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
@@ -194,14 +225,14 @@
                 <li><a href="../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-13" collapsible="" collapsed="">
+            <li parent="" id="cid-14" collapsible="" collapsed="">
               <div collapser="">Editing</div>
               <ul>
                 <li><a href="../editing/in-cell-editor.html">In-Cell Editing</a></li>
                 <li><a href="../editing/custom-editor.html">Custom Editor</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-14" collapsible="" collapsed="">
+            <li parent="" id="cid-15" collapsible="" collapsed="">
               <div collapser="">Widgets</div>
               <ul>
                 <li><a href="../widgets/column-format-dialog.html">Column Format Dialog</a></li>
@@ -209,11 +240,17 @@
                 <li><a href="../widgets/filter-dialog.html">Filter Dialog</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-15" collapsible="" collapsed="">
+            <li parent="" id="cid-16" collapsible="" collapsed="">
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
                 <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+              </ul>
+            </li>
+            <li parent="" id="cid-17" collapsible="" collapsed="">
+              <div collapser="">Migrating to EFX Grid</div>
+              <ul>
+                <li><a href="../migrating/from-emerald-grid.html">Emerald Grid</a></li>
               </ul>
             </li>
           </ul>
@@ -227,7 +264,7 @@
             <h2 id="checkbox-column"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/extensions/tr-grid-checkbox.html" target="_top" class="link-icon"></a> Checkbox Column</h2>
             <p>The Checkbox Extension adds a column with checkboxes to Grid for selecting single or multiple rows. </p>
 
-            <div class="pandora-code-viewer" id="pid-9">
+            <div class="pandora-code-viewer" id="pid-10">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -326,7 +363,7 @@ grid.config = configObj;</pre>
             <p>The Checkbox Extension works out-of-the-box with the Pagination Extension. But there are some behaviors that are slightly different from the normal configuration.</p>
             <p>The Select All (Check All) action will only perform <code>checked</code> to the data on the current page. For example, if you perform <code>Select All</code> on the first page, the data on the other pages will not be selected or deselected.</p>
 
-            <div class="pandora-code-viewer" id="pid-10">
+            <div class="pandora-code-viewer" id="pid-11">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -342,7 +379,7 @@ grid.config = configObj;</pre>
                   <pre class="pandora-tab-view tab-html">&lt;efx-grid id="grid"&gt;
 
 &lt;/efx-grid&gt;
-&lt;emerald-pagination id="paging_ui"&gt;&lt;/emerald-pagination&gt;
+&lt;ef-pagination id="paging_ui"&gt;&lt;/ef-pagination&gt;
 &lt;hr&gt;</pre>
                   <pre class="pandora-tab-view tab-js">var paging = document.getElementById('paging_ui');
 var fields = ["companyName", "market", "CF_LAST", "CF_NETCHNG", "industry"];
@@ -636,7 +673,7 @@ grid.config = configObj;</pre>
                     <div class="item">
                       <div class="item-type">function</div>
                       <h4 class="name" id="beforeProcessOption"><span class="type-signature"></span>beforeProcessOption<span class="signature">(optionName, optionVal)</span><span class="type-signature"> → {*}</span></h4>
-                      <div class="description"> Remove redundant built-in composite-grid feature </div>
+                      <div class="description"> Remove redundant built-in feature </div>
                       <h5>Parameters:</h5>
                       <div class="params">
                         <div class="param">
@@ -738,8 +775,9 @@ grid.config = configObj;</pre>
                       <div class="params">
                         <div class="param">
                           <div class="name">sectionRef</div>
-                          <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
                           <div class="attributes"> </div>
+                          <div class="description"> Grid SectionReference object </div>
                         </div>
                         <div class="param">
                           <div class="name">state</div>
@@ -788,7 +826,8 @@ chkBoxExtension.getSelectedRowData("field"); // Get all field values from select
                       <div class="params">
                         <div class="param">
                           <div class="name">sectionRef</div>
-                          <div class="type"> <span class="param-type">tr.Grid.SectionReference</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
+                          <div class="description"> Grid SectionReference object </div>
                         </div>
                         <div class="param">
                           <div class="name">rowIndex</div>
@@ -879,8 +918,9 @@ chkBoxExtension.getSelectedRowData("field"); // Get all field values from select
                       <div class="params">
                         <div class="param">
                           <div class="name">host</div>
-                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
                           <div class="attributes"> </div>
+                          <div class="description"> core grid object </div>
                         </div>
                         <div class="param">
                           <div class="name">options</div>
@@ -923,7 +963,8 @@ chkBoxExtension.getSelectedRowData("field"); // Get all field values from select
                       <div class="params">
                         <div class="param">
                           <div class="name">host</div>
-                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
+                          <div class="description"> core grid object </div>
                         </div>
                       </div>
                       <div class="details"> </div>
@@ -991,17 +1032,17 @@ chkBoxExtension.getSelectedRowData("field"); // Get all field values from select
                             </tr>
                             <tr>
                               <td class="name"><code>cell</code></td>
-                              <td class="type"> <span class="param-type">tr.grid.Cell</span> </td>
+                              <td class="type"> <span class="param-type">Object</span> </td>
                               <td class="description last">Grid Cell object</td>
                             </tr>
                             <tr>
                               <td class="name"><code>section</code></td>
-                              <td class="type"> <span class="param-type">tr.ILayoutGrid</span> </td>
-                              <td class="description last">Grid Section object</td>
+                              <td class="type"> <span class="param-type">Object</span> </td>
+                              <td class="description last">Grid ILayoutGrid object</td>
                             </tr>
                             <tr>
                               <td class="name"><code>grid</code></td>
-                              <td class="type"> <span class="param-type">tr.Grid</span> </td>
+                              <td class="type"> <span class="param-type">Object</span> </td>
                               <td class="description last">Core Grid object</td>
                             </tr>
                             <tr>

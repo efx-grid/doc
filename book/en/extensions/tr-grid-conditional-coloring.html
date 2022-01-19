@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="1b0c0ddd-a6a6-4ba3-b0c4-46892fc9ae75">
+        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -37,6 +37,7 @@
               <ul>
                 <li><a href="../general_concept/basic.html">Basic Grid Creation</a></li>
                 <li><a href="../general_concept/initializing-data.html">Initializing Data</a></li>
+                <li><a href="../general_concept/accessing-data.html">Accessing Data</a></li>
                 <li><a href="../general_concept/event-listeners.html">Event Listeners</a></li>
                 <li><a href="../general_concept/typescript.html">Adding TypeScript</a></li>
                 <li><a href="../general_concept/disposing-grid.html">Disposing Grid</a></li>
@@ -124,19 +125,47 @@
                 <li><a href="../extensions/zoom.html">Zoom</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-6" collapsible="" collapsed="">
+            <li parent="" id="cid-7" collapsible="" collapsed="">
               <div collapser="">Content Rendering</div>
               <ul>
+                <li><a href="../rendering/column-formatter.html">Default Rendering</a></li>
+                <li><a href="../rendering/custom-formatter.html">Custom Rendering</a></li>
+                <li><a href="../rendering/change-formatter.html">Changing Formatter at Runtime</a></li>
                 <li><a href="../rendering/formatter-event-handling.html">Event Handling in Formatter</a></li>
-              </ul>
-            </li>
-            <li parent="" id="cid-7" collapsible="" collapsed="">
-              <div collapser="">Data</div>
-              <ul>
-                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+                <li parent="" id="cid-6" collapsible="" collapsed=""><a href="../rendering/predefined-formatter.html">Predefined Formatter</a>
+                  <ul>
+                    <li><a href="../rendering/predefined_formatters/simple-image-formatter.html">SimpleImageFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-input-formatter.html">SimpleInputFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-link-formatter.html">SimpleLinkFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-ticker-formatter.html">SimpleTickerFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/simple-toggle-formatter.html">SimpleToggleFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/percent-bar-formatter.html">PercentBarFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/text-formatter.html">TextFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-button-formatter.html">EFButtonFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-checkbox-formatter.html">EFCheckboxFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-combo-box-formatter.html">EFComboBoxFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-datetime-picker-formatter.html">EFDateTimePickerFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-icon-formatter.html">EFIconFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-number-field-formatter.html">EFNumberFieldFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-radio-button-formatter.html">EFRadioButtonFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-select-formatter.html">EFSelectFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-text-field-formatter.html">EFTextFieldFormatter</a></li>
+                    <li><a href="../rendering/predefined_formatters/ef-toggle-formatter.html">EFToggleFormatter</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li parent="" id="cid-8" collapsible="" collapsed="">
+              <div collapser="">Data</div>
+              <ul>
+                <li><a href="../data/columns-and-data.html">Resetting/Clearing Data</a></li>
+                <li><a href="../data/create.html">Creating Data</a></li>
+                <li><a href="../data/read.html">Reading Data</a></li>
+                <li><a href="../data/update.html">Updating Data</a></li>
+                <li><a href="../data/delete.html">Deleting Data</a></li>
+              </ul>
+            </li>
+            <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
@@ -149,10 +178,11 @@
                 <li><a href="../columns/column-freezing.html">Column Freezing</a></li>
                 <li><a href="../columns/column-pinning.html">Column Pinning</a></li>
                 <li><a href="../columns/column-styling.html">Column Styling</a></li>
+                <li><a href="../columns/custom-title-formatter.html">Column Custom Title</a></li>
                 <li><a href="../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-9" collapsible="" collapsed="">
+            <li parent="" id="cid-10" collapsible="" collapsed="">
               <div collapser="">Rows</div>
               <ul>
                 <li><a href="../rows/row-highlight-selection.html">Row Highlighting / Selection</a></li>
@@ -163,7 +193,7 @@
                 <li><a href="../rows/row-grouping.html">Row Grouping</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-10" collapsible="" collapsed="">
+            <li parent="" id="cid-11" collapsible="" collapsed="">
               <div collapser="">Scrollbars</div>
               <ul>
                 <li><a href="../scrollbars/vertical-scrollbar.html">Vertical Scrollbar</a></li>
@@ -175,17 +205,18 @@
                 <li><a href="../scrollbars/right-side-column-pinning.html">Right Side Column Pinning/Freezing</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-11" collapsible="" collapsed="">
+            <li parent="" id="cid-12" collapsible="" collapsed="">
               <div collapser="">Sorting</div>
               <ul>
                 <li><a href="../sorting/sorting.html">Basic Sorting</a></li>
                 <li><a href="../sorting/default-sorting.html">Default Sort</a></li>
                 <li><a href="../sorting/server-side-sorting.html">Server Side Sorting</a></li>
+                <li><a href="../sorting/custom-sort-logic.html">Custom Sort Logic</a></li>
                 <li><a href="../sorting/multi-column-sorting.html">Multi-Column/3-States Sorting</a></li>
                 <li><a href="../sorting/sorting-get-reset.html">Get Sort States / Reset All Sorting</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-12" collapsible="" collapsed="">
+            <li parent="" id="cid-13" collapsible="" collapsed="">
               <div collapser="">Filtering</div>
               <ul>
                 <li><a href="../filtering/filtering-programmatically.html">Filtering Programmatically</a></li>
@@ -194,14 +225,14 @@
                 <li><a href="../filtering/filtering-get-reset.html">Get Filter States / Reset All</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-13" collapsible="" collapsed="">
+            <li parent="" id="cid-14" collapsible="" collapsed="">
               <div collapser="">Editing</div>
               <ul>
                 <li><a href="../editing/in-cell-editor.html">In-Cell Editing</a></li>
                 <li><a href="../editing/custom-editor.html">Custom Editor</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-14" collapsible="" collapsed="">
+            <li parent="" id="cid-15" collapsible="" collapsed="">
               <div collapser="">Widgets</div>
               <ul>
                 <li><a href="../widgets/column-format-dialog.html">Column Format Dialog</a></li>
@@ -209,11 +240,17 @@
                 <li><a href="../widgets/filter-dialog.html">Filter Dialog</a></li>
               </ul>
             </li>
-            <li parent="" id="cid-15" collapsible="" collapsed="">
+            <li parent="" id="cid-16" collapsible="" collapsed="">
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
                 <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+              </ul>
+            </li>
+            <li parent="" id="cid-17" collapsible="" collapsed="">
+              <div collapser="">Migrating to EFX Grid</div>
+              <ul>
+                <li><a href="../migrating/from-emerald-grid.html">Emerald Grid</a></li>
               </ul>
             </li>
           </ul>
@@ -227,7 +264,7 @@
             <h2 id="conditional-coloring"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/extensions/tr-grid-conditional-coloring.html" target="_top" class="link-icon"></a> Conditional Coloring</h2>
             <p>The Conditional Coloring Extension provides a conditional coloring for a column's field, which will be triggered when a condition is met. For example, fill green when the value is more than zero.</p>
 
-            <div class="pandora-code-viewer" id="pid-19">
+            <div class="pandora-code-viewer" id="pid-20">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -258,11 +295,12 @@
   { "c1": 100, "c2": -0.1, "c3": 0 }
 ];
 var configObj = {
-  columnReorder: true,
+  sorting: {
+    sortableColumns: true
+  },
   columns: [{
       title: "Value &gt; 0",
       field: "c1",
-      sortBy: "c1",
       conditions: [{
         backgroundColor: "green",
         color: "white",
@@ -272,7 +310,6 @@ var configObj = {
     {
       title: "Multiple Conditions",
       field: "c2",
-      sortBy: "c2",
       conditions: [{
         backgroundColor: "",
         color: "green",
@@ -290,7 +327,6 @@ var configObj = {
     {
       title: "Range between -3 and 3",
       field: "c3",
-      sortBy: "c3",
       conditions: [{
         backgroundColor: "lightskyblue",
         color: "",
@@ -347,7 +383,7 @@ grid.config = configObj;</pre>
             <h3 id="blinking-feature">Blinking feature</h3>
             <p>For required scenarios, there are features to deal with real-time data. For example, stock market data changes all the time, and a user needs to know that the data has changed. The <code>Blinking</code> feature was created to deal with scenarios like this. See the <code>Blinking's typedef</code> section for more details on this feature.</p>
 
-            <div class="pandora-code-viewer" id="pid-20">
+            <div class="pandora-code-viewer" id="pid-21">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -365,32 +401,35 @@ grid.config = configObj;</pre>
 &lt;/efx-grid&gt;</pre>
                   <pre class="pandora-tab-view tab-js">var conditionalColoringExt = new ConditionalColoringExtension();
 
+var charA = ("A").charCodeAt(0);
+var charZ = ("Z").charCodeAt(0);
+
 var DataGenerator = DataGenerator;
+var randBetween = DataGenerator.randBetween;
 DataGenerator.addFieldInfo("num1", { type: "number", min: -10, max: 11 });
 DataGenerator.addFieldInfo("num2", { type: "number", min: -1, max: 11 });
 DataGenerator.addFieldInfo("num3", { type: "number", min: -10, max: 3 });
 DataGenerator.addFieldInfo("num4", { type: "number", min: -1, max: 3 });
 DataGenerator.addFieldInfo("num5", { type: "number", min: -5000, max: 5001 });
-DataGenerator.addFieldInfo("char", { type: "number", min: ("A").charCodeAt(0), max: ("Z").charCodeAt(0) + 1 });
-
-var fields = ["num1", "num2", "num3", "num4", "num5", "char"];
-var records = DataGenerator.generateRecords(fields, { numRows: 15 });
-records.forEach(function(record) {
-  record.char = String.fromCharCode(record.char);
+DataGenerator.addFieldInfo("char", function() {
+  return randBetween(charA, charZ);
 });
 
+var fields = ["num1", "num2", "num3", "num4", "num5", "char"];
+var records = DataGenerator.generateRecords(fields, 15);
+
 var configObj = {
-  columnReorder: true,
+  sorting: {
+    sortableColumns: true
+  },
   columns: [{
       title: "Blink with Theme Color",
       field: "num1",
-      sortBy: "num1",
       blinking: true
     },
     {
       title: "Blink on Top of Condtional Coloring",
       field: "num2",
-      sortBy: "num2",
       blinking: true,
       conditions: [{
         backgroundColor: "green",
@@ -405,7 +444,6 @@ var configObj = {
     {
       title: "Blinking Border",
       field: "num3",
-      sortBy: "num3",
       blinking: {
         border: true
       },
@@ -426,7 +464,6 @@ var configObj = {
     {
       title: "Custom Blinking Color",
       field: "num4",
-      sortBy: "num4",
       blinking: {
         up: "#aaDD88",
         down: "#ff33cc",
@@ -441,7 +478,6 @@ var configObj = {
     {
       title: "Blinking Border with Custom Color",
       field: "num5",
-      sortBy: "num5",
       blinking: {
         border: true,
         up: "blue",
@@ -454,13 +490,15 @@ var configObj = {
       }]
     },
     {
-      title: "Blink Only Specific State",
+      title: "Blink Only Specific States",
       field: "char",
-      sortBy: "char",
-      blinking: {
-        level: "#bbbbbb"
+      binding: function(e) {
+        e.cell.setContent(String.fromCharCode(e.data));
       },
-      colorText: "num3" // Using eikon theme to color
+      blinking: {
+        down: "#EE00EE"
+      },
+      colorText: "num3" // Color the text based on another field
     }
   ],
   staticDataRows: records,
@@ -472,18 +510,13 @@ var configObj = {
 var grid = document.getElementById("grid");
 grid.config = configObj;
 
-var randBetween = DataGenerator.randBetween;
-
 setInterval(function() { // Slow Update for testing
-  var dv = grid.api.getDataView();
   var record = DataGenerator.generateRecord(fields);
-  record.char = String.fromCharCode(record.char);
-  dv.setRowDataAt(0, record);
+  grid.api.setRowData(0, record);
 }, 2000);
 
 setInterval(function() { // Fast Updates
   var record = DataGenerator.generateRecord(fields);
-  record.char = String.fromCharCode(record.char);
 
   // remove some fields randomly
   for (var key in record) {
@@ -492,10 +525,9 @@ setInterval(function() { // Fast Updates
     }
   }
 
-  var dv = grid.api.getDataView();
-  var rowCount = dv.getRowCount();
+  var rowCount = grid.api.getRowCount();
   var at = randBetween(1, rowCount);
-  dv.setRowDataAt(at, record);
+  grid.api.setRowData(at, record);
 }, 200);</pre>
                   <pre class="pandora-tab-view tab-css">efx-grid {
   height: 208px;
@@ -732,9 +764,9 @@ setInterval(function() { // Fast Updates
                         </div>
                         <div class="param">
                           <div class="name">cell</div>
-                          <div class="type"> <span class="param-type">tr.grid.Cell</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
                           <div class="attributes"> </div>
-                          <div class="description"> Target cell to apply color to </div>
+                          <div class="description"> Target grid cell to apply color to </div>
                         </div>
                         <div class="param">
                           <div class="name">rowData</div>
@@ -748,7 +780,7 @@ setInterval(function() { // Fast Updates
                     <div class="item">
                       <div class="item-type">function</div>
                       <h4 class="name" id="beforeProcessOption"><span class="type-signature"></span>beforeProcessOption<span class="signature">(optionName, optionVal)</span><span class="type-signature"> → {*}</span></h4>
-                      <div class="description"> Remove redundant built-in composite-grid feature </div>
+                      <div class="description"> Remove redundant built-in feature </div>
                       <h5>Parameters:</h5>
                       <div class="params">
                         <div class="param">
@@ -782,8 +814,9 @@ setInterval(function() { // Fast Updates
                         </div>
                         <div class="param">
                           <div class="name">host</div>
-                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
                           <div class="attributes"> &lt;optional&gt; </div>
+                          <div class="description"> core grid object </div>
                         </div>
                       </div>
                       <div class="details"> </div>
@@ -874,8 +907,9 @@ setInterval(function() { // Fast Updates
                       <div class="params">
                         <div class="param">
                           <div class="name">host</div>
-                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
                           <div class="attributes"> </div>
+                          <div class="description"> core grid object </div>
                         </div>
                         <div class="param">
                           <div class="name">options</div>
@@ -927,7 +961,8 @@ var colDef2 = {
                       <div class="params">
                         <div class="param">
                           <div class="name">host</div>
-                          <div class="type"> <span class="param-type">tr.Grid</span> </div>
+                          <div class="type"> <span class="param-type">Object</span> </div>
+                          <div class="description"> core grid object </div>
                         </div>
                       </div>
                       <div class="details"> </div>
