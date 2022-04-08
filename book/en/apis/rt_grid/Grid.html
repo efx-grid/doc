@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../../apis/core/Event.html">Event</a></li>
                     <li><a href="../../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../../data/read.html">Reading Data</a></li>
                 <li><a href="../../data/update.html">Updating Data</a></li>
                 <li><a href="../../data/delete.html">Deleting Data</a></li>
+                <li><a href="../../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../../misc/pagination.html">Pagination</a></li>
+                <li><a href="../../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../../misc/row-span.html">Row Span</a></li>
+                <li><a href="../../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -555,6 +557,13 @@
                             <td class="description last">synapse config object</td>
                           </tr>
                           <tr>
+                            <td class="name"><code>contentRightPadding</code></td>
+                            <td class="type"> <span class="param-type">number</span> </td>
+                            <td class="attributes"> &lt;optional&gt;<br> </td>
+                            <td class="default"> 0 </td>
+                            <td class="description last">Padding that is added next to the right most column. The padding is still a part of scrollable content.</td>
+                          </tr>
+                          <tr>
                             <td class="name"><code>contentBottomPadding</code></td>
                             <td class="type"> <span class="param-type">number</span> </td>
                             <td class="attributes"> &lt;optional&gt;<br> </td>
@@ -655,6 +664,19 @@
                   <h3 class="subsection-title">Methods</h3>
                   <div class="item">
                     <div class="item-type">function</div>
+                    <h4 class="name" id="_initDuplicateRicData">_initDuplicateRicData<span class="signature">(rowDef)</span></h4>
+                    <div class="description"> Initialize data for the given rowDef from another rowDef with the same RIC </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">rowDef</div>
+                        <div class="type"> <span class="param-type"><a href="RowDefinition.html">RowDefinition</a></span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
                     <h4 class="name" id="addDataFields">addDataFields<span class="signature">(fieldRef, referrer<span class="signature-attributes">opt</span>)</span>
                     </h4>
                     <div class="description"> Add fields for real-time data without adding column nor UIs. No duplication is allowed </div>
@@ -674,6 +696,40 @@
                     <div class="details"> </div>
                     <h5>Returns:</h5>
                     <div class="sub-content"> <span class="param-type">boolean</span> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="addFooterSection">addFooterSection<span class="signature">(sectionName<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">sectionName</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">*</span> </div>
+                    <div class="sub-content-desc"> Return Section instance</div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="addHeaderSection">addHeaderSection<span class="signature">(sectionName<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">sectionName</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                    <h5>Returns:</h5>
+                    <div class="sub-content"> <span class="param-type">*</span> </div>
+                    <div class="sub-content-desc"> Return Section instance</div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1112,7 +1168,7 @@ grid.getMultipleRowData([0, 2, 4]); // Three row data is returned</code></pre> <
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="hideRow">hideRow<span class="signature">(rowRef, opt_bool<span class="signature-attributes">opt</span>)</span>
+                    <h4 class="name" id="hideRow">hideRow<span class="signature">(rowRef, hidden<span class="signature-attributes">opt</span>)</span>
                     </h4>
                     <h5>Parameters:</h5>
                     <div class="params">
@@ -1122,16 +1178,17 @@ grid.getMultipleRowData([0, 2, 4]); // Three row data is returned</code></pre> <
                         <div class="attributes"> </div>
                       </div>
                       <div class="param">
-                        <div class="name">opt_bool</div>
+                        <div class="name">hidden</div>
                         <div class="type"> <span class="param-type">boolean</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> if false, show instead of hide </div>
                       </div>
                     </div>
                     <div class="details"> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
-                    <h4 class="name" id="hideRows">hideRows<span class="signature">(rowRefs, opt_bool<span class="signature-attributes">opt</span>)</span>
+                    <h4 class="name" id="hideRows">hideRows<span class="signature">(rowRefs, hidden<span class="signature-attributes">opt</span>)</span>
                     </h4>
                     <div class="description"> Hide row(s) in the Grid by specifying the rIds </div>
                     <h5>Parameters:</h5>
@@ -1142,9 +1199,10 @@ grid.getMultipleRowData([0, 2, 4]); // Three row data is returned</code></pre> <
                         <div class="attributes"> </div>
                       </div>
                       <div class="param">
-                        <div class="name">opt_bool</div>
+                        <div class="name">hidden</div>
                         <div class="type"> <span class="param-type">boolean</span> </div>
                         <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> if false, show instead of hide </div>
                       </div>
                     </div>
                     <div class="details"> </div>
@@ -1627,6 +1685,23 @@ grid.logDV({"rowCount": 10}); // Showing 10 records</code></pre> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
+                    <h4 class="name" id="setRic">setRic<span class="signature">(rowRef, str)</span></h4>
+                    <div class="description"> Set RIC to the specified row </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">rowRef</div>
+                        <div class="type"> <span class="param-type"><a href="Grid.html#~RowReference">Grid~RowReference</a></span> </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">str</div>
+                        <div class="type"> <span class="param-type">string</span> </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
                     <h4 class="name" id="setRicData">setRicData<span class="signature">(ric, values)</span></h4>
                     <div class="description"> Set row data base on RIC. </div>
                     <h5>Parameters:</h5>
@@ -1659,7 +1734,7 @@ grid.logDV({"rowCount": 10}); // Showing 10 records</code></pre> </div>
                   <div class="item">
                     <div class="item-type">function</div>
                     <h4 class="name" id="setRowContent">setRowContent<span class="signature">(rowRef, str)</span></h4>
-                    <div class="description"> Set RIC to the specified row </div>
+                    <div class="description"> Alias to setRic </div>
                     <h5>Parameters:</h5>
                     <div class="params">
                       <div class="param">
@@ -1671,7 +1746,13 @@ grid.logDV({"rowCount": 10}); // Showing 10 records</code></pre> </div>
                         <div class="type"> <span class="param-type">string</span> </div>
                       </div>
                     </div>
-                    <div class="details"> </div>
+                    <div class="details"> <dt class="tag-see">See:</dt>
+                      <dd class="tag-see">
+                        <ul>
+                          <li>Grid.setRic</li>
+                        </ul>
+                      </dd>
+                    </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1702,6 +1783,27 @@ grid.logDV({"rowCount": 10}); // Showing 10 records</code></pre> </div>
                         </ul>
                       </dd>
                     </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">function</div>
+                    <h4 class="name" id="showRows">showRows<span class="signature">(rowRefs, shown<span class="signature-attributes">opt</span>)</span>
+                    </h4>
+                    <div class="description"> Show row(s) in the Grid by specifying the rIds </div>
+                    <h5>Parameters:</h5>
+                    <div class="params">
+                      <div class="param">
+                        <div class="name">rowRefs</div>
+                        <div class="type"> <span class="param-type"><a href="Grid.html#~RowReference">Grid~RowReference</a></span> | <span class="param-type">Array.&lt;<a href="Grid.html#~RowReference">Grid~RowReference</a>&gt;</span> </div>
+                        <div class="attributes"> </div>
+                      </div>
+                      <div class="param">
+                        <div class="name">shown</div>
+                        <div class="type"> <span class="param-type">boolean</span> </div>
+                        <div class="attributes"> &lt;optional&gt; </div>
+                        <div class="description"> if false, hide instead of show </div>
+                      </div>
+                    </div>
+                    <div class="details"> </div>
                   </div>
                   <div class="item">
                     <div class="item-type">function</div>
@@ -1810,6 +1912,12 @@ grid.logDV({"rowCount": 10}); // Showing 10 records</code></pre> </div>
                         </tbody>
                       </table>
                     </div>
+                    <div class="details"> </div>
+                  </div>
+                  <div class="item">
+                    <div class="item-type">event</div>
+                    <h4 class="name" id="event:beforeRowRemoved">beforeRowRemoved</h4>
+                    <div class="description"> Fired only when a row will be removed through Grid's API and before occurring of the actual removal </div>
                     <div class="details"> </div>
                   </div>
                   <div class="item">

@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -297,7 +299,7 @@ grid.config = {
             <pre><code>grid.data = <span class="hljs-literal">null</span>; <span class="hljs-comment">// Clear all existing data</span></code></pre>
             <h2 id="columns-and-data-property-example">Columns and data property example</h2>
 
-            <div class="pandora-code-viewer" id="pid-83">
+            <div class="pandora-code-viewer" id="pid-91">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -323,18 +325,18 @@ grid.config = {
   &lt;button id="data_btn3"&gt;Clear All Data&lt;/button&gt;
 &lt;/fieldset&gt;
 &lt;hr&gt;
-&lt;emerald-grid id="grid"&gt;&lt;/emerald-grid&gt;</pre>
+&lt;efx-grid id="grid"&gt;&lt;/efx-grid&gt;</pre>
                   <pre class="pandora-tab-view tab-js">var fields = ["companyName", "market", "CF_LAST", "CF_NETCHNG", "industry"];
 var records = DataGenerator.generateRecords(fields, { numRows: 4, seed: 0 });
 var records1 = DataGenerator.generateRecords(fields, { numRows: 5, seed: 10 });
 var records2 = DataGenerator.generateRecords(fields, { numRows: 3, seed: 20 });
 var configObj = {
   columns: [
-    { title: "Company", field: fields[0] },
-    { title: "Market", field: fields[1], width: 100 },
-    { title: "Last", field: fields[2], width: 80 },
-    { title: "Net. Chng", field: fields[3], width: 80 },
-    { title: "Industry", field: fields[4] }
+    { name: "Company", field: fields[0] },
+    { name: "Market", field: fields[1], width: 100 },
+    { name: "Last", field: fields[2], width: 80 },
+    { name: "Net. Chng", field: fields[3], width: 80 },
+    { name: "Industry", field: fields[4] }
   ],
   dataModel: {
     data: records
@@ -346,16 +348,16 @@ grid.config = configObj;
 
 document.getElementById("column_btn1").addEventListener('click', function() {
   grid.columns = [
-    { title: "Company", field: fields[0] },
-    { title: "Market", field: fields[1], width: 100 },
-    { title: "Industry", field: fields[4] }
+    { name: "Company", field: fields[0] },
+    { name: "Market", field: fields[1], width: 100 },
+    { name: "Industry", field: fields[4] }
   ];
 });
 document.getElementById("column_btn2").addEventListener('click', function() {
   grid.columns = [
-    { title: "Company", field: fields[0] },
-    { title: "Last", field: fields[2], width: 80 },
-    { title: "Net. Chng", field: fields[3], width: 80 }
+    { name: "Company", field: fields[0] },
+    { name: "Last", field: fields[2], width: 80 },
+    { name: "Net. Chng", field: fields[3], width: 80 }
   ];
 });
 document.getElementById("column_btn3").addEventListener('click', function() {
@@ -371,7 +373,7 @@ document.getElementById("data_btn2").addEventListener('click', function() {
 document.getElementById("data_btn3").addEventListener('click', function() {
   grid.data = null;
 });</pre>
-                  <pre class="pandora-tab-view tab-css">emerald-grid {
+                  <pre class="pandora-tab-view tab-css">efx-grid {
   height: 200px;
 }
 
@@ -411,15 +413,15 @@ hr {
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
             </div>
-            <h1 id="resetting-and-updating-data-in-efx-grid">Resetting and updating data in Efx Grid</h1>
-            <p>As there are more states and options for each row in Efx Grid, <code>rows</code> property is provided as a way to set those options. Setting <code>rows</code> property will change number of rows and reset existing data and data requests. Changing <code>rows</code> property will always remove existing rows, so you should use this for changing to completely new set of rows. </p>
-            <p><code>data</code> property in Efx Grid will act as a way for updating data and keeping existing row intact. Changing <code>data</code> property will only update existing rows or add new rows. Changing <code>data</code> property will not reduce number of rows. However, if either <code>rows</code> or <code>data</code> property is set to null, all rows and data will be removed. </p>
+            <h1 id="resetting-and-updating-data-in-grid">Resetting and updating data in Grid</h1>
+            <p>As there are more states and options for each row in Grid, <code>rows</code> property is provided as a way to set those options. Setting <code>rows</code> property will change number of rows and reset existing data and data requests. Changing <code>rows</code> property will always remove existing rows, so you should use this for changing to completely new set of rows. </p>
+            <p><code>data</code> property in Grid will act as a way for updating data and keeping existing row intact. Changing <code>data</code> property will only update existing rows or add new rows. Changing <code>data</code> property will not reduce number of rows. However, if either <code>rows</code> or <code>data</code> property is set to null, all rows and data will be removed. </p>
             <blockquote>
               <p>Note: you should not use <code>rows</code> property for adding new rows because it is not very efficient (i.e., existing data will be cleared and re-requested). You should use provided APIs for dynamically adding new rows. </p>
             </blockquote>
             <h2 id="rows-and-data-property-example">Rows and data property example</h2>
 
-            <div class="pandora-code-viewer" id="pid-84">
+            <div class="pandora-code-viewer" id="pid-92">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>

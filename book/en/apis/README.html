@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -263,7 +265,7 @@
             <p>Grid API documents consist of <code>Core</code> and <code>Real-time Grid</code> libraries.<br>In this documents, you can find type definitions, methods and events for each class object.</p>
             <ul>
               <li>
-                <p><code>efx-grid</code> is also a custom element which wraps <a href="rt_grid/Grid.html">Real-time Grid</a>, providing an easy way to display real-time data in a tabular format. It allows you to create list of multiple instruments with multiple real-time and fundamentals columns. Live examples can be found in <a href="">TODO</a>.</p>
+                <p><code>efx-grid</code> is also a custom element which wraps <a href="rt_grid/Grid.html">Real-time Grid</a>, providing an easy way to display real-time data in a tabular format. It allows you to create list of multiple instruments with multiple real-time and fundamentals columns.</p>
                 <ul>
                   <li>To initialize the element, use <code>config</code> property to define all the options. Available options are listed in the <a href="rt_grid/Grid.html#~GridOptions">typeDef section</a>.</li>
                   <li>The <code>api</code> property is actually a <a href="rt_grid/Grid.html">Real-time Grid</a> instance. The property will not be available immediately after page loaded so subsequence <code>api</code> executions should start inside <code>config.whenDefined</code> callback.</li>
@@ -275,11 +277,8 @@
               </li>
               <li>
                 <p><a href="core/Grid.html">Core</a> is a core engine of grid written in Javascript. It can be accessed from Real-time Grid through <code>getCoreGrid()</code> method. </p>
-              </li>
-              <li>
-                <p><a href="core/DataView.html">DataView</a> and <a href="core/DataTable.html">DataTable</a> are used to manage data model within the grid. Accessing data or data manipulation should be done by these two class objects.</p>
                 <blockquote>
-                  <p>If you are looking for usage or how it looks like checkout <a href="../usage_guide/README.html">Usage Guide Document</a>.</p>
+                  <p>If you are looking for usage or how it looks like checkout <a href="../">Usage Guide Document</a>.</p>
                 </blockquote>
               </li>
             </ul>
@@ -292,16 +291,12 @@
               <li><a href="core/DataTable.html">DataTable</a></li>
               <li><a href="core/DataView.html">DataView</a></li>
               <li><a href="core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-              <li><a href="core/ElementControl.html">ElementControl</a></li>
               <li><a href="core/ElementWrapper.html">ElementWrapper</a></li>
-              <li><a href="core/Event.html">Event</a></li>
               <li><a href="core/EventDispatcher.html">EventDispatcher</a></li>
               <li><a href="core/Grid.html">Grid</a></li>
               <li><a href="core/HScrollbar.html">HScrollbar</a></li>
-              <li><a href="core/IElementControl.html">IElementControl</a></li>
               <li><a href="core/ILayoutGrid.html">ILayoutGrid</a></li>
               <li><a href="core/LayoutGrid.html">LayoutGrid</a></li>
-              <li><a href="core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
               <li><a href="core/Scrollbar.html">Scrollbar</a></li>
               <li><a href="core/SectionSettings.html">SectionSettings</a></li>
               <li><a href="core/Segment.html">Segment</a></li>
@@ -315,7 +310,6 @@
               <li><a href="rt_grid/Grid.html">Grid</a></li>
               <li><a href="rt_grid/RowDefinition.html">RowDefinition</a></li>
             </ul>
-            <h2 id="reference">Reference</h2>
           </pandora-page>
           <div class="results"></div>
         </div>

@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -263,7 +265,7 @@
             <p>Columns can be moved using the <code>grid.api.moveColumn(from, to)</code> API, which allows you to specify a column index or an array of column indices to be moved, and the target index position.</p>
             <h2 id="example">Example</h2>
 
-            <div class="pandora-code-viewer" id="pid-102">
+            <div class="pandora-code-viewer" id="pid-111">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -279,17 +281,17 @@
                   <pre class="pandora-tab-view tab-html">&lt;button id="move_1"&gt;Move Index 0 -&amp;gt; 2&lt;/button&gt;
 &lt;button id="move_2"&gt;Move Index 3,4 -&amp;gt; 1&lt;/button&gt;
 &lt;br&gt;
-&lt;emerald-grid id="grid"&gt;&lt;/emerald-grid&gt;</pre>
+&lt;efx-grid id="grid"&gt;&lt;/efx-grid&gt;</pre>
                   <pre class="pandora-tab-view tab-js">var fields = ["companyName", "market", "CF_LAST", "CF_NETCHNG", "industry"];
 var records = DataGenerator.generateRecords(fields, { numRows: 5 });
 var configObj = {
   rowHighlight: true,
   columns: [
-    { title: "Company", field: fields[0] },
-    { title: "Market", field: fields[1], width: 100 },
-    { title: "Last", field: fields[2], width: 80 },
-    { title: "Net. Chng", field: fields[3], width: 80 },
-    { title: "Industry", field: fields[4] }
+    { name: "Company", field: fields[0] },
+    { name: "Market", field: fields[1], width: 100 },
+    { name: "Last", field: fields[2], width: 80 },
+    { name: "Net. Chng", field: fields[3], width: 80 },
+    { name: "Industry", field: fields[4] }
   ],
   dataModel: {
     data: records
@@ -306,7 +308,7 @@ document.getElementById('move_1').addEventListener('click', function() {
 document.getElementById('move_2').addEventListener('click', function() {
   grid.api.moveColumn([3, 4], 1);
 });</pre>
-                  <pre class="pandora-tab-view tab-css">emerald-grid {
+                  <pre class="pandora-tab-view tab-css">efx-grid {
   height: 200px;
 }</pre>
                   <div class="pandora-console"></div>

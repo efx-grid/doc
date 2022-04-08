@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -264,7 +266,7 @@
             <h2 id="row-selection"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/extensions/tr-grid-row-selection.html" target="_top" class="link-icon"></a> Row Selection</h2>
             <p>The Row Selection Extension will add the ability to select a single row or multiple rows on Grid. </p>
 
-            <div class="pandora-code-viewer" id="pid-47">
+            <div class="pandora-code-viewer" id="pid-53">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -308,6 +310,7 @@ grid.config = configObj;</pre>
                   <div class="pandora-console"></div>
                 </div>
               </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -336,13 +339,12 @@ grid.config = configObj;</pre>
               <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
             </div>
             <h3 id="basedoncontent-mode">basedOnContent mode</h3>
             <p>Normally, when content is sorted and a row changes position, row selection will not change position like the content does (<code>try example above</code>). But if you do want the row selection to relocate itself with the content, you can turn on basedOnContent mode.</p>
             <p>For actual result, try to select one or more rows, then click the column header to sort data and see what happens with row selection.</p>
 
-            <div class="pandora-code-viewer" id="pid-48">
+            <div class="pandora-code-viewer" id="pid-54">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -389,6 +391,7 @@ grid.config = configObj;</pre>
                   <div class="pandora-console"></div>
                 </div>
               </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -417,12 +420,11 @@ grid.config = configObj;</pre>
               <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
             </div>
             <h3 id="copy-text-content-from-seletected-rows">Copy text content from seletected rows</h3>
             <p>You can directly hook <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event" target="_blank">native copy event</a> on Grid element to retrieve data and put it on system clipboard. Use the extension's APIs to get currently selected rows. </p>
 
-            <div class="pandora-code-viewer" id="pid-49">
+            <div class="pandora-code-viewer" id="pid-55">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -503,6 +505,7 @@ textarea {
                   <div class="pandora-console"></div>
                 </div>
               </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -531,7 +534,6 @@ textarea {
               <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
             </div>
             <h3 id="installation-and-how-to-import-to-a-project">Installation and how to import to a project</h3>
             <p>Installation examples and details of how to import the extension to a project are available on the <a href="README.html">Overview</a> page.</p>

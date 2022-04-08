@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -263,7 +265,7 @@
             <p>Apart from the built-in filter UIs, <a href="../extensions/tr-grid-filter-input.html">Filter Input Extension</a> also supports UI customizations, which allows users to create their UI.</p>
             <p>The Filter Input Extension provides an <code>inputCreated</code> event callback passed through the extension's configuration and is allowed to modify UI elements in this callback handler. More details about the configuration are available <a href="../extensions/tr-grid-filter-input.html">here</a>. The following example shows the first column:</p>
 
-            <div class="pandora-code-viewer" id="pid-132">
+            <div class="pandora-code-viewer" id="pid-140">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -281,13 +283,12 @@
                   <pre class="pandora-tab-view tab-js">var filterInputExt = new FilterInputExtension();
 var rowFilteringExt = new RowFilteringExtension();
 
-var dateFormatter = {
-  render: function() {},
-  bind: function(rowIndex, colIndex, value, cell) {
-    var parts = value.toDateString().split(" ");
-    cell.setContent(parts[2] + "-" + parts[1] + "-" + parts[3]);
-  }
-};
+var dateFormatter = function(e) {
+  var value = e.data;
+  var cell = e.cell;
+  var parts = value.toDateString().split(" ");
+  cell.setContent(parts[2] + "-" + parts[1] + "-" + parts[3]);
+}
 
 var onInputCreated = function(e) {
   // Perform ui customization on the fourth column only
@@ -386,10 +387,13 @@ var configObj = {
       width: 200,
       alignment: "c"
     },
-    { title: "Date", field: "date", sortBy: "date", filterInput: { type: "date" }, formatter: dateFormatter, alignment: "c" },
+    { title: "Date", field: "date", sortBy: "date", filterInput: { type: "date" }, binding: dateFormatter, alignment: "c" },
     { title: "Country", field: "country", sortBy: "country", width: 200, alignment: "c" },
     { title: "Currency", field: "currency", sortBy: "currency", filterInput: { type: "select", entries: ["PLN", "EUR", "SEK", "GBP", "DKK"] }, width: 200, alignment: "c" }
   ],
+  rowFiltering: {
+    disabledUI: true
+  },
   extensions: [
     rowFilteringExt,
     filterInputExt
@@ -414,7 +418,7 @@ fetch('../resources/scripts/data/euro-currency-rate.json').then(o =&gt; o.json()
   grid.api.addStaticDataRows(response);
 });</pre>
                   <pre class="pandora-tab-view tab-css">efx-grid {
-  height: 300px;
+  height: 448px;
 }</pre>
                   <div class="pandora-console"></div>
                 </div>

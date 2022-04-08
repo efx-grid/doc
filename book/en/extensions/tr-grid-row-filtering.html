@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div class="sidebar" no-print="">
-        <pandora-nav id="0a843e6f-a7aa-42b1-ae32-d52ce895dd37">
+        <pandora-nav id="3b109ab0-5a52-4254-9abd-67169b2072a3">
           <ul>
             <li><a href="../index.html">Overview</a></li>
             <li parent="" id="cid-0" collapsible="" collapsed="">
@@ -63,16 +63,12 @@
                     <li><a href="../apis/core/DataTable.html">DataTable</a></li>
                     <li><a href="../apis/core/DataView.html">DataView</a></li>
                     <li><a href="../apis/core/DragAndDropTitlePlugin.html">DragAndDropTitlePlugin</a></li>
-                    <li><a href="../apis/core/ElementControl.html">ElementControl</a></li>
                     <li><a href="../apis/core/ElementWrapper.html">ElementWrapper</a></li>
-                    <li><a href="../apis/core/Event.html">Event</a></li>
                     <li><a href="../apis/core/EventDispatcher.html">EventDispatcher</a></li>
                     <li><a href="../apis/core/Grid.html">Grid</a></li>
                     <li><a href="../apis/core/HScrollbar.html">HScrollbar</a></li>
-                    <li><a href="../apis/core/IElementControl.html">IElementControl</a></li>
                     <li><a href="../apis/core/ILayoutGrid.html">ILayoutGrid</a></li>
                     <li><a href="../apis/core/LayoutGrid.html">LayoutGrid</a></li>
-                    <li><a href="../apis/core/ResizableTitlePlugin.html">ResizableTitlePlugin</a></li>
                     <li><a href="../apis/core/Scrollbar.html">Scrollbar</a></li>
                     <li><a href="../apis/core/SectionSettings.html">SectionSettings</a></li>
                     <li><a href="../apis/core/Segment.html">Segment</a></li>
@@ -163,13 +159,14 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
+                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
               <div collapser="">Columns</div>
               <ul>
                 <li><a href="../columns/column-resetting.html">Column Resetting</a></li>
-                <li><a href="../columns/column-alignment.html">Column Alignment</a></li>
+                <li><a href="../columns/column-formatter.html">Column Formatter</a></li>
                 <li><a href="../columns/dynamic-add-insert-column.html">Column Add/insert</a></li>
                 <li><a href="../columns/dynamic-remove-column.html">Column Hide/remove</a></li>
                 <li><a href="../columns/column-width.html">Column Width</a></li>
@@ -244,7 +241,12 @@
               <div collapser="">Miscellaneous</div>
               <ul>
                 <li><a href="../misc/core-apis.html">Using Core APIs</a></li>
-                <li><a href="../misc/real-time-market-data.html">Realtime Market Data</a></li>
+                <li><a href="../misc/pagination.html">Pagination</a></li>
+                <li><a href="../misc/loading-mask.html">Loading Mask</a></li>
+                <li><a href="../misc/fifty-thosand-rows.html">50,000 Rows Handling</a></li>
+                <li><a href="../misc/row-span.html">Row Span</a></li>
+                <li><a href="../misc/row-expansion.html">Row Expansion</a></li>
+                <li><a href="../misc/text-selection.html">Text Selection</a></li>
               </ul>
             </li>
             <li parent="" id="cid-17" collapsible="" collapsed="">
@@ -264,7 +266,7 @@
             <h2 id="row-filtering"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/extensions/tr-grid-row-filtering.html" target="_top" class="link-icon"></a> Row Filtering</h2>
             <p>The Row Filtering Extension provides filtering rows according expression that uses to filter. The extension also supports multiple columns for filtering.</p>
 
-            <div class="pandora-code-viewer" id="pid-35">
+            <div class="pandora-code-viewer" id="pid-41">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -352,6 +354,7 @@ efx-grid {
                   <div class="pandora-console"></div>
                 </div>
               </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -380,7 +383,6 @@ efx-grid {
               <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
             </div>
             <h3 id="installation-and-how-to-import-to-a-project">Installation and how to import to a project</h3>
             <p>Installation examples and details of how to import the extension to a project are available on the <a href="README.html">Overview</a> page.</p>
@@ -406,7 +408,7 @@ filterExt.addGridFilter(filterFunc);</code></pre>
             <pre><code>filterExt.removeAllFilters();</code></pre>
             <h3 id="filtering-with-a-search-box">Filtering with a search box</h3>
 
-            <div class="pandora-code-viewer" id="pid-36">
+            <div class="pandora-code-viewer" id="pid-42">
               <div class="pandora-viewer">
                 <button>&lt;/&gt;</button>
               </div>
@@ -481,6 +483,7 @@ efx-grid {
                   <div class="pandora-console"></div>
                 </div>
               </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
@@ -509,7 +512,6 @@ efx-grid {
               <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
               <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
               <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
-              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
             </div>
             <p>It is normal to tie the filter functionality with a search box. In order to do this, you can listen a <code>keyup</code> event on the search input. Then you can call <code>refresh</code> method in the event callback.</p>
             <p>This will trigger <code>RowFilteringExtension</code> to apply a filter function every keyup event.</p>
@@ -564,7 +566,7 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                           <tbody>
                             <tr>
                               <td class="name"><code>filter</code></td>
-                              <td class="type"> <span class="param-type">string</span> | <span class="param-type"><a href="RowFilteringPlugin.html#~FilterLogic">RowFilteringPlugin~FilterLogic</a></span> </td>
+                              <td class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </td>
                               <td class="attributes"> &lt;optional&gt;<br> </td>
                               <td class="description last">An expression string or Function</td>
                             </tr>
@@ -577,6 +579,13 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                           </tbody>
                         </table>
                       </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~Expression">Expression</h4>
+                      <div class="description"> An expression that can be parsed into RowFilteringPlugin~FilterLogic. The expression is intended for saving and restoring filters, so it is serializable by JSON.stringify.The expression can take various forms:<br>1. String for free style text input e.g., "[col1] &gt; 10", "[field] == 20"<br>2. 2D-Array for predefined filter operators e.g., [["GT", 10, "AND"], ["EQ", "text"]]<br>3. Object map for value filters e.g., {"value": true, "10": true}<br>4. Function for RowFilteringPlugin~FilterLogic</div>
+                      <h5>Type:</h5> <span class="param-type">*</span>
                       <div class="details"> </div>
                     </div>
                     <div class="item">
@@ -619,6 +628,42 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                               <td class="type"> <span class="param-type">string</span> </td>
                               <td class="attributes"> &lt;optional&gt;<br> </td>
                               <td class="description last">dialog language</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="details"> </div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">typedef</div>
+                      <h4 class="name" id="~FilterExpression">FilterExpression</h4>
+                      <div class="description"> FilterExpression contains all data used for saving and restoring filter in a column</div>
+                      <h5>Type:</h5> <span class="param-type">Object</span>
+                      <h5>Properties:</h5>
+                      <div class="props">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th class="last">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="name"><code>field</code></td>
+                              <td class="type"> <span class="param-type">string</span> </td>
+                              <td class="description last"></td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>expression</code></td>
+                              <td class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </td>
+                              <td class="description last">Expression representing filter function</td>
+                            </tr>
+                            <tr>
+                              <td class="name"><code>context</code></td>
+                              <td class="type"> <span class="param-type">*</span> </td>
+                              <td class="description last">Context object contains context/states given by user</td>
                             </tr>
                           </tbody>
                         </table>
@@ -723,9 +768,9 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                         </div>
                         <div class="param">
                           <div class="name">exp</div>
-                          <div class="type"> <span class="param-type">string</span> | <span class="param-type"><a href="RowFilteringPlugin.html#~FilterLogic">RowFilteringPlugin~FilterLogic</a></span> </div>
+                          <div class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </div>
                           <div class="attributes"> </div>
-                          <div class="description"> Expression or Function </div>
+                          <div class="description"> Expression can be string, Array, Object, or Function </div>
                         </div>
                         <div class="param">
                           <div class="name">ctx</div>
@@ -763,7 +808,7 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                       <div class="params">
                         <div class="param">
                           <div class="name">exp</div>
-                          <div class="type"> <span class="param-type">string</span> | <span class="param-type"><a href="RowFilteringPlugin.html#~FilterLogic">RowFilteringPlugin~FilterLogic</a></span> </div>
+                          <div class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </div>
                           <div class="attributes"> </div>
                           <div class="description"> Expression or Function </div>
                         </div>
@@ -795,7 +840,7 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                       <div class="params">
                         <div class="param">
                           <div class="name">exp</div>
-                          <div class="type"> <span class="param-type">string</span> | <span class="param-type"><a href="RowFilteringPlugin.html#~FilterLogic">RowFilteringPlugin~FilterLogic</a></span> </div>
+                          <div class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </div>
                           <div class="attributes"> </div>
                           <div class="description"> Expression or Function </div>
                         </div>
@@ -849,7 +894,14 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                     <div class="item">
                       <div class="item-type">function</div>
                       <h4 class="name" id="getAllColumnFilters"><span class="type-signature"></span>getAllColumnFilters<span class="signature">()</span><span class="type-signature"> → {Array.&lt;function()&gt;}</span></h4>
-                      <div class="details"> </div>
+                      <div class="description"> Return filter functions. Use getFilterExpressions for saving and loading instead of this function </div>
+                      <div class="details"> <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                          <ul>
+                            <li>RowFilteringPlugin.getFilterExpressions</li>
+                          </ul>
+                        </dd>
+                      </div>
                       <h5>Returns:</h5>
                       <div class="sub-content"> <span class="param-type">Array.&lt;function()&gt;</span> </div>
                       <div class="sub-content-desc"> All column filters</div>
@@ -889,7 +941,13 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                       <div class="item-type">function</div>
                       <h4 class="name" id="getColumnFilterStates"><span class="type-signature"></span>getColumnFilterStates<span class="signature">()</span><span class="type-signature"> → {Array}</span></h4>
                       <div class="description"> Get the stored user context from all columns. The column with no filter will return null value </div>
-                      <div class="details"> </div>
+                      <div class="details"> <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                          <ul>
+                            <li>RowFilteringPlugin.getFilterExpressions</li>
+                          </ul>
+                        </dd>
+                      </div>
                       <h5>Returns:</h5>
                       <div class="sub-content"> <span class="param-type">Array</span> </div>
                       <div class="sub-content-desc"> Array of context objects</div>
@@ -911,6 +969,21 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                     </div>
                     <div class="item">
                       <div class="item-type">function</div>
+                      <h4 class="name" id="getFilterExpressions"><span class="type-signature"></span>getFilterExpressions<span class="signature">()</span><span class="type-signature"> → {Array.&lt;<a href="RowFilteringPlugin.html#~FilterExpression">RowFilteringPlugin~FilterExpression</a>&gt;}</span></h4>
+                      <div class="description"> Get existing filter expressions for saving and restoring. </div>
+                      <div class="details"> <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                          <ul>
+                            <li>RowFilteringPlugin.setFilterExpressions</li>
+                          </ul>
+                        </dd>
+                      </div>
+                      <h5>Returns:</h5>
+                      <div class="sub-content"> <span class="param-type">Array.&lt;<a href="RowFilteringPlugin.html#~FilterExpression">RowFilteringPlugin~FilterExpression</a>&gt;</span> </div>
+                      <div class="sub-content-desc"> Return null if there is no column filter</div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
                       <h4 class="name" id="getFilters"><span class="type-signature"></span>getFilters<span class="signature">()</span><span class="type-signature"> → {Array.&lt;function()&gt;}</span></h4>
                       <div class="details"> </div>
                       <h5>Returns:</h5>
@@ -926,7 +999,7 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                     </div>
                     <div class="item">
                       <div class="item-type">function</div>
-                      <h4 class="name" id="getUniqueValues"><span class="type-signature"></span>getUniqueValues<span class="signature">(columnName, opt_formatter<span class="signature-attributes">opt</span>, opt_fmtColName<span class="signature-attributes">opt</span>)</span><span class="type-signature"> → {Object.&lt;string, *&gt;}</span></h4>
+                      <h4 class="name" id="getUniqueValues"><span class="type-signature"></span>getUniqueValues<span class="signature">(columnName, opt_formatter<span class="signature-attributes">opt</span>, opt_fmtColName<span class="signature-attributes">opt</span>)</span><span class="type-signature"> → {Object}</span></h4>
                       <h5>Parameters:</h5>
                       <div class="params">
                         <div class="param">
@@ -947,8 +1020,8 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                       </div>
                       <div class="details"> </div>
                       <h5>Returns:</h5>
-                      <div class="sub-content"> <span class="param-type">Object.&lt;string, *&gt;</span> </div>
-                      <div class="sub-content-desc"> Object with unique formatted key and the actual value pairs</div>
+                      <div class="sub-content"> <span class="param-type">Object</span> </div>
+                      <div class="sub-content-desc"> Object that maps formatted value to array of raw values</div>
                     </div>
                     <div class="item">
                       <div class="item-type">function</div>
@@ -1092,7 +1165,7 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                     <div class="item">
                       <div class="item-type">function</div>
                       <h4 class="name" id="setColumnFilter"><span class="type-signature"></span>setColumnFilter<span class="signature">(colIndex, exp, ctx<span class="signature-attributes">opt</span>)</span><span class="type-signature"> → {boolean}</span></h4>
-                      <div class="description"> This method guarantees that the column can have at most one filter at the time. It performs <a href="RowFilteringPlugin.html#removeColumnFilters">RowFilteringPlugin#removeColumnFilters</a> before RowFilteringPlugin#addColumnFilters </div>
+                      <div class="description"> This method guarantees that the column can have at most one filter at the time. It performs <a href="RowFilteringPlugin.html#removeColumnFilters">RowFilteringPlugin#removeColumnFilters</a> before <a href="RowFilteringPlugin.html#addColumnFilter">RowFilteringPlugin#addColumnFilter</a> </div>
                       <h5>Parameters:</h5>
                       <div class="params">
                         <div class="param">
@@ -1102,9 +1175,9 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                         </div>
                         <div class="param">
                           <div class="name">exp</div>
-                          <div class="type"> <span class="param-type">string</span> | <span class="param-type"><a href="RowFilteringPlugin.html#~FilterLogic">RowFilteringPlugin~FilterLogic</a></span> </div>
+                          <div class="type"> <span class="param-type"><a href="RowFilteringPlugin.html#~Expression">RowFilteringPlugin~Expression</a></span> </div>
                           <div class="attributes"> </div>
-                          <div class="description"> Expression or Function. Use null (or falsy value) to remove existing filter </div>
+                          <div class="description"> Expression can be string, Array, Object, or Function </div>
                         </div>
                         <div class="param">
                           <div class="name">ctx</div>
@@ -1140,6 +1213,19 @@ filterExt.addGridFilter(filterFunc, context);</code></pre>
                       <h5>Returns:</h5>
                       <div class="sub-content"> <span class="param-type">boolean</span> </div>
                       <div class="sub-content-desc"> Returns true if there is any change</div>
+                    </div>
+                    <div class="item">
+                      <div class="item-type">function</div>
+                      <h4 class="name" id="setFilterExpressions"><span class="type-signature"></span>setFilterExpressions<span class="signature">(filterExps)</span><span class="type-signature"></span></h4>
+                      <div class="description"> Clear all existing column filters and restore column filters from the given valid filter expressions. If the parameter is null, the result is equivalent to calling removeAllColumnFilters(); </div>
+                      <h5>Parameters:</h5>
+                      <div class="params">
+                        <div class="param">
+                          <div class="name">filterExps</div>
+                          <div class="type"> <span class="param-type">Array.&lt;<a href="RowFilteringPlugin.html#~FilterExpression">RowFilteringPlugin~FilterExpression</a>&gt;</span> </div>
+                        </div>
+                      </div>
+                      <div class="details"> </div>
                     </div>
                     <div class="item">
                       <div class="item-type">function</div>

@@ -8,10 +8,10 @@
       margin-left: -26px;
     }
   </style>
-  <title>Column Grouping</title>
+  <title>Data Conversion</title>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="x-pandora-base" content="../">
-  <meta name="x-pandora-location" content="columns/column-grouping.html">
+  <meta name="x-pandora-location" content="data/data-conversion.html">
   <link rel="stylesheet" href="../../../resources/styles/book.css">
   <script defer src="../../../resources/scripts/book.js"></script>
   <script defer src="../search.index.js"></script>
@@ -159,7 +159,7 @@
                 <li><a href="../data/read.html">Reading Data</a></li>
                 <li><a href="../data/update.html">Updating Data</a></li>
                 <li><a href="../data/delete.html">Deleting Data</a></li>
-                <li><a href="../data/data-conversion.html">Data Conversion</a></li>
+                <li selected><a href="../data/data-conversion.html">Data Conversion</a></li>
               </ul>
             </li>
             <li parent="" id="cid-9" collapsible="" collapsed="">
@@ -176,7 +176,7 @@
                 <li><a href="../columns/column-pinning.html">Column Pinning</a></li>
                 <li><a href="../columns/column-styling.html">Column Styling</a></li>
                 <li><a href="../columns/custom-title-formatter.html">Column Custom Title</a></li>
-                <li selected><a href="../columns/column-grouping.html">Column Grouping</a></li>
+                <li><a href="../columns/column-grouping.html">Column Grouping</a></li>
               </ul>
             </li>
             <li parent="" id="cid-10" collapsible="" collapsed="">
@@ -261,8 +261,293 @@
       <div class="main">
         <div class="reader">
           <pandora-page>
-            <h1 id="column-grouping"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/columns/column-grouping.html" target="_top" class="link-icon"></a> Column Grouping</h1>
-            <p>This page has moved to the <a href="../extensions/tr-grid-column-grouping.html">Column Grouping Extension</a> page.</p>
+            <h1 id="data-conversion"><a href="https://doccloud.int.refinitiv.com/content/tr-grid/latest/en/data/data-conversion.html" target="_top" class="link-icon"></a> Data conversion</h1>
+            <p>Sometimes data adding to Grid is not sanitized, for example the value represented changed price can be -2, +4, "-0.3", "+5" or even null. To prevent Grid from displaying unexpected data, data parser or data sanitizer need to verify data before rendering. So Grid provides <code>dataComposed</code> event and <code>autoDateConversion</code> for this kind of task.</p>
+            <h2 id="datacomposed-event">dataComposed event</h2>
+            <p>Once Grid get data the <code>dataComposed</code> event will be triggered. The event will be fired before rendering. Performing any data update during the <code>dataComposed</code> event will not cause more dataChanged events.</p>
+            <p>To add event listener for <code>dataComposed</code> event, just set the listener to the <code>dataComposed</code> property of Grid's configuration like the following:</p>
+            <pre><code>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onDataComposed</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> grid = e.grid;
+        <span class="hljs-keyword">var</span> rowDef = e.rowDef;
+        <span class="hljs-keyword">var</span> values = e.changes;
+
+        <span class="hljs-comment">// parse or sanitize data here</span>
+
+        <span class="hljs-comment">// save the parsed data through RowDefinition's API </span>
+    }
+
+    <span class="hljs-keyword">var</span> config = {
+        <span class="hljs-comment">// other grid's options</span>
+        <span class="hljs-attr">dataComposed</span>: onDataComposed
+    };</code></pre>
+            <div class="pandora-code-viewer" id="pid-97">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;efx-grid id="grid"&gt;
+
+&lt;/efx-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var onDataComposed = function(e) {
+  // Perform any data update during the event will NOT cause more dataChanged events
+  var grid = e.grid;
+  var rowDef = e.rowDef;
+  var values = e.changes;
+
+  if (!values) {
+    return;
+  }
+
+  var value = values["change"];
+  rowDef.setData("change_RAW", value);
+
+  if (value == null || value === "N/A") {
+    value = null;
+    rowDef.setData("change_STATUS", "Invalid");
+  } else {
+    value = parseFloat(value);
+  }
+
+  rowDef.setData("change", value);
+};
+
+var records = [{
+  values: {
+    id: "1",
+    change: "-0.58"
+  }
+}, {
+  values: {
+    id: "2",
+    change: "0.78"
+  }
+}, {
+  values: {
+    id: "3",
+    change: "+0.0475"
+  }
+}, {
+  values: {
+    id: "4",
+    change: null
+  }
+}, {
+  values: {
+    id: "5",
+    change: "N/A"
+  }
+}];
+
+var configObj = {
+  defaultColumnOptions: {
+    notRealTimeField: true
+  },
+  columns: [{
+      name: "Id",
+      field: "id"
+    },
+    {
+      name: "Raw data",
+      field: "change_RAW"
+    },
+    {
+      name: "Converted data",
+      field: "change"
+    },
+    {
+      name: "Status",
+      field: "change_STATUS"
+    }
+  ],
+  dataComposed: onDataComposed, // attach handler for dataComposed event
+};
+
+var grid = document.getElementById("grid");
+grid.config = configObj;
+
+// To emitate the dalay of reqeusting data from server
+setTimeout(function(e) {
+  grid.api.insertRows(records);
+}, 4000);</pre>
+                  <pre class="pandora-tab-view tab-css">efx-grid {
+  height: 168px
+}</pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
+            <h2 id="auto-date-conversion">Auto date conversion</h2>
+            <p>When dealing with date-time data it may be hard to handle the various types of incoming data, which can be number, string, ISO date string, seconds or milliseconds. So it is better to enable <code>autoDateConversion</code> in the Grid's configuration and let Grid automatically convert data to JavaScript native Date object. To let Grid know that the column's data is data-time, the <code>dataType: "datatime"</code> should be specified in the column's options.</p>
+
+            <div class="pandora-code-viewer" id="pid-98">
+              <div class="pandora-viewer">
+                <button>&lt;/&gt;</button>
+              </div>
+              <div class="pandora-code-view">
+                <div class="pandora-toolbar">
+                  <ul>
+                    <li class="pandora-tab-selected" data-toggle="tab-html">HTML</li>
+                    <li data-toggle="tab-js">JS</li>
+                    <li data-toggle="tab-css">CSS</li>
+                  </ul>
+                </div>
+                <div class="pandora-tab-container">
+                  <pre class="pandora-tab-view tab-html">&lt;efx-grid id="grid"&gt;&lt;/efx-grid&gt;</pre>
+                  <pre class="pandora-tab-view tab-js">var descriptions = [
+  "Invalid",
+  "Negative value (milliseconds)",
+  "Excel date",
+  "Second",
+  "Millisecond",
+  "Native date object (now)",
+  "ISO date-time string"
+];
+
+var dateSamples = [
+  "abc", -1,
+  1,
+  Date.UTC(2021, 11, 24, 10) / 1000,
+  Date.UTC(2021, 11, 24, 10),
+  new Date(),
+  "2021-11-25T10:00:00"
+];
+
+var records = [];
+for (var i = 0; i &lt; descriptions.length; i++) {
+  records.push({
+    des: descriptions[i],
+    date: dateSamples[i]
+  });
+}
+
+var configObj = {
+  autoDateConversion: true,
+  defaultColumnOptions: {
+    notRealTimeField: true
+  },
+  columns: [{
+      name: "Description",
+      field: "des"
+    },
+    {
+      name: "Raw data",
+      field: "date_RAW"
+    },
+    {
+      name: "Converted data",
+      field: "date",
+      dataType: "datetime"
+    },
+    {
+      name: "Formatted data",
+      field: "date",
+      formatType: {
+        formatType: "DateTime",
+        dateTimeFormat: "DD/MM/YYYY HH:mm",
+        useUTCTime: true
+      }
+    },
+    {
+      name: "Realtime Data",
+      field: "last_update",
+      dataType: "datetime",
+      alignment: "center",
+      formatType: {
+        formatType: "DateTime",
+        dateTimeFormat: "DD/MM/YYYY HH:mm:ss",
+        useUTCTime: true
+      }
+    }
+  ],
+  staticDataRows: records,
+  extensions: [
+    new TextFormattingExtension()
+  ],
+  whenDefined: function(e) {
+    var api = e.api;
+    var randIndex = DataGenerator.randIndex;
+    setInterval(function() {
+      var index = randIndex(records.length);
+      api.setRowData(index, {
+        last_update: Date.now()
+      });
+    }, 1000);
+  }
+};
+
+var grid = document.getElementById("grid");
+grid.config = configObj;</pre>
+                  <pre class="pandora-tab-view tab-css"></pre>
+                  <div class="pandora-console"></div>
+                </div>
+              </div>
+              <link rel="prefetch" href="../node_modules/tr-grid-test-resource-v5/dist/elf-halo-light.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-auto-tooltip/dist/tr-grid-auto-tooltip.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-cell-selection/dist/tr-grid-cell-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-checkbox/dist/tr-grid-checkbox.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-fitter/dist/tr-grid-column-fitter.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-formatting/dist/tr-grid-column-formatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-grouping/dist/tr-grid-column-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-resizing/dist/tr-grid-column-resizing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-selection/dist/tr-grid-column-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-column-stack/dist/tr-grid-column-stack.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-conditional-coloring/dist/tr-grid-conditional-coloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-content-wrap/dist/tr-grid-content-wrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-contextmenu/dist/tr-grid-contextmenu.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-filter-input/dist/tr-grid-filter-input.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-heat-map/dist/tr-grid-heat-map.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-in-cell-editing/dist/tr-grid-in-cell-editing.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-pagination/dist/tr-grid-pagination.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-percent-bar/dist/tr-grid-percent-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-range-bar/dist/tr-grid-range-bar.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-dragging/dist/tr-grid-row-dragging.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-filtering/dist/tr-grid-row-filtering.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-grouping/dist/tr-grid-row-grouping.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/row-segmenting/dist/row-segmenting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-row-selection/dist/tr-grid-row-selection.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-rowcoloring/dist/tr-grid-rowcoloring.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/statistics-row/dist/statistics-row.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-textformatting/dist/tr-grid-textformatting.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/tr-grid-titlewrap/dist/tr-grid-titlewrap.min.js" type="script">
+              <link rel="prefetch" href="../node_modules/@grid/zoom/dist/zoom.min.js" type="script">
+            </div>
           </pandora-page>
           <div class="results"></div>
         </div>
