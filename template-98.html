@@ -1,0 +1,128 @@
+<h1 id="printing">Printing</h1>
+<p>You can print Grid using the Printing Utility or the native printer feature within a browser. The native printer is more difficult to use, however.</p>
+<h2 id="using-a-native-printer">Using a native printer</h2>
+<p>Since content can scroll inside Grid, native printers do not work well with it, as the final print preview truncates any components that are not currently visible on the screen.</p>
+<p>To solve this, you need to update the grid&#39;s configuration to show all hidden information before you preview it. See the steps below.</p>
+<h3 id="1-initialize-grid">1. Initialize Grid</h3>
+<pre><code class="language-js">var config = {
+    // ... See column options for available options
+};
+
+var grid = document.getElementById(&#39;grid&#39;);
+grid.config = config;
+</code></pre>
+<h3 id="2-adjust-the-grids-resolution">2. Adjust the grid&#39;s resolution</h3>
+<p>Adjust the grid&#39;s resolution to reflect the paper size (for example, A3, A4, A5).</p>
+<blockquote>
+<p><code>@media print</code> CSS properties cannot be used to adjust Grid&#39;s style, as Grid will not re-render itself with CSS properties. They can only be used to adjust the layout before the print preview.</p>
+</blockquote>
+<pre><code class="language-js">function beforePrint() {
+    grid.style.width = &quot;180mm&quot;; // A4 width
+    grid.style.height = &quot;unset&quot;;
+}
+</code></pre>
+<h3 id="3-delayed-windowprint">3. Delayed <code>window.print</code></h3>
+<p>Grid needs approximately 300ms to recalculate and re-render itself. So you need to make sure Grid has enough time to update its state before the print preview appears.</p>
+<pre><code class="language-js">function print() {
+    beforePrint();
+    setTimeout(function () {
+        window.print();
+    }, 500); // Grid needs at least 300ms  to recalculate and repaint itself.
+}
+</code></pre>
+<h3 id="4-after-printing">4. After printing</h3>
+<p>Lastly, the grid&#39;s configuration needs to be restored to its initial state. For this, the <code>window.onafterprint</code> hook will be triggered once printing is finished.</p>
+<pre><code class="language-js">window.onafterprint = function () {
+    grid.style.width = &quot;100%&quot;;
+    grid.style.height = &quot;500px&quot;;
+}
+</code></pre>
+<h2 id="using-the-printing-utility">Using the Printing Utility</h2>
+<p>Unlike the native printer above, the Printing Utility has been created to help print the grid without other components. Rows and columns will not be truncated when using the utility.</p>
+<p>Basically, the utility creates a new grid DOM dynamically and copies its data into this newly created grid. It will be destroyed automatically when printing is finished.</p>
+<code-sandbox hash="84591dad"><pre><code class="language-css">efx-grid {
+    height: 300px;
+}
+</code></pre>
+<pre><code class="language-html">&lt;button id=&quot;print&quot;&gt;print&lt;/button&gt;
+&lt;efx-grid id=&quot;grid&quot;&gt;&lt;/efx-grid&gt;
+</code></pre>
+<pre><code class="language-javascript">await (await import(&quot;./theme-loader.js&quot;)).default; // This line is only required for demo purpose. It is not relevant for using EFX Grid in your application.
+
+/* ---------------------------------- Note ----------------------------------
+  DataGenerator, Formatters and extensions are exposed to global scope
+  in the bundle file to make it easier to create live examples.
+  Importing formatters and extensions is still required in your application. 
+  Please see the document for further information.
+---------------------------------------------------------------------------*/
+var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;industry&quot;, &quot;icon&quot;];
+DataGenerator.addFieldInfo(&quot;icon&quot;, {
+      type: &quot;set&quot;,
+      members: [&quot;up&quot;, &quot;down&quot;, &quot;phone&quot;, &quot;calendar&quot;, &quot;flame&quot;]
+});
+var records = DataGenerator.generateRecords(fields, { numRows: 20 });
+var configObj = {
+    columns: [
+        {title: &quot;Company&quot;, field: fields[0]},
+        {title: &quot;Market&quot;, field: fields[1], width: 100},
+        {title: &quot;Last&quot;, field: fields[2], width: 80},
+        {title: &quot;Net. Chng&quot;, field: fields[3], width: 80},
+        {title: &quot;Industry&quot;, field: fields[4]},
+        {title: &quot;Icon&quot;, field: fields[5], binding: EFIconFormatter.create()}
+    ],
+    staticDataRows: records
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;
+
+document.getElementById(&quot;print&quot;).addEventListener(&quot;click&quot;, function() {
+    GridPrinter.print(grid);
+  });
+</code></pre>
+</code-sandbox><h3 id="traditional-usage">Traditional usage</h3>
+<p>To use the utility as an external static library, install it from npm.</p>
+<pre><code class="language-bash">npm install tr-grid-printer
+</code></pre>
+<p>Then, include the <code>script</code> in your HTML page. The path may vary depending on your project structure.</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;script src=&quot;node_modules/tr-grid-printer/dist/tr-grid-printer.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;efx-grid id=&quot;grid&quot;&gt;&lt;/efx-grid&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Finally, add the utility to the configuration object.</p>
+<pre><code class="language-js">var config = {
+    // ... See column options for available options
+};
+
+var grid = document.getElementById(&#39;grid&#39;);
+grid.config = config;
+
+GridPrinter.print(grid);
+</code></pre>
+<h3 id="es6-module-usage">ES6 module usage</h3>
+<p>To use the utility this way, install it from npm and deduplicate the installed packages.</p>
+<pre><code class="language-bash">npm install tr-grid-printer
+npm dedupe
+</code></pre>
+<p>Then, use <code>import</code> syntax for importing the utility into your app.</p>
+<pre><code class="language-js">import GridPrinter from &#39;tr-grid-printer/es6&#39;;
+</code></pre>
+<p>Or use default import from the utility file.</p>
+<pre><code class="language-js">import GridPrinter from &#39;tr-grid-printer/es6/GridPrinter.js&#39;;
+</code></pre>
+<p>Or use import from the utility file with full file path (this is good to use for direct importing in browsers).</p>
+<pre><code class="language-js">import { GridPrinter } from &#39;./node_modules/tr-grid-printer/es6/GridPrinter.js&#39;;
+</code></pre>
+<p>Finally, add the utility to the configuration object.</p>
+<pre><code class="language-js">var config = {
+    // ... See column options for available options
+};
+
+var grid = document.getElementById(&#39;grid&#39;);
+grid.config = config;
+
+GridPrinter.print(grid);
+</code></pre>

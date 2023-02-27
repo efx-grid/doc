@@ -1,0 +1,75 @@
+<h1 id="getreset-state">Get/Reset State</h1>
+<p>The <a href="./extensions/tr-grid-row-filtering">Row Filtering Extension</a> provides APIs such as:</p>
+<ul>
+<li><code>getColumnFilterStates()</code> - API returns an array of the current filter states of each column&#39;s filter UI.</li>
+<li><code>removeAllColumnFilters()</code>  - API removes all the currently applied filters.</li>
+</ul>
+<p>For more details see the <a href="./extensions/tr-grid-row-filtering">Row Filtering Extension API documentation</a>.</p>
+<code-sandbox hash="3364583a"><pre><code class="language-css">efx-grid {
+    height: 448px;
+}
+</code></pre>
+<pre><code class="language-html">&lt;button id=&quot;get_states_btn&quot;&gt;Get Filter States&lt;/button&gt;
+&lt;button id=&quot;reset_all_btn&quot;&gt;Clear All Filters&lt;/button&gt;
+&lt;efx-grid id=&quot;grid&quot;&gt;&lt;/efx-grid&gt;
+</code></pre>
+<pre><code class="language-javascript">await (await import(&quot;./theme-loader.js&quot;)).default; // This line is only required for demo purpose. It is not relevant for using EFX Grid in your application.
+
+/* ---------------------------------- Note ----------------------------------
+  DataGenerator, Formatters and extensions are exposed to global scope
+  in the bundle file to make it easier to create live examples.
+  Importing formatters and extensions is still required in your application. 
+  Please see the document for further information.
+---------------------------------------------------------------------------*/
+var filterInputExt = new FilterInput();
+var rowFilteringExt = new RowFiltering();
+
+var dateFormatter = function(e) {
+  var value = e.data;
+  var cell = e.cell;
+  var parts = value.toDateString().split(&quot; &quot;);
+  cell.setContent(parts[2] + &quot;-&quot; + parts[1] + &quot;-&quot; + parts[3]);
+}
+
+var configObj = {
+    columns: [
+        { title: &quot;Date&quot;, field: &quot;date&quot;, sortBy: &quot;date&quot;, filterInput: { type: &quot;date&quot; }, binding: dateFormatter, alignment: &quot;c&quot; },
+        { title: &quot;Country&quot;, field: &quot;country&quot;, sortBy: &quot;country&quot;, width: 200, alignment: &quot;c&quot; },
+        { title: &quot;Currency&quot;, field: &quot;currency&quot;, sortBy: &quot;currency&quot;, filterInput: { type: &quot;select&quot;, entries: [&quot;PLN&quot;, &quot;EUR&quot;, &quot;SEK&quot;, &quot;GBP&quot;, &quot;DKK&quot;] }, width: 200, alignment: &quot;c&quot; },
+        { title: &quot;Rate&quot;, field: &quot;rate&quot;, sortBy: &quot;rate&quot;, alignment: &quot;right&quot;, filterInput: { type: &quot;number&quot; }, width: 200, alignment: &quot;c&quot; }
+    ],
+    rowFiltering: {
+        disabledUI: true
+    },
+    extensions: [
+        rowFilteringExt,
+        filterInputExt
+    ]
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;
+
+document.getElementById(&#39;get_states_btn&#39;).addEventListener(&#39;click&#39;, function () {
+    var states = rowFilteringExt.getColumnFilterStates();
+    alert(JSON.stringify(states));
+});
+
+document.getElementById(&#39;reset_all_btn&#39;).addEventListener(&#39;click&#39;, function () {
+    // Remove all filters and update the UI where applicable (via reset() method)
+    rowFilteringExt.removeAllColumnFilters();
+});
+
+fetch(&#39;../resources/scripts/data/euro-currency-rate.json&#39;).then(o =&gt; o.json()).then(response =&gt; {
+    response = response.map(function(data) {
+        return {
+            date: new Date(data.date),
+            country: data.country,
+            currency: data.currency,
+            rate: data.rate
+        }
+    });
+    grid.api.addStaticDataRows(response);
+});
+</code></pre>
+</code-sandbox>

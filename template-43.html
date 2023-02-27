@@ -1,0 +1,85 @@
+<h1 id="custom-cell-editor">Custom Cell Editor</h1>
+<p>Apart from the default <a href="./extensions/tr-grid-in-cell-editing">In-Cell Editing Extension</a>, a custom editor can be easily created by implementing an event <code>editorOpened</code>. The extension calls this event when the user has <code>double click</code> to cells.</p>
+<p>In this situation, you need to specify options for the user to select. There are <code>yes</code>, <code>no</code> or <code>none</code>, which can be selected in <code>Column 3</code>. The code example below shows how to implement this.</p>
+<h2 id="example">Example</h2>
+<code-sandbox hash="e8080a0a"><pre><code class="language-css">efx-grid {
+    height: 200px;
+}
+</code></pre>
+<pre><code class="language-html">&lt;efx-grid id=&quot;grid&quot;&gt;&lt;/efx-grid&gt;
+</code></pre>
+<pre><code class="language-javascript">await (await import(&quot;./theme-loader.js&quot;)).default; // This line is only required for demo purpose. It is not relevant for using EFX Grid in your application.
+
+/* ---------------------------------- Note ----------------------------------
+  DataGenerator, Formatters and extensions are exposed to global scope
+  in the bundle file to make it easier to create live examples.
+  Importing formatters and extensions is still required in your application. 
+  Please see the document for further information.
+---------------------------------------------------------------------------*/
+var extension = new InCellEditing();
+var onEditorOpened = function (e) {
+    var ed = e.editor;
+
+    while (ed.lastChild) {
+        ed.removeChild(ed.lastChild);
+    }
+
+    var elem;
+    if (e.colIndex === 2) {
+        elem = ed.selectButton;
+
+        if (!elem) {
+            elem = ed.selectButton = document.createElement(&#39;select&#39;);
+            elem.style.width = &quot;100%&quot;;
+            elem.style.height = &quot;100%&quot;;
+            elem.style.maxHeight = &quot;unset&quot;;
+
+            var items = [&#39;true&#39;, &#39;false&#39;, &#39;none&#39;];
+            for(var i = 0; i &lt; items.length; ++i) {
+                var opt = document.createElement(&#39;option&#39;);
+                opt.textContent = opt.value = items[i];
+                elem.appendChild(opt);
+            }
+
+            elem.addEventListener(&#39;change&#39;, function(e) {
+                var tgt = e.currentTarget;
+                var selectedItem = tgt.options[tgt.selectedIndex];
+                var selectedValue = selectedItem.value;
+                extension.commitText(selectedValue);
+            });
+        }
+
+        elem.value = e[&quot;initialText&quot;];
+    } else {
+        elem = e.inputElement;
+    }
+
+    ed.appendChild(elem);
+};
+
+var fields = [&quot;companyName&quot;, &quot;market&quot;, &quot;CF_LAST&quot;, &quot;CF_NETCHNG&quot;, &quot;industry&quot;, &quot;boolean&quot;];
+var records = DataGenerator.generateRecords(fields, { numRows: 6 });
+var configObj = {
+    columns: [
+        {title: &quot;Company&quot;, field: fields[0]},
+        {title: &quot;Market (editable)&quot;, field: fields[1], width: 150, editableContent: true},
+        {title: &quot;Watch (editable)&quot;, field: fields[5], with: 150, editableContent: true},
+        {title: &quot;Last&quot;, field: fields[2], width: 150},
+        {title: &quot;Net. Chng&quot;, field: fields[3], width: 80},
+        {title: &quot;Industry&quot;, field: fields[4]}
+    ],
+    staticDataRows: records,
+    inCellEditing: {
+        editableTitle: false,
+        editorOpened: onEditorOpened,
+        balloonMode: true
+    },
+    extensions: [
+        extension
+    ]
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;
+</code></pre>
+</code-sandbox>

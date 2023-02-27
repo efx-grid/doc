@@ -1,0 +1,151 @@
+<h1 id="custom-filter-ui">Custom Filter UI</h1>
+<p>Apart from the built-in filter UIs, <a href="./extensions/tr-grid-filter-input">Filter Input Extension</a> also supports UI customizations, which allows users to create their UI.</p>
+<p>The Filter Input Extension provides an <code>inputCreated</code> event callback passed through the extension&#39;s configuration and is allowed to modify UI elements in this callback handler. More details about the configuration are available <a href="./extensions/tr-grid-filter-input">here</a>. The following example shows the first column:</p>
+<code-sandbox hash="e7d5a0f0"><pre><code class="language-css">efx-grid {
+    height: 448px;
+}
+</code></pre>
+<pre><code class="language-html">&lt;efx-grid id=&quot;grid&quot;&gt;&lt;/efx-grid&gt;
+</code></pre>
+<pre><code class="language-javascript">await (await import(&quot;./theme-loader.js&quot;)).default; // This line is only required for demo purpose. It is not relevant for using EFX Grid in your application.
+
+/* ---------------------------------- Note ----------------------------------
+  DataGenerator, Formatters and extensions are exposed to global scope
+  in the bundle file to make it easier to create live examples.
+  Importing formatters and extensions is still required in your application. 
+  Please see the document for further information.
+---------------------------------------------------------------------------*/
+var filterInputExt = new FilterInput();
+var rowFilteringExt = new RowFiltering();
+
+var dateFormatter = function(e) {
+  var value = e.data;
+  var cell = e.cell;
+  var parts = value.toDateString().split(&quot; &quot;);
+  cell.setContent(parts[2] + &quot;-&quot; + parts[1] + &quot;-&quot; + parts[3]);
+}
+
+var onInputCreated = function(e) {
+    // Perform ui customization on the fourth column only
+    if(e.colIndex !== 0) { return; }
+
+    // Create &lt;option&gt; elements. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+    var items = [
+        [&quot;&gt;=&quot;, &quot;GTE&quot;],
+        [&quot;&lt;=&quot;, &quot;LTE&quot;],
+        [&quot;==&quot;, &quot;EQ&quot;],
+        [&quot;&lt;&quot;, &quot;LT&quot;],
+        [&quot;&gt;&quot;, &quot;GT&quot;]
+    ];
+    var options = items.map(function(item) {
+        var optElem = document.createElement(&quot;option&quot;);
+        optElem.textContent = item[0]; // Label
+        optElem.value = item[1];
+        return optElem;
+    });
+
+    // Create &lt;select&gt; element
+    var selElem = document.createElement(&quot;select&quot;);
+    selElem.style.display = &quot;inline-block&quot;;
+    selElem.style.width = &quot;40%&quot;;
+    selElem.style.maxHeight = &quot;unset&quot;;
+    options.forEach(function(optElem) {
+        selElem.appendChild(optElem);
+    });
+
+    // Save variables for later use
+    selElem.colIndex = e.colIndex;
+    selElem.input = e.input;
+    e.input.filterType = options[0].value;
+    e.input.style.width = &quot;60%&quot;;
+
+    // Add event listener for business logic
+    selElem.addEventListener(&quot;mousedown&quot;, function(e){
+        e.stopPropagation();
+    }, false);
+    selElem.addEventListener(&quot;click&quot;, function(e){
+        e.stopPropagation();
+    }, false);
+    selElem.addEventListener(&quot;change&quot;, function(e){
+        e.stopPropagation();
+
+        var elem = e.currentTarget;
+        var selectedOption = elem.options[elem.selectedIndex];
+        var colIndex = elem.colIndex;
+        console.log(&quot;Selection changed on colIndex: &quot;, colIndex);
+
+        // Update filter type
+        elem.input.filterType = selectedOption.value;
+
+        // Force recalculation of filtering
+        filterInputExt.refresh();
+    }, false);
+
+    // Insert select element before the input element
+    var parentInput = e.input.parentNode;
+    parentInput.insertBefore(selElem, parentInput.firstChild);
+}
+
+var myFilterLogic = function(e, rowData) {
+    if(e.inputText) {
+        var num = +(e.inputText);
+        var cellValue = rowData[e.field];
+
+        switch(e.input.filterType) {
+            case &quot;GTE&quot;: return (cellValue &gt;= num);
+            case &quot;LTE&quot;: return (cellValue &lt;= num);
+            case &quot;GT&quot;: return (cellValue &gt; num);
+            case &quot;LT&quot;: return (cellValue &lt; num);
+            default: return (cellValue == num);
+        }
+    } else {
+        return true;
+    }
+}
+
+var configObj = {
+    columns: [
+        {
+            title: &quot;Rate&quot;,
+            field: &quot;rate&quot;,
+            sortBy: &quot;rate&quot;,
+            alignment: &quot;right&quot;,
+            filterInput: {
+                defaultLogic: myFilterLogic,
+                placeholder: &quot;e.g. 1, 0, or -1&quot;
+            },
+            width: 200,
+            alignment: &quot;c&quot;
+        },
+        { title: &quot;Date&quot;, field: &quot;date&quot;, sortBy: &quot;date&quot;, filterInput: { type: &quot;date&quot; }, binding: dateFormatter, alignment: &quot;c&quot; },
+        { title: &quot;Country&quot;, field: &quot;country&quot;, sortBy: &quot;country&quot;, width: 200, alignment: &quot;c&quot; },
+        { title: &quot;Currency&quot;, field: &quot;currency&quot;, sortBy: &quot;currency&quot;, filterInput: { type: &quot;select&quot;, entries: [&quot;PLN&quot;, &quot;EUR&quot;, &quot;SEK&quot;, &quot;GBP&quot;, &quot;DKK&quot;] }, width: 200, alignment: &quot;c&quot; }
+    ],
+    rowFiltering: {
+        disabledUI: true
+    },
+    extensions: [
+        rowFilteringExt,
+        filterInputExt
+    ],
+    filterInput: {
+        inputCreated: onInputCreated
+    }
+};
+
+var grid = document.getElementById(&quot;grid&quot;);
+grid.config = configObj;
+
+fetch(&#39;../resources/scripts/data/euro-currency-rate.json&#39;).then(o =&gt; o.json()).then(response =&gt; {
+    response = response.map(function(data) {
+        return {
+            date: new Date(data.date),
+            country: data.country,
+            currency: data.currency,
+            rate: data.rate
+        }
+    });
+    grid.api.addStaticDataRows(response);
+});
+</code></pre>
+</code-sandbox>

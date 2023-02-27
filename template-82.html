@@ -1,0 +1,33 @@
+<h1 id="event-listeners">Event Listeners</h1>
+<p>Since Grid is element, you can directly listen for events from it. It&#39;s recommended to listen for native events and then use the <code>getRelativePosition()</code> method to resolve which cell, area, or position are the target of the event. This is because Grid does not render every cell, and the cells are being reused across different rows. So it&#39;s important to resolve the position inside the event handler (such as, runtime resolving). You can use any native event and resolve the position by using the <code>getRelativePosition()</code> method.</p>
+<h2 id="click">Click</h2>
+<p>For example, if you want to do something on the click event you could do the following:</p>
+<pre><code class="language-js">var grid = document.getElementById(&#39;grid_id&#39;);
+
+grid.addEventListener(&quot;click&quot;, function(e){ // Notice that api property is not required here
+    var pos = grid.api.getRelativePosition(e); // Resolve the position at runtime
+    
+    console.log(pos.sectionType, pos.colIndex, pos.rowIndex); // pos object contains a lot of information
+});
+</code></pre>
+<h2 id="right-click">Right click</h2>
+<pre><code class="language-js">var grid = document.getElementById(&#39;grid_id&#39;);
+
+grid.addEventListener(&quot;contextmenu&quot;, function(e){ // Notice that api property is not required here
+    var pos = grid.api.getRelativePosition(e);
+    
+    console.log(pos.sectionType, pos.colIndex, pos.rowIndex);
+});
+</code></pre>
+<h2 id="mouse-move">Mouse move</h2>
+<pre><code class="language-js">var grid = document.getElementById(&#39;grid_id&#39;);
+
+grid.addEventListener(&quot;mousemove&quot;, function(e){ // Notice that api property is not required here
+    var pos = grid.api.getRelativePosition(e);
+    
+    console.log(pos.sectionType, pos.colIndex, pos.rowIndex);
+});
+</code></pre>
+<blockquote>
+<p>Note: Grid internally divides itself into several sections. The top section is called <code>title</code> and the lower part is called <code>content</code>. So the <code>sectionType</code> from the position object can be one of the following values: <code>title</code>, <code>content</code>, <code>footer</code>.</p>
+</blockquote>
